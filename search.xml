@@ -4,6 +4,112 @@
   
     
     <entry>
+      <title>中秋月圆，情怀渐远</title>
+      <link href="/posts/8f8dd2c9.html"/>
+      <url>/posts/8f8dd2c9.html</url>
+      
+        <content type="html"><![CDATA[<p>清风拂桂影，明月照人归。</p><p>中秋将至，日历的翻页提醒我，仅剩五日便是月圆之时。曾几何时，中秋节总是让人满怀期待。那时，家家户户提前准备月饼，灯笼挂满屋檐，举家盼望团聚的时刻。月圆之夜，远处灯火依稀，近处的笑声，仿佛能溶解一年的疲惫。那时的中秋，不仅是节日，更是亲情的纽带。</p><p>而今，随着岁月流逝，节日的意义似乎在渐渐被时间冲淡。生活的节奏愈发快了，节日不再是从容等待，而成了忙碌间的匆匆插曲。三天的假期看似宽裕，实则不过是通过调休从其他时间“挤”出来的片刻喘息。再看这调休的安排，本周六依然得去补班，节日的本真似乎早已被这机械般的调度吞噬了。</p><p>记得小时候，父亲总会带着月饼回家，虽然简陋，但那份团聚的喜悦却浓得化不开。而如今，或许更多的人忙于工作，疏于陪伴，甚至连中秋月饼都成了速购速食，少了过去那份细品慢尝的仪式感。灯火阑珊，月光皎洁，却似乎少了当年的温暖。</p><p>时代的脚步飞速向前，而我们却慢慢被裹挟在这洪流中，节日的意义也随之变得模糊。中秋节，渐渐不再是团聚的象征，而是一个打卡节点。忙碌的都市生活让我们错过了那些本该温存的瞬间，节日成了一种形式，一种被不断稀释的传统。</p><p>我常想，若有一天，当我们再回望这些年岁，是否还会记得那些月下的欢笑？亦或是，这些片刻的团聚，终究只是岁月长河中的细小浪花，终将被遗忘在时光的洪流中？或许，真正值得铭记的，并不是节日本身，而是我们曾在其中感受到的那一丝温情。</p><p>愿未来的我们，能够停下脚步，不是为了假期，而是为了让心灵找到那份久违的宁静与团圆。<br><img src="https://cdn.aimiliy.top/backImg/3f30472a880511ebb6edd017c2d2eca2.webp" alt="3f30472a880511ebb6edd017c2d2eca2.webp"></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 生活 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 中秋节 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>二次元随机壁纸API</title>
+      <link href="/posts/f8b6e52d.html"/>
+      <url>/posts/f8b6e52d.html</url>
+      
+        <content type="html"><![CDATA[<div class="note warning flat"><p>本文最后更新于2024-09-11，若资源失效，请留言反馈。所有壁纸API资源来源于网络，若不慎影响到您的利益，请联系我删除。</p></div><h2 id="前言">前言</h2><p>最近折腾网站的时候，发现之前使用的随机壁纸API大部分都挂掉了，于是又来水一期，简单的记录汇总了一下。失效的API我会给他划掉，如有忘记划掉的还请评论说明。</p><ul><li><strong>零七生活 API</strong> <a href="https://api.oick.cn/random/api.php">https://api.oick.cn/random/api.php</a></li><li><strong>如诗 API</strong> <a href="https://api.likepoems.com/img/pc">https://api.likepoems.com/img/pc</a></li><li><strong>赫萝随机图片 API</strong> <a href="https://api.horosama.com/random.php">https://api.horosama.com/random.php</a></li><li><strong>LoliAPI</strong> <a href="https://www.loliapi.com/bg/">https://www.loliapi.com/bg/</a></li><li><strong>PAULZZH 东方Project随机图片API</strong> <a href="https://img.paulzzh.com/touhou/random">https://img.paulzzh.com/touhou/random</a></li><li><strong>必应历史壁纸API</strong> <a href="https://bing.img.run/rand.php">https://bing.img.run/rand.php</a></li><li><strong>必应每日壁纸API</strong> <a href="https://bing.img.run/1920x1080.php">https://bing.img.run/1920x1080.php</a></li><li><s><strong>韩小韩API</strong> <a href="https://api.vvhan.com/api/acgimg">https://api.vvhan.com/api/acgimg</a></s></li><li><strong>樱花API</strong> <a href="http://www.dmoe.cc/random.php">http://www.dmoe.cc/random.php</a></li><li><strong>岁月小筑API</strong> <a href="https://img.xjh.me/random_img.php">https://img.xjh.me/random_img.php</a></li><li><s><strong>Lucky小站API</strong> <a href="https://www.rrll.cc/tuceng/ecy.php">https://www.rrll.cc/tuceng/ecy.php</a></s></li><li><s><strong>三秋API</strong> <a href="https://api.ghser.com/random/api.php">https://api.ghser.com/random/api.php</a></s></li><li><s><strong>汐岑API</strong> <a href="https://acg.yanwz.cn/wallpaper/api.php">https://acg.yanwz.cn/wallpaper/api.php</a></s></li><li><strong>呓喵酱API</strong> <a href="https://api.yimian.xyz/img">https://api.yimian.xyz/img</a></li><li><s><strong>晓晴API</strong> <a href="https://acg.toubiec.cn/random.php">https://acg.toubiec.cn/random.php</a></s></li><li><s><strong>BlogBIG API</strong> <a href="https://api.blogbig.cn/random/api.php">https://api.blogbig.cn/random/api.php</a></s></li><li><strong>樱道API</strong> <a href="https://api.r10086.com/%E6%A8%B1%E9%81%93%E9%9A%8F%E6%9C%BA%E5%9B%BE%E7%89%87api%E6%8E%A5%E5%8F%A3.php?%E5%9B%BE%E7%89%87%E7%B3%BB%E5%88%97=%E5%8A%A8%E6%BC%AB%E7%BB%BC%E5%90%881">https://api.r10086.com/樱道随机图片api接口.php?图片系列=动漫综合1</a></li><li><s><strong>小歪API</strong> <a href="https://api.ixiaowai.cn/api/api.php">https://api.ixiaowai.cn/api/api.php</a></s></li><li><s><strong>MC酱API</strong> <a href="https://api.ixiaowai.cn/mcapi/mcapi.php">https://api.ixiaowai.cn/mcapi/mcapi.php</a></s></li><li><s><strong>保罗API</strong> <a href="https://api.paugram.com/wallpaper/">https://api.paugram.com/wallpaper/</a></s></li><li><strong>墨天逸API</strong> <a href="https://api.mtyqx.cn/tapi/random.php">https://api.mtyqx.cn/tapi/random.php</a></li><li><strong>EEE.DOG API</strong> <a href="https://api.yimian.xyz/img">https://api.yimian.xyz/img</a></li><li><s><strong>动漫星空 API</strong> <a href="https://api.dongmanxingkong.com/suijitupian/acg/1080p/index.php">https://api.dongmanxingkong.com/suijitupian/acg/1080p/index.php</a></s></li><li><strong>东方Project API</strong> <a href="https://img.paulzzh.tech/touhou/random">https://img.paulzzh.tech/touhou/random</a></li><li><strong>夏沫 API</strong> <a href="https://cdn.seovx.com">https://cdn.seovx.com</a></li><li><strong>搏天 API</strong> <a href="https://api.btstu.cn/doc/sjbz.php">https://api.btstu.cn/doc/sjbz.php</a></li><li><strong>TomyJan API</strong> <a href="https://api.tomys.top/doc/acgimg.html">https://api.tomys.top/doc/acgimg.html</a></li><li><s><strong>次元 API</strong> <a href="https://t.lizi.moe/pc">https://t.lizi.moe/pc</a> - PC横屏</s></li><li><strong>次元 API</strong> <a href="https://t.mwm.moe/mp">https://t.mwm.moe/mp</a> - 移动端竖屏</li><li><strong>次元 API</strong> <a href="https://t.mwm.moe/fj">https://t.mwm.moe/fj</a> - 二次元风景</li><li><strong>98缘 API</strong> <a href="http://www.98qy.com/sjbz/api.php">http://www.98qy.com/sjbz/api.php</a></li><li><strong>超级小兔的随机图 API</strong> <a href="https://imgapi.xl0408.top/index.php">https://imgapi.xl0408.top/index.php</a></li><li><strong>绅哥哥的博客 API</strong> <a href="https://api.dujin.org/pic/yuanshen/">https://api.dujin.org/pic/yuanshen/</a></li><li><s><strong>Jitsu的随机涩图API</strong> <a href="https://img.jitsu.top/r18">https://img.jitsu.top/r18</a></s></li><li><s><strong>一只小嘟嘟的萝莉捏图接口 API</strong> <a href="http://www.yzxddd.icu/api/">http://www.yzxddd.icu/api/</a></s></li><li><strong>复苏 API</strong> <a href="http://dsyai.club/api/Dmlmg.php">http://dsyai.club/api/Dmlmg.php</a></li><li><strong>随机二次元动漫图 API</strong> <a href="https://api.lolimi.cn/API/dmt/api.php?type=image">https://api.lolimi.cn/API/dmt/api.php?type=image</a></li><li><strong>随机原神壁纸 API</strong> <a href="https://api.lolimi.cn/API/yuan/?type=image">https://api.lolimi.cn/API/yuan/?type=image</a></li><li><strong>星河随机图片 API</strong> <a href="https://api.asxe.vip/random.php">https://api.asxe.vip/random.php</a></li><li><strong>二次元风景 API</strong> <a href="https://api.asxe.vip/scenery.php">https://api.asxe.vip/scenery.php</a></li><li><strong>魅影随机图片 API</strong> <a href="https://tuapi.eees.cc/api.php?category=dongman&amp;type=302">https://tuapi.eees.cc/api.php?category=dongman&amp;type=302</a></li><li><s><strong>素颜 API</strong> <a href="https://api.suyanw.cn/apij/">https://api.suyanw.cn/apij/</a></s></li><li><s><strong>新随机二次元PC横图 API</strong> <a href="https://ybapi.cn/API/dmt.php">https://ybapi.cn/API/dmt.php</a></s></li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> 资源 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 二次元 </tag>
+            
+            <tag> API </tag>
+            
+            <tag> 壁纸 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>公共图床</title>
+      <link href="/posts/52d551c5.html"/>
+      <url>/posts/52d551c5.html</url>
+      
+        <content type="html"><![CDATA[<h2 id="前言">前言</h2><p>各位朋友们好！今天来水一期，请放心食用。今天我向各位朋友们推荐几款免费好用的图床。</p><h2 id="路过图床-https-imgse-com">路过图床(<a href="https://imgse.com">https://imgse.com</a>)</h2><p>这款图床算是老牌的选手了，它的特点就是高速稳定的图片上传和外链服务，全球CDN加速，最大单张支持 10 MB，对于一般的日常使用来说已经够用了。而且它支持批量上传，对于需要一次性处理多张图片的用户非常方便。<br>不过，这款图床有个小缺点，就是上传后，预览和编辑的操作比较繁琐，需要二次确认才能完成上传，使用上稍微有些不够流畅。而且偶尔会出现图片访问速度慢的情况，特别是在高峰期时。</p><p><img src="https://cdn.aimiliy.top/backImg/17258527798373.webp" alt="17258527798373.webp"></p><h2 id="SKY-CHART-BED-https-tuchuang-voooe-cn">SKY CHART BED(<a href="https://tuchuang.voooe.cn">https://tuchuang.voooe.cn</a>)</h2><p>这是我目前正在使用的图床服务，最大的特点就是免费且稳定。上传单张图片最大支持 25 MB，对于大部分用户来说还是非常友好。上传后可以直接获取图片的原始链接以及嵌入代码，无需各种繁琐的操作。<br><img src="https://cdn.aimiliy.top/backImg/17258534221046.webp" alt="17258534221046.webp"></p><h2 id="SM-MS-sm-ms"><a href="http://SM.MS">SM.MS</a>(<a href="https://sm.ms">sm.ms</a>)</h2><p>SM.MS使用时需要注册，不过简单注册即可使用，可以批量上传 10 张图片，单个文件最大5M，支持主流图片格式，包括gif。不过，目前国内可能有访问限制。同时该图床也是Twikoo评论配置图片上传功能的唯一的免费图床（其他两个配置的图床都是收费的）<br><img src="https://cdn.aimiliy.top/backImg/17258538789123.webp" alt="17258538789123.webp"></p><h2 id="总结">总结</h2><p>免费图床虽好，但也不要过度依赖。万一厂家跑路，那岂不是哭都没得哭了。所以各位朋友在使用的同时还是即使做好备份，避免出现最坏的情况嘛！</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 资源 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 图床 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>拒绝精神内耗，从你我做起</title>
+      <link href="/posts/15def915.html"/>
+      <url>/posts/15def915.html</url>
+      
+        <content type="html"><![CDATA[<h2 id="前言">前言</h2><p>在如今这个信息爆炸、节奏飞快的时代，精神内耗似乎成了我们生活的一部分。我们常常陷入无尽的自我怀疑、焦虑和纠结中，不断为未来的不确定性担忧，为过去的错误懊悔，甚至为无关紧要的事情反复思考。这种状态不仅消耗我们的精力，也让我们在面对现实问题时，难以集中注意力，失去了行动的动力。</p><h2 id="所谓“精神内耗”">所谓“精神内耗”</h2><p>精神内耗可以理解为一种自我消耗的心理状态。当你反复思考同一个问题，却无法找到明确的解决方案时，或者对自己过度苛责，担心未来的不可控因素，这时你就陷入了精神内耗。它是一种无形的情绪能量消耗，让我们在情绪上负重前行，像是被绑住了手脚，前进的每一步都变得异常困难。</p><h2 id="常见表现">常见表现</h2><h3 id="1-自我怀疑">1.自我怀疑</h3><p>我们常常怀疑自己的能力和决定，担心别人对自己的看法，总觉得自己不够好，不足以胜任工作或者面对生活中的挑战。</p><h3 id="2-情绪波动大">2.情绪波动大</h3><p>通常我们的情绪也容易受到外界因素的影响，别人的一句话或者一个表情，都会在心中引发连锁反应，久久无法平息。</p><h3 id="3-拖延症">3.拖延症</h3><p>我们有时候也会因为害怕做错或者担心结果不好，所以迟迟不敢行动。反而不断地思索各种可能性，最后却一事无成。</p><h2 id="如何拒绝？">如何拒绝？</h2><h3 id="1-接受不完美的自己">1.接受不完美的自己</h3><p>生命本就充满了不确定性，谁也不能保证自己永远不犯错。与其过度追求完美，不如接受自己有缺点的一面，允许自己偶尔犯错。在错误中总结归纳经验，从而避免下一次的错误。</p><h3 id="2-明确目标，行动为先">2.明确目标，行动为先</h3><p>精神内耗的产生，很多时候是因为我们陷入了无尽的思考而没有付诸行动。给自己设立一个明确的目标，然后一步步去执行。只有真正开始付诸行动的同时，我们才能明白踏出第一步的重要性。</p><h3 id="3-学会管理情绪">3.学会管理情绪</h3><p>情绪管理是拒绝精神内耗的重要一步。不要去在意别人的眼光或看法，不要让自己的情绪受到别人的影响，要学会管理自己的情绪。情绪是我们的内在反应，我们可以通过理性思考来缓解情绪的负面影响。</p><h3 id="4-建立良好的生活习惯">4.建立良好的生活习惯</h3><p>健康的生活习惯，如充足的睡眠、规律的锻炼和健康的饮食，能有效提高我们的心理状态和身体健康，减少因身体疲惫而带来的情绪波动。</p><h3 id="5-减少无意义的比较">5.减少无意义的比较</h3><p>每个人都有自己独特的节奏和人生轨迹，不需要通过别人的成就来定义自己的人生。过多的比较只会让我们迷失方向，忘记了自己真正想要的是什么。我们需要的是脚踏实地，把握未来。</p><h2 id="总结">总结</h2><p>精神内耗的陷阱往往是无形的，但却可以通过自我觉察和行动来摆脱。生活不应被内心的焦虑所主导，而应该充满热情与活力。拒绝精神内耗，从你我做起，关注当下的行动，拥抱自己的不完美，才能过上更加轻松自如的生活。希望从今天开始，我们都能逐渐放下无谓的担忧，过上更加真实、健康的生活。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 生活 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 自律 </tag>
+            
+            <tag> 精神内耗 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>使用NatApp实现内网穿透</title>
       <link href="/posts/be304d8c.html"/>
       <url>/posts/be304d8c.html</url>
@@ -40,7 +146,7 @@
       
       <categories>
           
-          <category> 服务器 </category>
+          <category> 技术 </category>
           
       </categories>
       
@@ -146,7 +252,7 @@
       
       <categories>
           
-          <category> 数据库 </category>
+          <category> 技术 </category>
           
       </categories>
       
@@ -155,7 +261,7 @@
             
             <tag> MySQL </tag>
             
-            <tag> 卸载 </tag>
+            <tag> Windows </tag>
             
         </tags>
       
@@ -195,7 +301,7 @@
       <link href="/posts/eb09f29a.html"/>
       <url>/posts/eb09f29a.html</url>
       
-        <content type="html"><![CDATA[<h2 id="前言">前言</h2><p>昨天运气非常不错，一个双倍的648加上之前赞的80抽总共抽了一个命的艾莲加一个专武。我当时人都惊呆了，竟然一次都没有歪。</p><h2 id="感想">感想</h2><p>怎么说了，刚开始的时候绝区零出现的时候让我眼前一亮，主要是从没见过这种风格的游戏，在整个游戏的宣传篇中充满着一股复古加上现代科技的感觉，在加上对外宣传是一款战斗爽的游戏，所以我还是挺期待这款游戏的。但是真上手体验后，嗯，感觉一言难尽！</p><p>目前我的游戏等级是45级，游戏美术风格不错，整个游戏在战斗方面节奏非常的快，到了后期怪物的血量和伤害起来后就非常的考验手法。但是绝区零在战斗的同时也会穿插一种叫走格子的游戏，说实话我对这个玩法不是很感冒。怎么说了，本来战斗的过程行动迅速、紧张刺激，但是突然给整个走格子走来走去的就感觉太磨叽了，我不是很喜欢这种玩法。</p><p>除了以上的介绍以外，绝区零还有几个我非常想吐槽的点，你丫的原神、崩坏用圣遗物系统就算了，你这个绝区零还搞那老一套的圣遗物，你就不能有点创新吗，真当你那圣遗物系统是宝贝了呗！</p><p>整个游戏目前来说，画面很精美（我用的PC 4k），角色动作也挺不错的。但是总感觉你这个玩法除了战斗以及走格子玩法都和之前的游戏有种换汤不换药的感觉，圣遗物、深渊、角色命座这几个真就不能创新吗？绝区零不是对外宣称的战斗爽游戏吗？但是为什么大部分关卡的奖励还是用的时间来评判的呢，你这不是靠数值碾压通关么。还有最后一点，都2024年了，还整个箱庭游戏呢？进门还整个黑屏加载呢？地图探索感体验极差。唉！算了，懒得说了，就这样吧</p>]]></content>
+        <content type="html"><![CDATA[<h2 id="前言">前言</h2><p>昨天运气非常不错，一个双倍的648加上之前赞的80抽总共抽了一个命的艾莲加一个专武。我当时人都惊呆了，竟然一次都没有歪。主要是我玩抽卡游戏运气就没这么好过，大部分情况都是大保底。</p><h2 id="感想">感想</h2><p>绝区零刚出的时候，的确让人眼前一亮。游戏的复古风和现代科技融合的设计感独特，再加上宣传中对战斗元素的重视，确实让人充满期待。但在实际体验中，还是感觉有些地方需要打磨和改进。</p><p>目前我的游戏等级是45级，游戏整体的美术风格和音乐相当不错，战斗节奏很快，需要把握时机。前期还好，到了后期怪物的血量和伤害就起来了，这个时候就需要一点操作和手法。所以对于大多数人来说上手还是挺容易的，多练一练基本都没问题。目前游戏主要的争议点就是那个走格子的玩法，大部分的探索委托都会在频繁的战斗中穿插几次走格子的玩法，有时候打着打着突然就给你卡住了，当时个人感觉太磨叽了，这个我希望能改一改。</p><p>另外一点让我不太满意的是圣遗物系统。原神和崩坏中用圣遗物系统就算了，绝区零还是沿用了这一套。毕竟刷圣遗物真的很耗时，体验很“坐牢”。作为一款新游戏，能不能在这方面做些创新？</p><p>总体来说，绝区零的部分玩法还不错，但很多内容让我感觉像是“换汤不换药”。深渊系统依然是数值压制、刷时间以及每个月刷新一次等等。还有一个让我很难受的一点是，主角的Random Play和六分街之间就隔着一扇门，每次进出都要加载黑屏一下，体验感太差了，希望后续能优化。</p>]]></content>
       
       
       <categories>
@@ -227,7 +333,7 @@
       
       <categories>
           
-          <category> 生活 </category>
+          <category> 技术 </category>
           
       </categories>
       
@@ -254,7 +360,7 @@
       
       <categories>
           
-          <category> 技术 </category>
+          <category> 教程 </category>
           
       </categories>
       
@@ -283,7 +389,7 @@
       
       <categories>
           
-          <category> 技术 </category>
+          <category> 教程 </category>
           
       </categories>
       
@@ -341,7 +447,7 @@
       
       <categories>
           
-          <category> 数据库 </category>
+          <category> 技术 </category>
           
       </categories>
       
@@ -368,7 +474,7 @@
       
       <categories>
           
-          <category> 数据库 </category>
+          <category> 技术 </category>
           
       </categories>
       
