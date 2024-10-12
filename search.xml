@@ -4,11 +4,92 @@
   
     
     <entry>
+      <title>自建MetingJs后端API</title>
+      <link href="/posts/ecd77df4.html"/>
+      <url>/posts/ecd77df4.html</url>
+      
+        <content type="html"><![CDATA[<h2 id="前言">前言</h2><p>国庆假期刚结束，终于有时间更新一下了。最近突然发现MetingJs音乐播放器插件不能获取网易云的音乐，F12一打开就满屏红字报错。抱着试一试的心态，我在本地用 <code>ping</code> 测了一下获取音乐信息的 API，果不其然，请求超时了。<br><img src="https://cdn.aimiliy.top/backImg/img.webp" alt="img.png"><br>看来是没办法了，只能去 GitHub 上翻一下 MetingJs 的源码。仔细检查后发现，这个音乐播放器插件其实是前端 Node 组件和后端 API 组成的。既然有 API，那就意味着可以自己搭建后端服务。问题是，原作者的后端 API 是用 PHP 写的，对我这个没学过 PHP 的人来说有点麻烦啊。</p><p>不过幸好，有大佬用 JavaScript 重写了一版后端，项目地址：<a href="https://github.com/xizeyoupan/Meting-API">https://github.com/xizeyoupan/Meting-API</a>。这下不用折腾 PHP，终于可以放心大胆地用 JS 来搞定。</p><h2 id="折腾">折腾</h2><h3 id="启动">启动</h3><p>这个项目需要 Node.js 版本 18 以上，代码下载好后，有两种方式来启动项目：</p><p>1）<strong>第一种方式</strong>：把代码下载到服务器，然后直接用 <code>npm run start:node</code> 启动。默认的端口号在 <code>../src/config.js</code> 文件里可以自行修改。</p><p>2）<strong>第二种方式</strong>：使用 Deno（Deno 是 JavaScript 和 TypeScript 的运行时环境，感兴趣的朋友可以自行了解）。在 Linux 上安装 Deno 很简单，运行以下命令即可：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -fsSL https://deno.land/x/install/install.sh | sh</span><br></pre></td></tr></table></figure><p>安装好之后，可以查看 Deno 版本：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">deno -v</span><br></pre></td></tr></table></figure><p>查看使用方法</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">deno --help</span><br></pre></td></tr></table></figure><p>Deno安装位置：/root/.deno<br><img src="https://cdn.aimiliy.top/backImg/img_1.webp" alt="img_1.png"><br>安装完 Deno 后，咱们需要把原始项目打包，使用以下命令打包：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm run build:all</span><br></pre></td></tr></table></figure><p>打包完成后，会生成一个 deno.js 文件，路径是 …/src/dist/deno.js，接着运行以下命令启动：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm run start:deno</span><br></pre></td></tr></table></figure><p>个人比较推荐第二种方式，易于管理，另外这些命令可以在 package.json 里自行调整。</p><h3 id="代理">代理</h3><p>在用 Nginx 代理这个服务的时候，需要设置 X-Forwarded-Host 请求头。注意在 X-Forwarded-Host 后面加上 location 的转发路由，如下示例：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">server &#123;</span><br><span class="line">   listen       8099;</span><br><span class="line">   server_name  localhost;</span><br><span class="line"></span><br><span class="line">   location /music/ &#123;</span><br><span class="line">      proxy_pass http://localhost:3010/;</span><br><span class="line">      proxy_set_header X-Forwarded-Host $scheme://$host:$server_port/music;</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>如果你用的是 HTTPS 协议，可以把 X-Forwarded-Host 里的 $server_port 省略掉：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">server &#123;</span><br><span class="line">   listen       443 ssl;</span><br><span class="line">   server_name  xxx.com;</span><br><span class="line">   ......此处省略</span><br><span class="line"></span><br><span class="line">   location /music/ &#123;</span><br><span class="line">      proxy_pass http://localhost:3010/;</span><br><span class="line">      proxy_set_header X-Forwarded-Host $scheme://$host/music;</span><br><span class="line">   &#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure><h3 id="测试">测试</h3><p>当项目启动成功、Nginx 代理配置好后，访问你配置的域名或者链接地址，应该能看到如下页面：<br><img src="https://cdn.aimiliy.top/backImg/img-1.webp" alt="img-1.png"><br>访问测试地址，如出现以下页面并且歌曲加载正常，就说明部署成功了。<br><img src="https://cdn.aimiliy.top/backImg/img_3.webp" alt="img_3.png"></p><h3 id="配置">配置</h3><p>最后，在你需要展示音乐播放器的地方，插入以下代码：</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">    <span class="keyword">var</span> meting_api=<span class="string">&#x27;&#123;Nginx代理链接或者域名&#125;/api?server=:server&amp;type=:type&amp;id=:id&amp;auth=:auth&amp;r=:r&#x27;</span>;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure><p><img src="https://cdn.aimiliy.top/backImg/img_5.webp" alt="img_5.png"><br>注意：原始项目作者同时更换了Meting.min.js插件，本次教程仅仅替换了Meting.min.js调用的后端API，正常来说无需替换插件，请根据具体情况调整。</p><h2 id="结语">结语</h2><p>总的来说，整个过程不算复杂，但一些细节还是要留心处理。好了，折腾到这儿，咱们下次见！<br><img src="https://cdn.aimiliy.top/GenshinImpactExpression/exp1/35.png" alt="35.png"></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 技术 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> MetingJs </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Alibaba Cloud Linux中CronTab的用法详解</title>
+      <link href="/posts/2cba4350.html"/>
+      <url>/posts/2cba4350.html</url>
+      
+        <content type="html"><![CDATA[<h2 id="前言">前言</h2><p>最近我发现博客上的朋友圈服务挂了，折腾了半天也没搞清楚什么问题，一直返回{“detail”: “not found”}，重启服务器上的Friend-circle服务也没用，还是老样子。日志里找不到任何错误信息，于是我决定换个其他的Friend-circle服务。最终我在GitHub上找到了LiuShen作者的Friend-Circle-Lite项目。这款项目相较于我之前用的，轻量化程度高，占用资源少，部署也非常简单。不过这篇文章主要想介绍的是这个项目中用到的CronTab工具，其他部署的内容就不展开了，有兴趣的话可以去GitHub了解更多，链接在这：<a href="https://github.com/willow-god/Friend-Circle-Lite">https://github.com/willow-god/Friend-Circle-Lite</a></p><h2 id="1、CronTab">1、CronTab</h2><p>在原始项目中，作者使用的是宝塔面板，可以手动添加任务，但我这次在阿里云的ECS上，只能用命令行来操作。</p><h3 id="1-1、服务基本用法">1.1、服务基本用法</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">service crond start    //启动服务</span><br><span class="line">service crond stop     //关闭服务</span><br><span class="line">service crond restart  //重启服务</span><br><span class="line">service crond reload   //重新载入配置</span><br><span class="line">service crond status   //查看服务状态</span><br></pre></td></tr></table></figure><p><img src="https://cdn.aimiliy.top/articlePic/17271645247473.webp" alt="image1"></p><h3 id="1-2、CronTab基本语法">1.2、CronTab基本语法</h3><p><strong>crontab [option] [parameter]</strong></p><p>option：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">-e：编辑该用户的计时器设置；</span><br><span class="line">-l：列出该用户的计时器设置；</span><br><span class="line">-r：删除该用户的计时器设置；</span><br><span class="line">-u&lt;用户名称&gt;：指定要设定计时器的用户名称。</span><br></pre></td></tr></table></figure><h3 id="1-3、CornTab添加定时任务">1.3、CornTab添加定时任务</h3><p>1）列出已有定时任务</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">crontab -l</span><br></pre></td></tr></table></figure><p>这个命令会列出当前用户的所有定时任务，如果没有任务就会显示为空。<br><img src="https://cdn.aimiliy.top/articlePic/17271653145076.webp" alt="image2"></p><p>2）编辑CronTab</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">crontab -e </span><br></pre></td></tr></table></figure><p>这个命令会打开当前用户的CronTab文件，我们可以在里面添加、修改或删除定时任务。定时任务的格式为：Cron表达式 + 命令/执行脚本<br><img src="https://cdn.aimiliy.top/articlePic/17271657011027.webp" alt="image3"></p><p>3）删除CronTab</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">crontab -r</span><br></pre></td></tr></table></figure><p>使用该命令会将当前用户下的所有定时任务彻底删除，所以还请谨慎使用！</p><h3 id="1-4、CronTab的日志调试">1.4、CronTab的日志调试</h3><p>添加定时任务后，我们可能想知道它的执行情况，这时候就需要查看CronTab的日志了。一般来说，日志的路径是：<strong>/var/log/cron</strong><br><img src="https://cdn.aimiliy.top/articlePic/17271664257385.webp" alt="image4"><br>从图中可以看到定时任务的执行时间和脚本，这样我们就能验证它是否生效。</p><h2 id="结语">结语</h2><p>在Linux系统中，crontab是一个非常方便的工具，可以减少很多手动操作，提高工作效率。不过使用时也得小心，避免占用过多的服务器资源，影响其他服务的运行。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 技术 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Linux </tag>
+            
+            <tag> CronTab </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>前端性能优化：从加载速度到用户体验</title>
+      <link href="/posts/f3355759.html"/>
+      <url>/posts/f3355759.html</url>
+      
+        <content type="html"><![CDATA[<h2 id="前言">前言</h2><p>总体而言，前端性能优化并不是什么新鲜话题，很多老生常谈的技巧，基本上每个开发者都耳熟能详。但在细节上，每个人的项目和需求不同，优化的侧重点自然也有所不同。有人优化代码，有人盯着渲染性能，还有人专注于用户体验的流畅度。反正，最终目的就是让页面看起来更顺滑、加载更快，让用户有更好的体验。就本站而言由于静态图片资源过多，所以使用CDN加速、压缩图片以及转WebP格式成了重中之重。</p><h2 id="1-减少HTTP请求？没啥感觉，但确实重要">1. 减少HTTP请求？没啥感觉，但确实重要</h2><p>每个资源请求都需要时间，这道理大家都懂，但真的要优化的时候，却总是感觉不紧不慢。合并CSS、JS文件之类的操作，虽然不是什么新鲜招数，但还是得做。毕竟，少一个请求就少一次等待。还有CSS Sprites，把多个小图拼成一张大图，理论上能减少请求数。虽然对很多人来说，这操作没啥视觉冲击，但后台性能确实提高了。</p><h2 id="2-文件压缩和代码精简：细节决定成败">2. 文件压缩和代码精简：细节决定成败</h2><p>代码压缩和文件优化这件事，乍一看没多大作用，实则能省不少时间。想象一下，用户等着你网站加载，结果还在看空白页面，这时候你可能已经因为几个没压缩的文件浪费了几十毫秒。<br>工具推荐：</p><ul><li><strong>UglifyJS</strong>：用来压缩JS的。</li><li><strong>CSSNano</strong>：压缩CSS没得说。</li><li><strong>HTMLMinifier</strong>：压缩HTML文件，纯靠它来削减多余空格和注释。</li></ul><p>这些工具可能感觉没啥，但都属于细水长流型。</p><h2 id="3-CDN？早该用了吧">3. CDN？早该用了吧</h2><p>CDN 的好处就是全世界的用户都能从最近的节点拿到资源，尤其对图片、JS、CSS这种静态资源来说，加载速度更快。虽然没啥酷炫的视觉效果，但确实是“润物细无声”式的提升。</p><h2 id="4-图片优化：这个也细致入微">4. 图片优化：这个也细致入微</h2><p>说到图片，大家可能会直接想到视觉效果，但在加载性能优化这方面，它们简直是双刃剑。图片太大，加载慢；太小，效果差。WebP这种格式能在保持不错清晰度的同时减小文件大小，感觉就像是升级版的JPG。而懒加载（Lazy Load）则是让图片在滚动到可视区域时才加载，看似没啥视觉冲击，但是他真的能提升页面的流畅度。</p><h2 id="5-渲染性能优化：这就像调整设计细节">5. 渲染性能优化：这就像调整设计细节</h2><p>渲染性能优化有点像是macOS通知栏变窄，乍一看不起眼，但能让整个体验更流畅。减少DOM操作和重绘、重排是优化关键。尤其是使用JavaScript操控DOM的时候，频繁更新可能会卡到用户怀疑人生。异步加载JS、CSS让页面渲染时不被阻塞，这点就像是你电脑开机时让不必要的程序稍后再启动一样，有效提升用户体验。</p><h2 id="6-用户交互优化：这个真的戳中痛点">6. 用户交互优化：这个真的戳中痛点</h2><p>点击一个按钮然后等响应，这个过程一定要流畅，否则用户的心态会被拖垮。100毫秒的延迟可能看似不多，但在实际操作中，这些微秒的延迟会累积成巨大的用户烦躁感。<br>在这点上，节流（Throttle）和防抖（Debounce）技术显得尤为重要，用来限制频繁触发的事件，比如滚动或输入事件。</p><h2 id="7-工具和监控：这些优化是不是有效，数据得说话">7. 工具和监控：这些优化是不是有效，数据得说话</h2><p>我们说了那么多优化手段，如何验证它们是否真的起作用呢？这里推荐几个工具：</p><ul><li><strong>Google Lighthouse</strong>：前端优化的万能工具，可以全面分析页面的各项性能指标。</li><li><strong>WebPageTest</strong>：通过模拟不同的网络环境来检测网页在不同条件下的表现，特别适合全球性的网站。</li><li><strong>Chrome DevTools</strong>：内置的性能分析工具，帮你检查页面的各种性能瓶颈。</li></ul><h2 id="结语">结语</h2><p>总结一下，前端性能优化就像 macOS 的更新一样，虽然你可能做了很多细节上的调整，用户未必能立刻感受到，但这些看似不起眼的改动能显著提升整体体验。就像某些更新可能没有你预期的重大改动，但细节上的优化却使得日常使用更加顺畅。前端优化的细节，就像 Markdown 预览功能，虽然看起来只是小改动，但实际使用中会显著提高你的效率。</p><p>细节决定成败，前端性能优化亦是如此。每一处小改进都在不断提升用户体验，让整体表现更上一层楼。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 技术 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> CSS </tag>
+            
+            <tag> JS </tag>
+            
+            <tag> HTML </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>中秋月圆，情怀渐远</title>
       <link href="/posts/8f8dd2c9.html"/>
       <url>/posts/8f8dd2c9.html</url>
       
-        <content type="html"><![CDATA[<p>清风拂桂影，明月照人归。</p><p>中秋将至，日历的翻页提醒我，仅剩五日便是月圆之时。曾几何时，中秋节总是让人满怀期待。那时，家家户户提前准备月饼，灯笼挂满屋檐，举家盼望团聚的时刻。月圆之夜，远处灯火依稀，近处的笑声，仿佛能溶解一年的疲惫。那时的中秋，不仅是节日，更是亲情的纽带。</p><p>而今，随着岁月流逝，节日的意义似乎在渐渐被时间冲淡。生活的节奏愈发快了，节日不再是从容等待，而成了忙碌间的匆匆插曲。三天的假期看似宽裕，实则不过是通过调休从其他时间“挤”出来的片刻喘息。再看这调休的安排，本周六依然得去补班，节日的本真似乎早已被这机械般的调度吞噬了。</p><p>记得小时候，父亲总会带着月饼回家，虽然简陋，但那份团聚的喜悦却浓得化不开。而如今，或许更多的人忙于工作，疏于陪伴，甚至连中秋月饼都成了速购速食，少了过去那份细品慢尝的仪式感。灯火阑珊，月光皎洁，却似乎少了当年的温暖。</p><p>时代的脚步飞速向前，而我们却慢慢被裹挟在这洪流中，节日的意义也随之变得模糊。中秋节，渐渐不再是团聚的象征，而是一个打卡节点。忙碌的都市生活让我们错过了那些本该温存的瞬间，节日成了一种形式，一种被不断稀释的传统。</p><p>我常想，若有一天，当我们再回望这些年岁，是否还会记得那些月下的欢笑？亦或是，这些片刻的团聚，终究只是岁月长河中的细小浪花，终将被遗忘在时光的洪流中？或许，真正值得铭记的，并不是节日本身，而是我们曾在其中感受到的那一丝温情。</p><p>愿未来的我们，能够停下脚步，不是为了假期，而是为了让心灵找到那份久违的宁静与团圆。<br><img src="https://cdn.aimiliy.top/backImg/3f30472a880511ebb6edd017c2d2eca2.webp" alt="3f30472a880511ebb6edd017c2d2eca2.webp"></p>]]></content>
+        <content type="html"><![CDATA[<h2 id="中秋">中秋</h2><p>清风拂桂影，明月照人归。</p><p>中秋将至，日历的翻页提醒我，仅剩五日便是月圆之时。曾几何时，中秋节总是让人满怀期待。那时，家家户户提前准备月饼，灯笼挂满屋檐，举家盼望团聚的时刻。月圆之夜，远处灯火依稀，近处的笑声，仿佛能溶解一年的疲惫。那时的中秋，不仅是节日，更是亲情的纽带。</p><p>而今，随着岁月流逝，节日的意义似乎在渐渐被时间冲淡。生活的节奏愈发快了，节日不再是从容等待，而成了忙碌间的匆匆插曲。三天的假期看似宽裕，实则不过是通过调休从其他时间“挤”出来的片刻喘息。再看这调休的安排，本周六依然得去补班，节日的本真似乎早已被这机械般的调度吞噬了。</p><p>记得小时候，父亲总会带着月饼回家，虽然简陋，但那份团聚的喜悦却浓得化不开。而如今，或许更多的人忙于工作，疏于陪伴，甚至连中秋月饼都成了速购速食，少了过去那份细品慢尝的仪式感。灯火阑珊，月光皎洁，却似乎少了当年的温暖。</p><p>时代的脚步飞速向前，而我们却慢慢被裹挟在这洪流中，节日的意义也随之变得模糊。中秋节，渐渐不再是团聚的象征，而是一个打卡节点。忙碌的都市生活让我们错过了那些本该温存的瞬间，节日成了一种形式，一种被不断稀释的传统。</p><p>我常想，若有一天，当我们再回望这些年岁，是否还会记得那些月下的欢笑？亦或是，这些片刻的团聚，终究只是岁月长河中的细小浪花，终将被遗忘在时光的洪流中？或许，真正值得铭记的，并不是节日本身，而是我们曾在其中感受到的那一丝温情。</p><p>愿未来的我们，能够停下脚步，不是为了假期，而是为了让心灵找到那份久违的宁静与团圆。<br><img src="https://cdn.aimiliy.top/backImg/3f30472a880511ebb6edd017c2d2eca2.webp" alt="3f30472a880511ebb6edd017c2d2eca2.webp"></p>]]></content>
       
       
       <categories>
@@ -324,11 +405,11 @@
     
     
     <entry>
-      <title>内存开启XMP记录</title>
+      <title>内存开启XMP</title>
       <link href="/posts/f6122879.html"/>
       <url>/posts/f6122879.html</url>
       
-        <content type="html"><![CDATA[<h2 id="前言">前言</h2><p>在上周我玩绝区零的时候，屏幕突然卡死了紧接着游戏就闪退了，等到我第二次在进游戏时就直接卡在了登录界面上，然后就闪退了。后面试了几次都是这种情况</p><h2 id="步骤">步骤</h2><p>我电脑的配置是i7-13700KF + 七彩虹的4070ti adoc，系统盘用的是一块三星的980pro 1TB的版本，所有有很多游戏我就直接放在C盘了。昨天玩绝区零出现这种问题的时候， 我去试一下了一下LOL，我的登录WeGame后，点击开始游戏，还没进入LOL主页main游戏就卡死闪退了，其他游戏都差不多是这种情况。不仅如此，我放其他盘的游戏也都玩不了。 这个时候，我就怀疑是不是系统除了问题（Win11系统，我直接禁用了Windows update, 从来没更新过），没办法我也只能去制作系统U盘重装系统了（不得不吐槽下下载镜像是的慢），系统重装完了之后，我把游戏下载下来后，在试一下了一下，还是卡死闪退。搞了一下午，给我心态搞得炸裂了。说实话我其实很担心是显卡问题，我刚买的还没一年，就得 拿去修，心里很不爽的。</p><p>第二天我在那个主板的BIOS里面把XMP关了重启之后，我试了一下，突然可以正常完一段时间（还是会出现卡死闪退的情况，但可以进游戏玩了）。我现在用的内存用的是美商海岛船 的8gx4 3200Mhz的内存，以前电脑拆下来的内存没舍得换，就接着用了。之前的4x8g的内存是两套批次不同的内存，我觉得可能是内存不太稳定（关闭XMP后，内存只有2133MHZ了） 在加上内存频率太低了以及颗粒问题，所以我就决定换个新内存。因为我是D4的主板，所以内存我选的是金百达白刃16gx2 4000hz的内存，现在内存降价幅度挺大的，这个内存价格也降低了 不少。</p><p>几天之后，我的内存到了，我立马就拿去装机了。断电，拔掉内存、插上新内存、启动、打开BIOS操作一气呵成。打开BIOS后，我重新开启了内存XMP，然后重启电脑。本以为可以完美结束，结果电脑直接黑屏了。没办法我只能关闭了XMP，关闭XMP后内存的默认频率只有2666。虽然后面游戏测试了几次之后，没什么问题，但是没能超频还是有点不满意的。所以决定手动调一下时许和电压了，我对这方面也不是很懂，所以我也只能去找一下网上的教程在加上一步一步的尝试，最终找到了一个合适的平衡点。目前参数为：17-20-20-38，g1模式，频率4000Mhz，电压1.43V。使用 AIDA64测试内存之后，延迟也还行，内存挺稳定的，电脑测试了也没什么大问题。</p><p>好了，到这里结束了，再见！</p>]]></content>
+        <content type="html"><![CDATA[<h2 id="前言">前言</h2><p>上周我在玩《绝区零》时，屏幕突然卡死，紧接着游戏闪退。重启后，每次尝试进入游戏都卡在登录界面，随后又闪退。无论我怎么尝试，都是这个情况。</p><h2 id="步骤">步骤</h2><p>我的电脑配置是 i7-13700KF 加上七彩虹的 4070 Ti adoc，系统盘是三星的 980 Pro 1TB。由于游戏都放在 C 盘，昨天遇到《绝区零》的问题时，我还尝试了玩《LOL》。登录 WeGame 后，点击开始游戏，还没进到 LOL 主界面就卡死闪退。其他游戏也差不多是这种情况。不仅如此，其他盘上的游戏也无法正常运行。这让我怀疑是不是系统出了问题（Win11 系统，我禁用了 Windows 更新，从未更新过）。无奈之下，只能制作系统 U 盘重装系统（下载镜像时的速度真是让人无奈）。</p><p>系统重装后，重新下载游戏进行测试，结果还是卡死闪退。折腾了一下午，心态崩溃。我担心可能是显卡问题，刚买不到一年，就得拿去修，真的很不爽。</p><p>第二天，我在主板 BIOS 里关闭了 XMP，重启后游戏居然可以正常运行一段时间（虽然还是会有卡死闪退的情况，但至少能进游戏玩）。我现在使用的是美商海盗船 8G x 4 3200MHz 的内存。之前的内存是两套批次不同的，所以可能导致了不稳定（关闭 XMP 后，内存频率降到了 2133MHz）。因此，我决定换一条新内存。由于我是 D4 主板，所以我选择了金百达白刃 16G x 2 4000MHz 的内存。现在内存降价幅度很大，这个内存的价格也降了不少。</p><p>几天后，新内存到了，我立刻动手装机。断电、拔掉旧内存、插上新内存、启动电脑、进入 BIOS，一气呵成。打开 BIOS 后，我重新开启了内存 XMP，然后重启电脑。结果电脑直接黑屏了。无奈之下，只能关闭 XMP，恢复到内存的默认频率 2666MHz。虽然后续游戏测试没有大问题，但不能超频还是有点不满意。我决定手动调整一下时序和电压。因为对这方面不太懂，只能找网上教程一步一步尝试，最终找到了一个合适的平衡点。现在的参数是：17-20-20-38，G1 模式，频率 4000MHz，电压 1.43V。使用 AIDA64 测试内存后，延迟表现还不错，内存稳定性也很高，电脑测试也没发现大问题。</p><p>好了，到此为止。再见！</p>]]></content>
       
       
       <categories>
