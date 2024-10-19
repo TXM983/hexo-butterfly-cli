@@ -115,7 +115,7 @@ const muxiaochen = {
 
         // 设置柔和的发光效果
         ctx.shadowBlur = 5;  // 较弱的发光效果
-        ctx.shadowColor = (document.documentElement).getPropertyValue('--theme-color').trim(); // 发光颜色设置为主题颜色
+        ctx.shadowColor = getComputedStyle(document.documentElement).getPropertyValue('--theme-color').trim(); // 发光颜色设置为主题颜色
 
         // 绘制条纹
         for (let i = 0; i < barCount / 2; i++) {
