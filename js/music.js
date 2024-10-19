@@ -163,9 +163,9 @@ const muxiaochen = {
         });
         metingAplayer.on("play", () => {
             audioContext.resume().then(() => {
-                metingAplayer.audio.crossorigin = 'anonymous';
+                window.aplayers[0].audio.crossorigin = 'anonymous'
                 // 创建新的媒体元素源
-                source = audioContext.createMediaElementSource(metingAplayer.audio);
+                source = audioContext.createMediaElementSource(window.aplayers[0].audio);
                 source.connect(analyser);
                 analyser.connect(audioContext.destination);
                 muxiaochen.draw(analyser); // 开始绘制
