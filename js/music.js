@@ -45,10 +45,7 @@ const muxiaochen = {
                     clearInterval(timer);
                     anMusicBg.style.backgroundImage = musiccover.style.backgroundImage;
                     // 绑定事件
-                    document.addEventListener("DOMContentLoaded", function () {
-                            muxiaochen.addEventListenerMusic();
-                    });
-
+                    muxiaochen.addEventListenerMusic();
                     // 确保第一次能够正确替换背景
                     muxiaochen.changeMusicBg();
                 }
