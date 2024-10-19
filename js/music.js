@@ -83,15 +83,10 @@ const muxiaochen = {
         const newRgb = rgb.map(value => Math.min(255, value + amount));
         return `rgb(${newRgb[0]}, ${newRgb[1]}, ${newRgb[2]})`;
     },
-    draw: function () {
-        const analyser = audioContext.createAnalyser();
-
-        analyser.connect(audioContext.destination);
-        analyser.fftSize = 512;
-
+    draw: function (analyser) {
         const bufferLength = analyser.frequencyBinCount;
         const dataArray = new Uint8Array(bufferLength);
-        requestAnimationFrame(muxiaochen.draw);
+        requestAnimationFrame(() => muxiaochen.draw(analyser));
 
         analyser.getByteFrequencyData(dataArray);
 
@@ -167,7 +162,11 @@ const muxiaochen = {
         });
         metingAplayer.on("play", () => {
             audioContext.resume().then(() => {
-                muxiaochen.draw();
+                const analyser = audioContext.createAnalyser(); // 移动到这里
+                const source = audioContext.createMediaElementSource(metingAplayer.audio); // 连接到音频元素
+                source.connect(analyser);
+                analyser.connect(audioContext.destination);
+                muxiaochen.draw(analyser);
             });
         })
 
