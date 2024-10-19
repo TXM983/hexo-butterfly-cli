@@ -23,15 +23,6 @@ if (!localStorage.getItem("localMusic")) {
     localStorage.setItem("localMusic", JSON.stringify(localMusic));
 }
 
-document.addEventListener("DOMContentLoaded", function () {
-    muxiaochen.changeMusicBg(false);
-});
-
-document.addEventListener("pjax:complete", function () {
-    muxiaochen.changeMusicBg(false);
-});
-
-
 let musicVolume = 0.8;
 const muxiaochen = {
     // 音乐节目切换背景
@@ -188,3 +179,11 @@ const muxiaochen = {
     }
 };
 
+//
+// document.addEventListener("DOMContentLoaded", function () {
+//     muxiaochen.changeMusicBg(false);
+// });
+
+document.addEventListener("pjax:complete", function () {
+    muxiaochen.changeMusicBg(false);
+});
