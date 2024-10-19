@@ -45,7 +45,10 @@ const muxiaochen = {
                     clearInterval(timer);
                     anMusicBg.style.backgroundImage = musiccover.style.backgroundImage;
                     // 绑定事件
-                    muxiaochen.addEventListenerMusic();
+                    document.addEventListener("DOMContentLoaded", function () {
+                            muxiaochen.addEventListenerMusic();
+                    });
+
                     // 确保第一次能够正确替换背景
                     muxiaochen.changeMusicBg();
                 }
@@ -179,11 +182,5 @@ const muxiaochen = {
     }
 };
 
-//
-// document.addEventListener("DOMContentLoaded", function () {
-//     muxiaochen.changeMusicBg(false);
-// });
 
-document.addEventListener("pjax:complete", function () {
-    muxiaochen.changeMusicBg(false);
-});
+muxiaochen.changeMusicBg(false);
