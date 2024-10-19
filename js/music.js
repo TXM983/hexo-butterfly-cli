@@ -187,3 +187,8 @@ const muxiaochen = {
 document.addEventListener("DOMContentLoaded", function () {
     muxiaochen.changeMusicBg(false);
 });
+
+document.addEventListener("pjax:complete", function () {
+    muxiaochen.changeMusicBg(false);
+});
+
