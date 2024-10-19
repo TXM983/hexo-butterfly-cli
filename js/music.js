@@ -24,8 +24,21 @@ if (!localStorage.getItem("localMusic")) {
 }
 
 var musicVolume = 0.8;
+const canvas = document.getElementById('visualizer');
+const ctx = canvas.getContext('2d');
+const audio = window.aplayers[0].audio
+const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+const analyser = audioContext.createAnalyser();
 
-var anzhiyu = {
+const source = audioContext.createMediaElementSource(audio);
+source.connect(analyser);
+analyser.connect(audioContext.destination);
+analyser.fftSize = 512;
+
+const bufferLength = analyser.frequencyBinCount;
+const dataArray = new Uint8Array(bufferLength);
+
+var muxiaochen = {
     // 音乐节目切换背景
     changeMusicBg: function (isChangeBg = true) {
         if (window.location.pathname != "/life/music/") {
@@ -46,19 +59,103 @@ var anzhiyu = {
                     clearInterval(timer);
                     anMusicBg.style.backgroundImage = musiccover.style.backgroundImage;
                     // 绑定事件
-                    anzhiyu.addEventListenerMusic();
+                    muxiaochen.addEventListenerMusic();
                     // 确保第一次能够正确替换背景
-                    anzhiyu.changeMusicBg();
+                    muxiaochen.changeMusicBg();
                     // 暂停nav的音乐
                     // if (
                     //     document.querySelector("#nav-music").aplayer &&
                     //     !document.querySelector("#nav-music").aplayer.audio.paused
                     // ) {
-                    //     anzhiyu.musicToggle();
+                    //     muxiaochen.musicToggle();
                     // }
                 }
             }, 100);
         }
+    },
+    setGradientColor: function (baseColor){
+        const gradient = ctx.createLinearGradient(0, 0, 0, canvas.height);
+        // 生成从主题颜色逐渐变浅的颜色
+        const colors = [
+            baseColor, // 顶部颜色
+            muxiaochen.lightenColor(baseColor, 20), // 渐变到更浅的颜色
+            muxiaochen.lightenColor(baseColor, 40), // 渐变到更浅的颜色
+            muxiaochen.lightenColor(baseColor, 60), // 渐变到更浅的颜色
+            muxiaochen.lightenColor(baseColor, 80)  // 渐变到最浅的颜色
+        ];
+
+        colors.forEach((color, index) => {
+            gradient.addColorStop(index * 0.25, color);
+        });
+        return gradient;
+    },
+    lightenColor: function (rgbString, amount){
+        const rgb = rgbString.match(/\d+/g).map(Number); // 从 RGB 字符串中提取 RGB 值
+        const newRgb = rgb.map(value => Math.min(255, value + amount));
+        return `rgb(${newRgb[0]}, ${newRgb[1]}, ${newRgb[2]})`;
+    },
+    draw: function (){
+        requestAnimationFrame(muxiaochen.draw);
+
+        analyser.getByteFrequencyData(dataArray);
+
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+        const barWidth = 3; // 条纹宽度
+        const gap = 2;      // 条纹间的间隙
+        const barCount = Math.floor(canvas.width / (barWidth + gap)); // 条纹数量
+        const centerX = canvas.width / 2; // 画布中心
+        let barHeight;
+
+        // 限制最大高度
+        const maxHeight = canvas.height * 0.5; // 最大高度为画布的 30%
+        const fixedPeakHeight = 15; // 尖角高度固定为 15 像素
+
+        // 获取数据数组的最大值
+        const maxValue = Math.max(...dataArray);
+
+        // 使用指定的颜色生成渐变
+        const gradient = muxiaochen.setGradientColor();
+
+        // 设置柔和的发光效果
+        ctx.shadowBlur = 5;  // 较弱的发光效果
+        ctx.shadowColor = shadowColor; // 发光颜色设置为主题颜色
+
+        // 绘制条纹
+        for (let i = 0; i < barCount / 2; i++) {
+            // 等比例缩放条纹高度，保留尖角高度
+            const scaledValue = (dataArray[i] / maxValue) * (maxHeight - fixedPeakHeight);
+            barHeight = Math.min(scaledValue, maxHeight - fixedPeakHeight); // 限制条纹最大高度
+
+            const xLeft = centerX - ((barCount / 2 - i) * (barWidth + gap)) - barWidth; // 左侧条纹位置
+            const xRight = centerX + ((barCount / 2 - i) * (barWidth + gap));           // 右侧条纹位置
+
+            // 绘制左侧条纹，带固定高度尖角
+            ctx.beginPath();
+            ctx.moveTo(xLeft, canvas.height);  // 底部
+            ctx.lineTo(xLeft + barWidth / 2, canvas.height - barHeight - fixedPeakHeight);  // 顶部尖角
+            ctx.lineTo(xLeft + barWidth, canvas.height);  // 回到底部
+            ctx.closePath();
+            ctx.fill();
+
+            // 绘制右侧条纹，带固定高度尖角
+            ctx.beginPath();
+            ctx.moveTo(xRight, canvas.height);
+            ctx.lineTo(xRight + barWidth / 2, canvas.height - barHeight - fixedPeakHeight);
+            ctx.lineTo(xRight + barWidth, canvas.height);
+            ctx.closePath();
+            ctx.fill();
+        }
+
+        // 中间条纹，使用主题颜色
+        ctx.fillStyle = baseColor; // 设置中间条纹颜色为主题颜色
+        const midHeight = Math.min((dataArray[Math.floor(barCount / 2)] / maxValue) * (maxHeight - fixedPeakHeight), maxHeight - fixedPeakHeight);
+        ctx.beginPath();
+        ctx.moveTo(centerX, canvas.height); // 中间条纹的底部
+        ctx.lineTo(centerX + barWidth / 2, canvas.height - midHeight - fixedPeakHeight); // 中间条纹的顶部尖角
+        ctx.lineTo(centerX + barWidth, canvas.height); // 中间条纹的另一端底部
+        ctx.closePath();
+        ctx.fill();
     },
     addEventListenerMusic: function () {
         const anMusicPage = document.getElementById("anMusic-page");
@@ -70,7 +167,7 @@ var anzhiyu = {
         //初始化音量
         metingAplayer.volume(0.8, true);
         metingAplayer.on("loadeddata", function () {
-            anzhiyu.changeMusicBg();
+            muxiaochen.changeMusicBg();
         });
 
         aplayerIconMenu.addEventListener("click", function () {
@@ -98,10 +195,10 @@ var anzhiyu = {
             metingAplayer.list.switch(randomIndex);
         });
         anMusicRefreshBtn.addEventListener("click", () => {
-            anzhiyu.refreshMusicList();
+            muxiaochen.refreshMusicList();
         });
         anMusicSwitchingBtn.addEventListener("click", () => {
-            anzhiyu.changeMusicList();
+            muxiaochen.changeMusicList();
         });
 
         // 监听键盘事件
@@ -144,7 +241,7 @@ var anzhiyu = {
         localMusic = defaultMusic;
         localStorage.setItem("localMusic", JSON.stringify(defaultMusic));
         let url = `https://twikoo.aimiliy.top/music/api?server=${localMusic.server}&type=${localMusic.type}&id=${localMusic.id}&auth=undefined&r=${Math.random() * Date.now()}`;
-        songs = await anzhiyu.fetchSongs(url);
+        songs = await muxiaochen.fetchSongs(url);
         if (songs.length > 0) {
             metingAplayer.list.clear();
             metingAplayer.list.add(songs);
@@ -161,7 +258,7 @@ var anzhiyu = {
         localMusic = music[randomMusic];
         localStorage.setItem("localMusic", JSON.stringify(music[randomMusic]));
         let url = `https://twikoo.aimiliy.top/music/api?server=${music[randomMusic].server}&type=${music[randomMusic].type}&id=${music[randomMusic].id}&auth=undefined&r=${Math.random() * Date.now()}`;
-        songs = await anzhiyu.fetchSongs(url);
+        songs = await muxiaochen.fetchSongs(url);
         if (songs.length > 0) {
             metingAplayer.list.clear();
             metingAplayer.list.add(songs);
@@ -187,4 +284,9 @@ var anzhiyu = {
 };
 
 // 调用
-anzhiyu.changeMusicBg(false);
+muxiaochen.changeMusicBg(false);
+audio.onplay = () => {
+    audioContext.resume().then(() => {
+        muxiaochen.draw();
+    });
+};
