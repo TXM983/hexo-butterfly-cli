@@ -12,6 +12,7 @@ var music = [
 ];
 
 const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+const ctx = canvas.getContext('2d');
 var defaultMusic = { id: "8712166945", type: "playlist", server: "netease" };
 var localMusic = JSON.parse(localStorage.getItem("localMusic")) || defaultMusic;
 
