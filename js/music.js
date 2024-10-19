@@ -161,9 +161,10 @@ const muxiaochen = {
             muxiaochen.changeMusicBg();
         });
         metingAplayer.on("play", () => {
+            const audioContext = new (window.AudioContext || window.webkitAudioContext)();
             audioContext.resume().then(() => {
                 metingAplayer.audio.crossorigin = 'anonymous'
-                const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+                let analyser = audioContext.createAnalyser();
                 // 创建新的媒体元素源
                 source = audioContext.createMediaElementSource(window.aplayers[0].audio);
                 source.connect(analyser);
