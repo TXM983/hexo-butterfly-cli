@@ -12,9 +12,10 @@ var music = [
 ];
 
 const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+const canvas = document.getElementById('visualizer');
 const ctx = canvas.getContext('2d');
-var defaultMusic = { id: "8712166945", type: "playlist", server: "netease" };
-var localMusic = JSON.parse(localStorage.getItem("localMusic")) || defaultMusic;
+const defaultMusic = {id: "8712166945", type: "playlist", server: "netease"};
+let localMusic = JSON.parse(localStorage.getItem("localMusic")) || defaultMusic;
 
 if (!localStorage.getItem("defaultMusic")) {
     localStorage.setItem("defaultMusic", JSON.stringify(defaultMusic));
@@ -24,9 +25,9 @@ if (!localStorage.getItem("localMusic")) {
     localStorage.setItem("localMusic", JSON.stringify(localMusic));
 }
 
-var musicVolume = 0.8;
+let musicVolume = 0.8;
 
-var muxiaochen = {
+const muxiaochen = {
     // 音乐节目切换背景
     changeMusicBg: function (isChangeBg = true) {
         if (window.location.pathname != "/life/music/") {
@@ -61,7 +62,7 @@ var muxiaochen = {
             }, 100);
         }
     },
-    setGradientColor: function (baseColor){
+    setGradientColor: function (baseColor) {
         const gradient = ctx.createLinearGradient(0, 0, 0, canvas.height);
         // 生成从主题颜色逐渐变浅的颜色
         const colors = [
@@ -77,14 +78,12 @@ var muxiaochen = {
         });
         return gradient;
     },
-    lightenColor: function (rgbString, amount){
+    lightenColor: function (rgbString, amount) {
         const rgb = rgbString.match(/\d+/g).map(Number); // 从 RGB 字符串中提取 RGB 值
         const newRgb = rgb.map(value => Math.min(255, value + amount));
         return `rgb(${newRgb[0]}, ${newRgb[1]}, ${newRgb[2]})`;
     },
-    draw: function (){
-        const canvas = document.getElementById('visualizer');
-        const ctx = canvas.getContext('2d');
+    draw: function () {
         const audio = window.aplayers[0].audio
         const analyser = audioContext.createAnalyser();
 
@@ -188,6 +187,7 @@ var muxiaochen = {
             }
             anMusicPage.querySelector(".aplayer-list").classList.remove("aplayer-list-hide");
         }
+
         document.getElementById("menu-mask").addEventListener("click", anMusicPageMenuAask);
 
         // 监听增加单曲按钮
