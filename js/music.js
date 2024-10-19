@@ -26,7 +26,6 @@ if (!localStorage.getItem("localMusic")) {
 }
 
 let musicVolume = 0.8;
-let analyser = audioContext.createAnalyser(); // 在外部定义
 let source = null; // 用于保存当前的源
 const muxiaochen = {
     // 音乐节目切换背景
