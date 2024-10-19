@@ -84,11 +84,8 @@ const muxiaochen = {
         return `rgb(${newRgb[0]}, ${newRgb[1]}, ${newRgb[2]})`;
     },
     draw: function () {
-        const audio = window.aplayers[0].audio
         const analyser = audioContext.createAnalyser();
 
-        // const source = audioContext.createMediaElementSource(audio);
-        // source.connect(analyser);
         analyser.connect(audioContext.destination);
         analyser.fftSize = 512;
 
@@ -114,7 +111,7 @@ const muxiaochen = {
         const maxValue = Math.max(...dataArray);
 
         // 使用指定的颜色生成渐变
-        const gradient = muxiaochen.setGradientColor(document.documentElement.style.getPropertyValue("--theme-color"));
+        const gradient = muxiaochen.setGradientColor(getComputedStyle(document.documentElement).getPropertyValue('--theme-color').trim());
 
         // 设置柔和的发光效果
         ctx.shadowBlur = 5;  // 较弱的发光效果
@@ -168,11 +165,11 @@ const muxiaochen = {
         metingAplayer.on("loadeddata", function () {
             muxiaochen.changeMusicBg();
         });
-        metingAplayer.audio.onplay = () => {
+        metingAplayer.on("play", () => {
             audioContext.resume().then(() => {
                 muxiaochen.draw();
             });
-        };
+        })
 
         aplayerIconMenu.addEventListener("click", function () {
             document.getElementById("menu-mask").style.display = "block";
