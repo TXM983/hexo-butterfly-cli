@@ -14,6 +14,13 @@ body:has(#anMusic-page) #an_music_bg{
 /*    display: block !important;*/
 /*}*/
 
+#visualizer {
+    position: fixed;
+    width: 100px;
+    bottom: 80px;
+    left: 50%;           /* 将左侧设置为 50% */
+    transform: translateX(-50%); /* 将元素向左移动自身宽度的一半，以实现居中 */
+}
 
 
 #an_music_bg {

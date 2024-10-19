@@ -115,7 +115,7 @@ var muxiaochen = {
         const maxValue = Math.max(...dataArray);
 
         // 使用指定的颜色生成渐变
-        const gradient = muxiaochen.setGradientColor();
+        const gradient = muxiaochen.setGradientColor(document.documentElement.style.getPropertyValue("--theme-color"));
 
         // 设置柔和的发光效果
         ctx.shadowBlur = 5;  // 较弱的发光效果
