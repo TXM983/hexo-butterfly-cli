@@ -167,6 +167,7 @@ const muxiaochen = {
                     // 如果 source 已经存在，断开它的连接
                     source.disconnect();
                 }
+                metingAplayer.audio.crossorigin = 'anonymous';
                 // 创建新的媒体元素源
                 source = audioContext.createMediaElementSource(metingAplayer.audio);
                 source.connect(analyser);
