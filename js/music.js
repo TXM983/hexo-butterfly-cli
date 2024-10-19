@@ -26,7 +26,8 @@ if (!localStorage.getItem("localMusic")) {
 }
 
 let musicVolume = 0.8;
-
+let analyser = audioContext.createAnalyser(); // 在外部定义
+let source = null; // 用于保存当前的源
 const muxiaochen = {
     // 音乐节目切换背景
     changeMusicBg: function (isChangeBg = true) {
@@ -162,11 +163,15 @@ const muxiaochen = {
         });
         metingAplayer.on("play", () => {
             audioContext.resume().then(() => {
-                const analyser = audioContext.createAnalyser(); // 移动到这里
-                const source = audioContext.createMediaElementSource(metingAplayer.audio); // 连接到音频元素
+                if (source) {
+                    // 如果 source 已经存在，断开它的连接
+                    source.disconnect();
+                }
+                // 创建新的媒体元素源
+                source = audioContext.createMediaElementSource(metingAplayer.audio);
                 source.connect(analyser);
                 analyser.connect(audioContext.destination);
-                muxiaochen.draw(analyser);
+                muxiaochen.draw(analyser); // 开始绘制
             });
         })
 
