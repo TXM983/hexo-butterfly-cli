@@ -11,7 +11,7 @@ var music = [
     {id: "8712166945", type: "playlist", server: "netease"}
 ];
 
-const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+
 const canvas = document.getElementById('visualizer');
 const ctx = canvas.getContext('2d');
 const defaultMusic = {id: "8712166945", type: "playlist", server: "netease"};
@@ -163,7 +163,8 @@ const muxiaochen = {
         });
         metingAplayer.on("play", () => {
             audioContext.resume().then(() => {
-                window.aplayers[0].audio.crossorigin = 'anonymous'
+                metingAplayer.audio.crossorigin = 'anonymous'
+                const audioContext = new (window.AudioContext || window.webkitAudioContext)();
                 // 创建新的媒体元素源
                 source = audioContext.createMediaElementSource(window.aplayers[0].audio);
                 source.connect(analyser);
