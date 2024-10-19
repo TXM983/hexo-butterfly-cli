@@ -115,7 +115,7 @@ const muxiaochen = {
 
         // 设置柔和的发光效果
         ctx.shadowBlur = 5;  // 较弱的发光效果
-        ctx.shadowColor = shadowColor; // 发光颜色设置为主题颜色
+        ctx.shadowColor = (document.documentElement).getPropertyValue('--theme-color').trim(); // 发光颜色设置为主题颜色
 
         // 绘制条纹
         for (let i = 0; i < barCount / 2; i++) {
@@ -144,7 +144,7 @@ const muxiaochen = {
         }
 
         // 中间条纹，使用主题颜色
-        ctx.fillStyle = baseColor; // 设置中间条纹颜色为主题颜色
+        ctx.fillStyle = gradient; // 设置中间条纹颜色为主题颜色
         const midHeight = Math.min((dataArray[Math.floor(barCount / 2)] / maxValue) * (maxHeight - fixedPeakHeight), maxHeight - fixedPeakHeight);
         ctx.beginPath();
         ctx.moveTo(centerX, canvas.height); // 中间条纹的底部
