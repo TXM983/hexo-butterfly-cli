@@ -11,7 +11,7 @@ var music = [
     {id: "8712166945", type: "playlist", server: "netease"}
 ];
 
-
+const audioContext = new (window.AudioContext || window.webkitAudioContext)();
 var defaultMusic = { id: "8712166945", type: "playlist", server: "netease" };
 var localMusic = JSON.parse(localStorage.getItem("localMusic")) || defaultMusic;
 
@@ -24,19 +24,6 @@ if (!localStorage.getItem("localMusic")) {
 }
 
 var musicVolume = 0.8;
-const canvas = document.getElementById('visualizer');
-const ctx = canvas.getContext('2d');
-const audio = window.aplayers[0].audio
-const audioContext = new (window.AudioContext || window.webkitAudioContext)();
-const analyser = audioContext.createAnalyser();
-
-const source = audioContext.createMediaElementSource(audio);
-source.connect(analyser);
-analyser.connect(audioContext.destination);
-analyser.fftSize = 512;
-
-const bufferLength = analyser.frequencyBinCount;
-const dataArray = new Uint8Array(bufferLength);
 
 var muxiaochen = {
     // 音乐节目切换背景
@@ -95,6 +82,18 @@ var muxiaochen = {
         return `rgb(${newRgb[0]}, ${newRgb[1]}, ${newRgb[2]})`;
     },
     draw: function (){
+        const canvas = document.getElementById('visualizer');
+        const ctx = canvas.getContext('2d');
+        const audio = window.aplayers[0].audio
+        const analyser = audioContext.createAnalyser();
+
+        const source = audioContext.createMediaElementSource(audio);
+        source.connect(analyser);
+        analyser.connect(audioContext.destination);
+        analyser.fftSize = 512;
+
+        const bufferLength = analyser.frequencyBinCount;
+        const dataArray = new Uint8Array(bufferLength);
         requestAnimationFrame(muxiaochen.draw);
 
         analyser.getByteFrequencyData(dataArray);
@@ -169,6 +168,11 @@ var muxiaochen = {
         metingAplayer.on("loadeddata", function () {
             muxiaochen.changeMusicBg();
         });
+        metingAplayer.audio.onplay = () => {
+            audioContext.resume().then(() => {
+                muxiaochen.draw();
+            });
+        };
 
         aplayerIconMenu.addEventListener("click", function () {
             document.getElementById("menu-mask").style.display = "block";
@@ -285,8 +289,3 @@ var muxiaochen = {
 
 // 调用
 muxiaochen.changeMusicBg(false);
-audio.onplay = () => {
-    audioContext.resume().then(() => {
-        muxiaochen.draw();
-    });
-};
