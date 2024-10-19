@@ -87,8 +87,8 @@ const muxiaochen = {
         const audio = window.aplayers[0].audio
         const analyser = audioContext.createAnalyser();
 
-        const source = audioContext.createMediaElementSource(audio);
-        source.connect(analyser);
+        // const source = audioContext.createMediaElementSource(audio);
+        // source.connect(analyser);
         analyser.connect(audioContext.destination);
         analyser.fftSize = 512;
 
