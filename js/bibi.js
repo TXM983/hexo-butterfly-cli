@@ -61,12 +61,12 @@ function bb() {
         div.className = 'bb-card'
         div.innerHTML = '<div class="card-header"><div class="avatar"><img class="nofancybox"src="' + item.author.avatar + '"></div><div class="name">' + item.author.nickName + '</div>' + svg + '<div class="card-time">' + time + '</div></div><div class="card-content">' + item.content + '</div><div class="card-footer"><div data-v-185689ea=""class="card-label"style="background: ' + item.tag.bgColor + '; color: white;">' + item.tag.name + '</div></div>'
         bbMain.appendChild(div)
-        const images = div.querySelectorAll(".bb-Img")
-        const imgArr = Array.from(images).map(img => img.src);
-        arr = [...arr, ...imgArr];
+        // const images = div.querySelectorAll(".bb-Img")
+        // const imgArr = Array.from(images).map(img => img.src);
+        // arr = [...arr, ...imgArr];
     })
-    this.handleImgLoad(arr, callback);
-    // waterfallLayout();
+    // this.handleImgLoad(arr, callback);
+    waterfallLayout();
 }
 
 const callback = () => {
@@ -129,7 +129,7 @@ async function waterfallLayout() {
         card.style.top = `${columnHeights[minHeightColumnIndex]}px`;
         card.style.left = `${minHeightColumnIndex * (cardWidth + columnGap)}px`; // 动态计算卡片的 left 值
 
-        await delay(200);
+        await delay(50);
         // 更新该列的高度
         columnHeights[minHeightColumnIndex] += card.offsetHeight + columnGap; // 12px 是卡片之间的间距
     }
