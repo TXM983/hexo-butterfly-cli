@@ -171,6 +171,8 @@ window.addEventListener('resize', debounce(() => {
         return;
     }
     let bbMain = document.getElementById('bb-main')
-    waterfallLayout(bbMain);
+    const images = bbMain.querySelectorAll(".bb-Img")
+    const imgArr = Array.from(images).map(img => img.src);
+    handleImgLoad(imgArr, callback);
 }, 500)); // 300 毫秒的防抖时间
 
