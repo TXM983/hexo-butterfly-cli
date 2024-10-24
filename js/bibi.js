@@ -6,8 +6,15 @@ let page = 1
 let Url = 'https://linghua.aimiliy.top/api/bb/list?page=' // 记住替换为你的API链接
 
 
-document.addEventListener('DOMContentLoaded', getNew);
-document.addEventListener('pjax:complete', getNew)
+document.addEventListener('DOMContentLoaded', ()=>{
+    page = 1;
+    getNew();
+});
+document.addEventListener('pjax:complete', () => {
+    page = 1;
+    getNew();
+})
+
 // 获取数据
 function getNew() {
     if (window.location.pathname !== "/personal/bb/") {

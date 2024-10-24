@@ -1,5 +1,5 @@
 
-const scrollFn = function () {
+const scrollFnMaxScreen = function () {
     const $rightside = document.getElementById('rightside')
     const innerHeight = window.innerHeight + 56
 
@@ -55,5 +55,5 @@ const scrollFn = function () {
 }
 
 
-document.addEventListener('pjax:complete', scrollFn);
-document.addEventListener('DOMContentLoaded', scrollFn);
+document.addEventListener('pjax:complete', scrollFnMaxScreen);
+document.addEventListener('DOMContentLoaded', scrollFnMaxScreen);
