@@ -42,10 +42,9 @@ function getNew() {
     }, 400); // 设置0.5秒的延迟
 
 }
-
+let bbMain = document.getElementById('bb-main')
 // 渲染数据
 function bb() {
-    let bb = document.getElementById('bb-main')
     items.forEach((item) => {
         let time = item.createdAt.substring(0, 10);
         let div = document.createElement('div')
@@ -53,15 +52,45 @@ function bb() {
 
         div.className = 'bb-card'
         div.innerHTML = '<div class="card-header"><div class="avatar"><img class="nofancybox"src="' + item.author.avatar + '"></div><div class="name">' + item.author.nickName + '</div>' + svg + '<div class="card-time">' + time + '</div></div><div class="card-content">' + item.content + '</div><div class="card-footer"><div data-v-185689ea=""class="card-label"style="background: ' + item.tag.bgColor + '; color: white;">' + item.tag.name + '</div></div>'
-        bb.appendChild(div)
+        bbMain.appendChild(div)
     })
-    waterfallLayout(bb);
+    const images = document.querySelectorAll(".bb-Img");
+    // 通过 map 遍历并提取每个图片的 src 属性，转换成数组
+    const arr = Array.from(images).map(img => img.src);
+
+    this.handleImgLoad(arr, callback).then(r => {
+
+    });
+}
+
+const callback = (bbMain) => {
+    waterfallLayout(bbMain)
 }
 
 
-function waterfallLayout(bb) {
+
+// 加载图片事件，使用 async/await 进行改写
+async function handleImgLoad(arr, callBack) {
+    try {
+        const loadImage = (src) => {
+            return new Promise((resolve, reject) => {
+                const img = new Image();
+                img.src = src;
+                img.onload = () => resolve(src);
+                img.onerror = (err) => reject(err);
+            });
+        };
+
+        const promises = arr.map(src => loadImage(src));  // 生成图片加载的 Promise 数组
+        await Promise.all(promises);  // 等待所有图片加载完毕
+        if (callBack) callBack(bbMain);  // 如果加载完成并且有回调函数，执行回调
+    } catch (error) {
+        console.log("加载图片失败:", error);  // 捕获加载错误
+    }
+}
+
+function waterfallLayout(bbMain) {
     const cards = document.querySelectorAll('.bb-card');
-    const bbMain = document.getElementById("bb-main");
     const containerWidth = bbMain.offsetWidth;
 
     // 动态确定列数
@@ -97,7 +126,7 @@ function waterfallLayout(bb) {
 
     // 设置容器高度为最高列的高度
     const maxHeight = Math.max(...columnHeights);
-    bb.style.height = `${maxHeight}px`;
+    bbMain.style.height = `${maxHeight}px`;
 }
 
 // content格式化
@@ -134,7 +163,6 @@ window.addEventListener('resize', debounce(() => {
     if (window.location.pathname !== "/personal/bb/") {
         return;
     }
-    const bb = document.getElementById('bb-main');
-    waterfallLayout(bb);
+    waterfallLayout(bbMain);
 }, 500)); // 300 毫秒的防抖时间
 
