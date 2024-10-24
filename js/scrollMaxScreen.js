@@ -1,1 +1,59 @@
-!function(){const t=function(){const t=document.getElementById("rightside"),e=window.innerHeight+56;let n=0,o=!0;const s=document.getElementById("page-header"),c="function"==typeof chatBtnHide,i="function"==typeof chatBtnShow;window.scrollCollect=()=>btf.throttle((function(a){const l=window.scrollY||document.documentElement.scrollTop,d=function(t){const e=t>n;return n=t,e}(l);l>56?(d?(s.classList.contains("nav-visible")&&s.classList.remove("nav-visible"),i&&!0===o&&(chatBtnHide(),o=!1)):(s.classList.contains("nav-visible")||s.classList.add("nav-visible"),c&&!1===o&&(chatBtnShow(),o=!0)),s.classList.add("nav-fixed"),"0"===window.getComputedStyle(t).getPropertyValue("opacity")&&(t.style.cssText="opacity: 0.8; transform: translateX(-58px)")):(0===l&&s.classList.remove("nav-fixed","nav-visible"),t.style.cssText="opacity: ''; transform: ''"),document.body.scrollHeight<=e&&(t.style.cssText="opacity: 0.8; transform: translateX(-58px)")}),200)(),window.addEventListener("scroll",scrollCollect)};document.addEventListener("pjax:complete",t),document.addEventListener("DOMContentLoaded",t)}();
+(function() {
+    const scrollFnMaxScreen = function () {
+        const $rightside = document.getElementById('rightside')
+        const innerHeight = window.innerHeight + 56
+
+        // find the scroll direction
+        function scrollDirection (currentTop) {
+            const result = currentTop > initTop // true is down & false is up
+            initTop = currentTop
+            return result
+        }
+
+        let initTop = 0
+        let isChatShow = true
+        const $header = document.getElementById('page-header')
+        const isChatBtnHide = typeof chatBtnHide === 'function'
+        const isChatBtnShow = typeof chatBtnShow === 'function'
+
+        window.scrollCollect = () => {
+            return btf.throttle(function (e) {
+                const currentTop = window.scrollY || document.documentElement.scrollTop
+                const isDown = scrollDirection(currentTop)
+                if (currentTop > 56) {
+                    if (isDown) {
+                        if ($header.classList.contains('nav-visible')) $header.classList.remove('nav-visible')
+                        if (isChatBtnShow && isChatShow === true) {
+                            chatBtnHide()
+                            isChatShow = false
+                        }
+                    } else {
+                        if (!$header.classList.contains('nav-visible')) $header.classList.add('nav-visible')
+                        if (isChatBtnHide && isChatShow === false) {
+                            chatBtnShow()
+                            isChatShow = true
+                        }
+                    }
+                    $header.classList.add('nav-fixed')
+                    if (window.getComputedStyle($rightside).getPropertyValue('opacity') === '0') {
+                        $rightside.style.cssText = 'opacity: 0.8; transform: translateX(-58px)'
+                    }
+                } else {
+                    if (currentTop === 0) {
+                        $header.classList.remove('nav-fixed', 'nav-visible')
+                    }
+                    $rightside.style.cssText = "opacity: ''; transform: ''"
+                }
+
+                if (document.body.scrollHeight <= innerHeight) {
+                    $rightside.style.cssText = 'opacity: 0.8; transform: translateX(-58px)'
+                }
+            }, 200)()
+        }
+
+        window.addEventListener('scroll', scrollCollect)
+    }
+
+    document.addEventListener('pjax:complete', scrollFnMaxScreen);
+    document.addEventListener('DOMContentLoaded', scrollFnMaxScreen);
+})();
