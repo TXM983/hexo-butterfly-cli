@@ -130,14 +130,10 @@ function waterfallLayout() {
             // 更新该列的高度
             columnHeights[minHeightColumnIndex] += card.offsetHeight + columnGap; // 12px 是卡片之间的间距
         });
+        // 设置容器高度为最高列的高度
+        const maxHeight = Math.max(...columnHeights);
+        bbMain.style.height = `${maxHeight}px`;
     }, 500)
-
-    // 增加延迟，确保所有图片和视频资源加载完成后再进行布局
-
-
-    // 设置容器高度为最高列的高度
-    const maxHeight = Math.max(...columnHeights);
-    bbMain.style.height = `${maxHeight}px`;
 }
 
 // content格式化
