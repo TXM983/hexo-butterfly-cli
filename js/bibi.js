@@ -6,7 +6,7 @@ let page = 1
 let Url = 'https://linghua.aimiliy.top/api/bb/list?page=' // 记住替换为你的API链接
 
 
-document.addEventListener('DOMContentLoaded', ()=>{
+document.addEventListener('DOMContentLoaded', () => {
     page = 1;
     getNew();
 });
@@ -74,21 +74,20 @@ const callback = () => {
 }
 
 
-
 // 加载图片事件，使用 async/await 进行改写
-function handleImgLoad(arr, callBack){
+function handleImgLoad(arr, callBack) {
     const brr = []
-    arr.forEach((item, index)=>{
-        brr[index] = new Promise((resolve, reject)=>{
+    arr.forEach((item, index) => {
+        brr[index] = new Promise((resolve, reject) => {
             let imgReady = new Image
             imgReady.src = item
-            imgReady.onload=()=>{
+            imgReady.onload = () => {
                 resolve(index)
             }
         })
     })
     Promise.all(brr).then((result) => {
-        if(result && callBack) callBack()
+        if (result && callBack) callBack()
     }).catch((error) => {
         console.log("加载图片-----", error)
     })
@@ -115,25 +114,25 @@ function waterfallLayout() {
 
     const columnHeights = Array(columnCount).fill(0); // 用来记录每列的高度
 
-    setTimeout(()=>{
-        cards.forEach((card) => {
-            // 设置卡片的宽度
-            card.style.width = `${cardWidth}px`;
+    cards.forEach((card) => {
+        // 设置卡片的宽度
+        card.style.width = `${cardWidth}px`;
 
-            // 找到高度最小的列
-            const minHeightColumnIndex = columnHeights.indexOf(Math.min(...columnHeights));
+        // 找到高度最小的列
+        const minHeightColumnIndex = columnHeights.indexOf(Math.min(...columnHeights));
 
-            // 设置卡片位置
-            card.style.position = 'absolute';
-            card.style.top = `${columnHeights[minHeightColumnIndex]}px`;
-            card.style.left = `${minHeightColumnIndex * (cardWidth + columnGap)}px`; // 动态计算卡片的 left 值
+        // 设置卡片位置
+        card.style.position = 'absolute';
+        card.style.top = `${columnHeights[minHeightColumnIndex]}px`;
+        card.style.left = `${minHeightColumnIndex * (cardWidth + columnGap)}px`; // 动态计算卡片的 left 值
+        setTimeout(() => {
             // 更新该列的高度
             columnHeights[minHeightColumnIndex] += card.offsetHeight + columnGap; // 12px 是卡片之间的间距
-        });
-        // 设置容器高度为最高列的高度
-        const maxHeight = Math.max(...columnHeights);
-        bbMain.style.height = `${maxHeight}px`;
-    }, 500)
+        }, 500)
+    });
+    // 设置容器高度为最高列的高度
+    const maxHeight = Math.max(...columnHeights);
+    bbMain.style.height = `${maxHeight}px`;
 }
 
 // content格式化
