@@ -9663,12 +9663,6 @@ hr:before {
   display: flex;
 }
 
-#bibi .datacont {
-  display: flex;
-  flex-direction: column;
-  text-align: justify;
-}
-
 #bibi .card-footer .card-label {
   border-radius: 5px;
   padding: 0 5px;
