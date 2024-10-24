@@ -1,59 +1,63 @@
 (function() {
     const scrollFnMaxScreen = function () {
-        const $rightside = document.getElementById('rightside')
-        const innerHeight = window.innerHeight + 56
+        const $rightside = document.getElementById('rightside');
+        const innerHeight = window.innerHeight + 56;
 
         // find the scroll direction
-        function scrollDirection (currentTop) {
-            const result = currentTop > initTop // true is down & false is up
-            initTop = currentTop
-            return result
+        function scrollDirection(currentTop) {
+            const result = currentTop > initTop; // true is down & false is up
+            initTop = currentTop;
+            return result;
         }
 
-        let initTop = 0
-        let isChatShow = true
-        const $header = document.getElementById('page-header')
-        const isChatBtnHide = typeof chatBtnHide === 'function'
-        const isChatBtnShow = typeof chatBtnShow === 'function'
+        let initTop = 0;
+        let isChatShow = true;
+        const $header = document.getElementById('page-header');
+        const isChatBtnHide = typeof chatBtnHide === 'function';
+        const isChatBtnShow = typeof chatBtnShow === 'function';
 
-        window.scrollCollect = () => {
-            return btf.throttle(function (e) {
-                const currentTop = window.scrollY || document.documentElement.scrollTop
-                const isDown = scrollDirection(currentTop)
-                if (currentTop > 56) {
-                    if (isDown) {
-                        if ($header.classList.contains('nav-visible')) $header.classList.remove('nav-visible')
-                        if (isChatBtnShow && isChatShow === true) {
-                            chatBtnHide()
-                            isChatShow = false
-                        }
-                    } else {
-                        if (!$header.classList.contains('nav-visible')) $header.classList.add('nav-visible')
-                        if (isChatBtnHide && isChatShow === false) {
-                            chatBtnShow()
-                            isChatShow = true
-                        }
-                    }
-                    $header.classList.add('nav-fixed')
-                    if (window.getComputedStyle($rightside).getPropertyValue('opacity') === '0') {
-                        $rightside.style.cssText = 'opacity: 0.8; transform: translateX(-58px)'
+        // 这里的 scrollCollect 只在函数内部使用
+        const scrollCollect = btf.throttle(function (e) {
+            const currentTop = window.scrollY || document.documentElement.scrollTop;
+            const isDown = scrollDirection(currentTop);
+
+            if (currentTop > 56) {
+                if (isDown) {
+                    if ($header.classList.contains('nav-visible')) $header.classList.remove('nav-visible');
+                    if (isChatBtnShow && isChatShow === true) {
+                        chatBtnHide();
+                        isChatShow = false;
                     }
                 } else {
-                    if (currentTop === 0) {
-                        $header.classList.remove('nav-fixed', 'nav-visible')
+                    if (!$header.classList.contains('nav-visible')) $header.classList.add('nav-visible');
+                    if (isChatBtnHide && isChatShow === false) {
+                        chatBtnShow();
+                        isChatShow = true;
                     }
-                    $rightside.style.cssText = "opacity: ''; transform: ''"
                 }
-
-                if (document.body.scrollHeight <= innerHeight) {
-                    $rightside.style.cssText = 'opacity: 0.8; transform: translateX(-58px)'
+                $header.classList.add('nav-fixed');
+                if (window.getComputedStyle($rightside).getPropertyValue('opacity') === '0') {
+                    $rightside.style.cssText = 'opacity: 0.8; transform: translateX(-58px)';
                 }
-            }, 200)()
-        }
+            } else {
+                if (currentTop === 0) {
+                    $header.classList.remove('nav-fixed', 'nav-visible');
+                }
+                $rightside.style.cssText = "opacity: ''; transform: ''";
+            }
 
-        window.addEventListener('scroll', scrollCollect)
-    }
+            if (document.body.scrollHeight <= innerHeight) {
+                $rightside.style.cssText = 'opacity: 0.8; transform: translateX(-58px)';
+            }
+        }, 200);
 
-    document.addEventListener('pjax:complete', scrollFnMaxScreen);
+        // 监听滚动事件
+        document.addEventListener('scroll', scrollCollect);
+    };
+
+// 在 DOMContentLoaded 事件时初始化
     document.addEventListener('DOMContentLoaded', scrollFnMaxScreen);
+// 在 pjax:complete 事件时也初始化
+    document.addEventListener('pjax:complete', scrollFnMaxScreen);
+
 })();
