@@ -54,42 +54,39 @@ function bb() {
         div.innerHTML = '<div class="card-header"><div class="avatar"><img class="nofancybox"src="' + item.author.avatar + '"></div><div class="name">' + item.author.nickName + '</div>' + svg + '<div class="card-time">' + time + '</div></div><div class="card-content">' + item.content + '</div><div class="card-footer"><div data-v-185689ea=""class="card-label"style="background: ' + item.tag.bgColor + '; color: white;">' + item.tag.name + '</div></div>'
         bbMain.appendChild(div)
     })
-    // const images = document.querySelectorAll(".bb-Img");
-    // // 通过 map 遍历并提取每个图片的 src 属性，转换成数组
-    // const arr = Array.from(images).map(img => img.src);
-    //
-    // this.handleImgLoad(arr, callback).then(r => {
-    //
-    // });
-    waterfallLayout();
+    const images = document.querySelectorAll(".bb-Img");
+    // 通过 map 遍历并提取每个图片的 src 属性，转换成数组
+    const arr = Array.from(images).map(img => img.src);
+
+    this.handleImgLoad(arr, callback);
+    // waterfallLayout();
 }
-//
-// const callback = (bbMain) => {
-//     waterfallLayout(bbMain)
-// }
-//
-//
-//
-// // 加载图片事件，使用 async/await 进行改写
-// async function handleImgLoad(arr, callBack) {
-//     try {
-//         const loadImage = (src) => {
-//             return new Promise((resolve, reject) => {
-//                 const img = new Image();
-//                 img.src = src;
-//                 img.onload = () => resolve(src);
-//                 img.onerror = (err) => reject(err);
-//             });
-//         };
-//         let bbMain = document.getElementById('bb-main')
-//
-//         const promises = arr.map(src => loadImage(src));  // 生成图片加载的 Promise 数组
-//         await Promise.all(promises);  // 等待所有图片加载完毕
-//         if (callBack) callBack(bbMain);  // 如果加载完成并且有回调函数，执行回调
-//     } catch (error) {
-//         console.log("加载图片失败:", error);  // 捕获加载错误
-//     }
-// }
+
+const callback = () => {
+    waterfallLayout()
+}
+
+
+
+// 加载图片事件，使用 async/await 进行改写
+function handleImgLoad(arr, callBack){
+    const brr = []
+    arr.forEach((item, index)=>{
+        brr[index] = new Promise((resolve, reject)=>{
+            let imgReady = new Image
+            imgReady.src = item
+            imgReady.onload=()=>{
+                resolve(index)
+            }
+        })
+    })
+    Promise.all(brr).then((result) => {
+        if(result && callBack) callBack()
+    }).catch((error) => {
+        console.log("加载图片-----", error)
+    })
+}
+
 
 function waterfallLayout() {
     const cards = document.querySelectorAll('.bb-card');
