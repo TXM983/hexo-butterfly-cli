@@ -93,8 +93,12 @@ function handleImgLoad(arr, callBack) {
     })
 }
 
+function delay(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+}
 
-function waterfallLayout() {
+
+async function waterfallLayout() {
     const cards = document.querySelectorAll('.bb-card');
     const bbMain = document.getElementById("bb-main");
     const containerWidth = bbMain.offsetWidth;
@@ -113,8 +117,7 @@ function waterfallLayout() {
     const cardWidth = (containerWidth - columnCount * columnGap) / columnCount; // 计算每列的宽度
 
     const columnHeights = Array(columnCount).fill(0); // 用来记录每列的高度
-
-    cards.forEach((card) => {
+    for(const card of cards){
         // 设置卡片的宽度
         card.style.width = `${cardWidth}px`;
 
@@ -125,12 +128,12 @@ function waterfallLayout() {
         card.style.position = 'absolute';
         card.style.top = `${columnHeights[minHeightColumnIndex]}px`;
         card.style.left = `${minHeightColumnIndex * (cardWidth + columnGap)}px`; // 动态计算卡片的 left 值
-        setTimeout(() => {
-            // 更新该列的高度
-            columnHeights[minHeightColumnIndex] += card.offsetHeight + columnGap; // 12px 是卡片之间的间距
-        }, 500)
-    });
-    // 设置容器高度为最高列的高度
+
+        await delay(200);
+        // 更新该列的高度
+        columnHeights[minHeightColumnIndex] += card.offsetHeight + columnGap; // 12px 是卡片之间的间距
+    }
+
     const maxHeight = Math.max(...columnHeights);
     bbMain.style.height = `${maxHeight}px`;
 }
