@@ -121,19 +121,24 @@ function waterfallLayout() {
     cards.forEach((card) => {
         // 设置卡片的宽度
         card.style.width = `${cardWidth}px`;
+    })
 
-        // 找到高度最小的列
-        const minHeightColumnIndex = columnHeights.indexOf(Math.min(...columnHeights));
+    requestAnimationFrame(()=>{
+        cards.forEach((card) => {
+            // 找到高度最小的列
+            const minHeightColumnIndex = columnHeights.indexOf(Math.min(...columnHeights));
 
-        // 设置卡片位置
-        card.style.position = 'absolute';
-        card.style.top = `${columnHeights[minHeightColumnIndex]}px`;
-        card.style.left = `${minHeightColumnIndex * (cardWidth + columnGap)}px`; // 动态计算卡片的 left 值
-        // 使用 translate 设置卡片位置
-        // card.style.transform = `translate(${minHeightColumnIndex * (cardWidth + columnGap)}px, ${columnHeights[minHeightColumnIndex]}px)`;
-        // 更新该列的高度
-        columnHeights[minHeightColumnIndex] += card.offsetHeight + columnGap; // 12px 是卡片之间的间距
-    });
+            // 设置卡片位置
+            card.style.position = 'absolute';
+            card.style.top = `${columnHeights[minHeightColumnIndex]}px`;
+            card.style.left = `${minHeightColumnIndex * (cardWidth + columnGap)}px`; // 动态计算卡片的 left 值
+            // 使用 translate 设置卡片位置
+            // card.style.transform = `translate(${minHeightColumnIndex * (cardWidth + columnGap)}px, ${columnHeights[minHeightColumnIndex]}px)`;
+            // 更新该列的高度
+            columnHeights[minHeightColumnIndex] += card.offsetHeight + columnGap; // 12px 是卡片之间的间距
+        });
+    })
+
     // 设置容器高度为最高列的高度
     const maxHeight = Math.max(...columnHeights);
     bbMain.style.height = `${maxHeight}px`;
