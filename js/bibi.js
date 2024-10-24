@@ -154,6 +154,7 @@ function contentFormat(s) {
     let ls = s.match(getImgUrl)
     s = s.replace(re_forimg, '')
     s = s.replace(br, '')
+    s = '<p class="datacont">'+s+'</p>'
 
     let html = '<br>'
     if (ls) {
