@@ -127,10 +127,10 @@ function waterfallLayout() {
 
         // 设置卡片位置
         card.style.position = 'absolute';
-        // card.style.top = `${columnHeights[minHeightColumnIndex]}px`;
-        // card.style.left = `${minHeightColumnIndex * (cardWidth + columnGap)}px`; // 动态计算卡片的 left 值
+        card.style.top = `${columnHeights[minHeightColumnIndex]}px`;
+        card.style.left = `${minHeightColumnIndex * (cardWidth + columnGap)}px`; // 动态计算卡片的 left 值
         // 使用 translate 设置卡片位置
-        card.style.transform = `translate(${minHeightColumnIndex * (cardWidth + columnGap)}px, ${columnHeights[minHeightColumnIndex]}px)`;
+        // card.style.transform = `translate(${minHeightColumnIndex * (cardWidth + columnGap)}px, ${columnHeights[minHeightColumnIndex]}px)`;
         // 更新该列的高度
         columnHeights[minHeightColumnIndex] += card.offsetHeight + columnGap; // 12px 是卡片之间的间距
     });
