@@ -115,21 +115,25 @@ function waterfallLayout() {
 
     const columnHeights = Array(columnCount).fill(0); // 用来记录每列的高度
 
+    setTimeout(()=>{
+        cards.forEach((card) => {
+            // 设置卡片的宽度
+            card.style.width = `${cardWidth}px`;
+
+            // 找到高度最小的列
+            const minHeightColumnIndex = columnHeights.indexOf(Math.min(...columnHeights));
+
+            // 设置卡片位置
+            card.style.position = 'absolute';
+            card.style.top = `${columnHeights[minHeightColumnIndex]}px`;
+            card.style.left = `${minHeightColumnIndex * (cardWidth + columnGap)}px`; // 动态计算卡片的 left 值
+            // 更新该列的高度
+            columnHeights[minHeightColumnIndex] += card.offsetHeight + columnGap; // 12px 是卡片之间的间距
+        });
+    }, 500)
+
     // 增加延迟，确保所有图片和视频资源加载完成后再进行布局
-    cards.forEach((card) => {
-        // 设置卡片的宽度
-        card.style.width = `${cardWidth}px`;
 
-        // 找到高度最小的列
-        const minHeightColumnIndex = columnHeights.indexOf(Math.min(...columnHeights));
-
-        // 设置卡片位置
-        card.style.position = 'absolute';
-        card.style.top = `${columnHeights[minHeightColumnIndex]}px`;
-        card.style.left = `${minHeightColumnIndex * (cardWidth + columnGap)}px`; // 动态计算卡片的 left 值
-        // 更新该列的高度
-        columnHeights[minHeightColumnIndex] += card.offsetHeight + columnGap; // 12px 是卡片之间的间距
-    });
 
     // 设置容器高度为最高列的高度
     const maxHeight = Math.max(...columnHeights);
@@ -170,9 +174,6 @@ window.addEventListener('resize', debounce(() => {
     if (window.location.pathname !== "/personal/bb/") {
         return;
     }
-    let bbMain = document.getElementById('bb-main')
-    const images = bbMain.querySelectorAll(".bb-Img")
-    const imgArr = Array.from(images).map(img => img.src);
-    handleImgLoad(imgArr, callback);
-}, 500)); // 300 毫秒的防抖时间
+    waterfallLayout()
+}, 100)); // 300 毫秒的防抖时间
 
