@@ -42,10 +42,10 @@ function getNew() {
     }, 400); // 设置0.5秒的延迟
 
 }
-let bbMain = document.getElementById('bb-main')
 // 渲染数据
 function bb() {
     items.forEach((item) => {
+        let bbMain = document.getElementById('bb-main')
         let time = item.createdAt.substring(0, 10);
         let div = document.createElement('div')
         item.content = contentFormat(item.content)
@@ -80,6 +80,7 @@ async function handleImgLoad(arr, callBack) {
                 img.onerror = (err) => reject(err);
             });
         };
+        let bbMain = document.getElementById('bb-main')
 
         const promises = arr.map(src => loadImage(src));  // 生成图片加载的 Promise 数组
         await Promise.all(promises);  // 等待所有图片加载完毕
