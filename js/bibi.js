@@ -44,6 +44,7 @@ document.addEventListener('DOMContentLoaded', getNew);
 
 // 渲染数据
 function bb() {
+    let arr = [];
     items.forEach((item) => {
         let bbMain = document.getElementById('bb-main')
         let time = item.createdAt.substring(0, 10);
@@ -53,11 +54,10 @@ function bb() {
         div.className = 'bb-card'
         div.innerHTML = '<div class="card-header"><div class="avatar"><img class="nofancybox"src="' + item.author.avatar + '"></div><div class="name">' + item.author.nickName + '</div>' + svg + '<div class="card-time">' + time + '</div></div><div class="card-content">' + item.content + '</div><div class="card-footer"><div data-v-185689ea=""class="card-label"style="background: ' + item.tag.bgColor + '; color: white;">' + item.tag.name + '</div></div>'
         bbMain.appendChild(div)
+        const images = div.querySelectorAll(".bb-Img")
+        const imgArr = Array.from(images).map(img => img.src);
+        arr = [...arr, ...imgArr];
     })
-    const images = document.querySelectorAll(".bb-Img");
-    // 通过 map 遍历并提取每个图片的 src 属性，转换成数组
-    const arr = Array.from(images).map(img => img.src);
-
     this.handleImgLoad(arr, callback);
     // waterfallLayout();
 }
@@ -167,66 +167,3 @@ window.addEventListener('resize', debounce(() => {
     waterfallLayout(bbMain);
 }, 500)); // 300 毫秒的防抖时间
 
-
-const scrollFn = function () {
-    const $rightside = document.getElementById('rightside')
-    const innerHeight = window.innerHeight + 56
-
-    // 當滾動條小于 56 的時候
-    if (document.body.scrollHeight <= innerHeight) {
-        $rightside.style.cssText = 'opacity: 1; transform: translateX(-58px)'
-        return
-    }
-
-    // find the scroll direction
-    function scrollDirection (currentTop) {
-        const result = currentTop > initTop // true is down & false is up
-        initTop = currentTop
-        return result
-    }
-
-    let initTop = 0
-    let isChatShow = true
-    const $header = document.getElementById('page-header')
-    const isChatBtnHide = typeof chatBtnHide === 'function'
-    const isChatBtnShow = typeof chatBtnShow === 'function'
-
-    window.scrollCollect = () => {
-        return btf.throttle(function (e) {
-            const currentTop = window.scrollY || document.documentElement.scrollTop
-            const isDown = scrollDirection(currentTop)
-            if (currentTop > 56) {
-                if (isDown) {
-                    if ($header.classList.contains('nav-visible')) $header.classList.remove('nav-visible')
-                    if (isChatBtnShow && isChatShow === true) {
-                        chatBtnHide()
-                        isChatShow = false
-                    }
-                } else {
-                    if (!$header.classList.contains('nav-visible')) $header.classList.add('nav-visible')
-                    if (isChatBtnHide && isChatShow === false) {
-                        chatBtnShow()
-                        isChatShow = true
-                    }
-                }
-                $header.classList.add('nav-fixed')
-                if (window.getComputedStyle($rightside).getPropertyValue('opacity') === '0') {
-                    $rightside.style.cssText = 'opacity: 0.8; transform: translateX(-58px)'
-                }
-            } else {
-                if (currentTop === 0) {
-                    $header.classList.remove('nav-fixed', 'nav-visible')
-                }
-                $rightside.style.cssText = "opacity: ''; transform: ''"
-            }
-
-            if (document.body.scrollHeight <= innerHeight) {
-                $rightside.style.cssText = 'opacity: 0.8; transform: translateX(-58px)'
-            }
-        }, 200)()
-    }
-
-    window.addEventListener('scroll', scrollCollect)
-}
-
-scrollFn();
