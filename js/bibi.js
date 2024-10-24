@@ -61,12 +61,12 @@ function bb() {
         div.className = 'bb-card'
         div.innerHTML = '<div class="card-header"><div class="avatar"><img class="nofancybox"src="' + item.author.avatar + '"></div><div class="name">' + item.author.nickName + '</div>' + svg + '<div class="card-time">' + time + '</div></div><div class="card-content">' + item.content + '</div><div class="card-footer"><div data-v-185689ea=""class="card-label"style="background: ' + item.tag.bgColor + '; color: white;">' + item.tag.name + '</div></div>'
         bbMain.appendChild(div)
-        // const images = div.querySelectorAll(".bb-Img")
-        // const imgArr = Array.from(images).map(img => img.src);
-        // arr = [...arr, ...imgArr];
+        const images = div.querySelectorAll(".bb-Img")
+        const imgArr = Array.from(images).map(img => img.src);
+        arr = [...arr, ...imgArr];
     })
-    // this.handleImgLoad(arr, callback);
-    waterfallLayout();
+    this.handleImgLoad(arr, callback);
+    // waterfallLayout();
 }
 
 const callback = () => {
@@ -98,7 +98,7 @@ function delay(ms) {
 }
 
 
-async function waterfallLayout() {
+function waterfallLayout() {
     const cards = document.querySelectorAll('.bb-card');
     const bbMain = document.getElementById("bb-main");
     const containerWidth = bbMain.offsetWidth;
@@ -117,7 +117,8 @@ async function waterfallLayout() {
     const cardWidth = (containerWidth - columnCount * columnGap) / columnCount; // 计算每列的宽度
 
     const columnHeights = Array(columnCount).fill(0); // 用来记录每列的高度
-    for(const card of cards){
+
+    cards.forEach((card) => {
         // 设置卡片的宽度
         card.style.width = `${cardWidth}px`;
 
@@ -126,14 +127,14 @@ async function waterfallLayout() {
 
         // 设置卡片位置
         card.style.position = 'absolute';
-        card.style.top = `${columnHeights[minHeightColumnIndex]}px`;
-        card.style.left = `${minHeightColumnIndex * (cardWidth + columnGap)}px`; // 动态计算卡片的 left 值
-
-        await delay(50);
+        // card.style.top = `${columnHeights[minHeightColumnIndex]}px`;
+        // card.style.left = `${minHeightColumnIndex * (cardWidth + columnGap)}px`; // 动态计算卡片的 left 值
+        // 使用 translate 设置卡片位置
+        card.style.transform = `translate(${minHeightColumnIndex * (cardWidth + columnGap)}px, ${columnHeights[minHeightColumnIndex]}px)`;
         // 更新该列的高度
         columnHeights[minHeightColumnIndex] += card.offsetHeight + columnGap; // 12px 是卡片之间的间距
-    }
-
+    });
+    // 设置容器高度为最高列的高度
     const maxHeight = Math.max(...columnHeights);
     bbMain.style.height = `${maxHeight}px`;
 }
