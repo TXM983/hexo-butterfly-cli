@@ -101,15 +101,6 @@
   </url>
   
   <url>
-    <loc>https://www.aimiliy.top/posts/be304d8c.html</loc>
-    
-    <lastmod>2024-10-12</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://www.aimiliy.top/posts/699ac122.html</loc>
     
     <lastmod>2024-10-12</lastmod>
@@ -119,7 +110,16 @@
   </url>
   
   <url>
-    <loc>https://www.aimiliy.top/posts/8f8dd2c9.html</loc>
+    <loc>https://www.aimiliy.top/posts/be304d8c.html</loc>
+    
+    <lastmod>2024-10-12</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.aimiliy.top/posts/2cba4350.html</loc>
     
     <lastmod>2024-10-12</lastmod>
     
@@ -137,7 +137,7 @@
   </url>
   
   <url>
-    <loc>https://www.aimiliy.top/posts/2cba4350.html</loc>
+    <loc>https://www.aimiliy.top/posts/8f8dd2c9.html</loc>
     
     <lastmod>2024-10-12</lastmod>
     
@@ -227,7 +227,7 @@
   </url>
   
   <url>
-    <loc>https://www.aimiliy.top/posts/5a986f0.html</loc>
+    <loc>https://www.aimiliy.top/posts/eb09f29a.html</loc>
     
     <lastmod>2024-09-11</lastmod>
     
@@ -236,7 +236,7 @@
   </url>
   
   <url>
-    <loc>https://www.aimiliy.top/posts/eb09f29a.html</loc>
+    <loc>https://www.aimiliy.top/posts/5a986f0.html</loc>
     
     <lastmod>2024-09-11</lastmod>
     
@@ -445,21 +445,14 @@
   </url>
   
   <url>
-    <loc>https://www.aimiliy.top/tags/Pytorch/</loc>
+    <loc>https://www.aimiliy.top/tags/%E7%BB%9D%E5%8C%BA%E9%9B%B6/</loc>
     <lastmod>2024-10-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://www.aimiliy.top/tags/Machine-Learning/</loc>
-    <lastmod>2024-10-24</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.aimiliy.top/tags/Deep-Learning/</loc>
+    <loc>https://www.aimiliy.top/tags/%E4%BA%8C%E6%AC%A1%E5%85%83/</loc>
     <lastmod>2024-10-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -480,14 +473,21 @@
   </url>
   
   <url>
-    <loc>https://www.aimiliy.top/tags/%E7%BB%9D%E5%8C%BA%E9%9B%B6/</loc>
+    <loc>https://www.aimiliy.top/tags/Pytorch/</loc>
     <lastmod>2024-10-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://www.aimiliy.top/tags/%E4%BA%8C%E6%AC%A1%E5%85%83/</loc>
+    <loc>https://www.aimiliy.top/tags/Machine-Learning/</loc>
+    <lastmod>2024-10-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.aimiliy.top/tags/Deep-Learning/</loc>
     <lastmod>2024-10-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -515,14 +515,7 @@
   </url>
   
   <url>
-    <loc>https://www.aimiliy.top/tags/%E8%87%AA%E5%BE%8B/</loc>
-    <lastmod>2024-10-24</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.aimiliy.top/tags/%E7%B2%BE%E7%A5%9E%E5%86%85%E8%80%97/</loc>
+    <loc>https://www.aimiliy.top/tags/Alibaba-Cloud-Linux/</loc>
     <lastmod>2024-10-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -543,7 +536,14 @@
   </url>
   
   <url>
-    <loc>https://www.aimiliy.top/tags/Alibaba-Cloud-Linux/</loc>
+    <loc>https://www.aimiliy.top/tags/%E8%87%AA%E5%BE%8B/</loc>
+    <lastmod>2024-10-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.aimiliy.top/tags/%E7%B2%BE%E7%A5%9E%E5%86%85%E8%80%97/</loc>
     <lastmod>2024-10-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -571,7 +571,7 @@
   </url>
   
   <url>
-    <loc>https://www.aimiliy.top/tags/%E4%B8%AD%E7%A7%8B%E8%8A%82/</loc>
+    <loc>https://www.aimiliy.top/tags/CronTab/</loc>
     <lastmod>2024-10-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -599,7 +599,7 @@
   </url>
   
   <url>
-    <loc>https://www.aimiliy.top/tags/CronTab/</loc>
+    <loc>https://www.aimiliy.top/tags/%E4%B8%AD%E7%A7%8B%E8%8A%82/</loc>
     <lastmod>2024-10-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>

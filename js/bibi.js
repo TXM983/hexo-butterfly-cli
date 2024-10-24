@@ -5,6 +5,9 @@ let items = []
 let page = 1
 let Url = 'https://linghua.aimiliy.top/api/bb/list?page=' // 记住替换为你的API链接
 
+
+document.addEventListener('DOMContentLoaded', getNew);
+
 // 获取数据
 function getNew() {
     if (window.location.pathname !== "/personal/bb/") {
@@ -37,9 +40,6 @@ function getNew() {
     }, 400); // 设置0.5秒的延迟
 
 }
-
-document.addEventListener('pjax:complete', getNew);
-document.addEventListener('DOMContentLoaded', getNew);
 
 
 // 渲染数据

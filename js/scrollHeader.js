@@ -1,14 +1,5 @@
 
 const scrollFn = function () {
-    const $rightside = document.getElementById('rightside')
-    const innerHeight = window.innerHeight + 56
-
-    // 當滾動條小于 56 的時候
-    if (document.body.scrollHeight <= innerHeight) {
-        $rightside.style.cssText = 'opacity: 1; transform: translateX(-58px)'
-        return
-    }
-
     // find the scroll direction
     function scrollDirection (currentTop) {
         const result = currentTop > initTop // true is down & false is up
@@ -63,4 +54,3 @@ const scrollFn = function () {
 
 document.addEventListener('pjax:complete', scrollFn);
 document.addEventListener('DOMContentLoaded', scrollFn);
-scrollFn();
