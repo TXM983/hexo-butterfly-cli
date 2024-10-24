@@ -119,6 +119,7 @@ function waterfallLayout() {
     const columnHeights = Array(columnCount).fill(0); // 用来记录每列的高度
 
     cards.forEach((card) => {
+        card.style.position = 'relative'
         card.style.left = '';
         card.style.top = '';
         card.style.width = ''; // 清除宽度，以便重新设置
