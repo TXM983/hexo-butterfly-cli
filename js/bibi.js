@@ -119,10 +119,6 @@ function waterfallLayout() {
     const columnHeights = Array(columnCount).fill(0); // 用来记录每列的高度
 
     cards.forEach((card) => {
-        card.style.position = 'relative'; // 设置为相对定位，避免影响后续计算
-    })
-
-    cards.forEach((card) => {
         // 设置卡片的宽度
         card.style.width = `${cardWidth}px`;
         // 找到高度最小的列
@@ -177,6 +173,11 @@ window.addEventListener('resize', debounce(() => {
     if (window.location.pathname !== "/personal/bb/") {
         return;
     }
+    // 清空容器内的绝对定位样式
+    document.querySelectorAll('.bb-card').forEach(card => {
+        card.style.left = '';
+        card.style.top = '';
+    });
     waterfallLayout()
-}, 100)); // 300 毫秒的防抖时间
+}, 300)); // 300 毫秒的防抖时间
 
