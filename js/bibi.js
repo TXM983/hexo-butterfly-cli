@@ -229,5 +229,4 @@ const scrollFn = function () {
     window.addEventListener('scroll', scrollCollect)
 }
 
-document.addEventListener('pjax:complete', scrollFn);
-document.addEventListener('DOMContentLoaded', scrollFn);
+scrollFn();
