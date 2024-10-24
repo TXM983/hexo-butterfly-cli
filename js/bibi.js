@@ -137,11 +137,11 @@ function waterfallLayout() {
             // 更新该列的高度
             columnHeights[minHeightColumnIndex] += card.offsetHeight + columnGap; // 12px 是卡片之间的间距
         });
+        // 设置容器高度为最高列的高度
+        const maxHeight = Math.max(...columnHeights);
+        bbMain.style.height = `${maxHeight}px`;
     })
 
-    // 设置容器高度为最高列的高度
-    const maxHeight = Math.max(...columnHeights);
-    bbMain.style.height = `${maxHeight}px`;
 }
 
 // content格式化
