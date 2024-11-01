@@ -1,1 +1,63 @@
-!function(){const t=function(){const t=document.getElementById("rightside"),e=window.innerHeight+56;let n=0,s=!0;const o=document.getElementById("page-header"),c="function"==typeof chatBtnHide,i="function"==typeof chatBtnShow,a=btf.throttle((function(a){const d=window.scrollY||document.documentElement.scrollTop,l=function(t){const e=t>n;return n=t,e}(d);d>56?(l?(o.classList.contains("nav-visible")&&o.classList.remove("nav-visible"),i&&!0===s&&(chatBtnHide(),s=!1)):(o.classList.contains("nav-visible")||o.classList.add("nav-visible"),c&&!1===s&&(chatBtnShow(),s=!0)),o.classList.add("nav-fixed"),"0"===window.getComputedStyle(t).getPropertyValue("opacity")&&(t.style.cssText="opacity: 0.8; transform: translateX(-58px)")):(0===d&&o.classList.remove("nav-fixed","nav-visible"),t.style.cssText="opacity: ''; transform: ''"),document.body.scrollHeight<=e&&(t.style.cssText="opacity: 0.8; transform: translateX(-58px)")}),200);document.addEventListener("scroll",a)};document.addEventListener("DOMContentLoaded",t),document.addEventListener("pjax:complete",t)}();
+(function() {
+    const scrollFnMaxScreen = function () {
+        const $rightside = document.getElementById('rightside');
+        const innerHeight = window.innerHeight + 56;
+
+        // find the scroll direction
+        function scrollDirection(currentTop) {
+            const result = currentTop > initTop; // true is down & false is up
+            initTop = currentTop;
+            return result;
+        }
+
+        let initTop = 0;
+        let isChatShow = true;
+        const $header = document.getElementById('page-header');
+        const isChatBtnHide = typeof chatBtnHide === 'function';
+        const isChatBtnShow = typeof chatBtnShow === 'function';
+
+        // 这里的 scrollCollect 只在函数内部使用
+        const scrollCollect = btf.throttle(function (e) {
+            const currentTop = window.scrollY || document.documentElement.scrollTop;
+            const isDown = scrollDirection(currentTop);
+
+            if (currentTop > 56) {
+                if (isDown) {
+                    if ($header.classList.contains('nav-visible')) $header.classList.remove('nav-visible');
+                    if (isChatBtnShow && isChatShow === true) {
+                        chatBtnHide();
+                        isChatShow = false;
+                    }
+                } else {
+                    if (!$header.classList.contains('nav-visible')) $header.classList.add('nav-visible');
+                    if (isChatBtnHide && isChatShow === false) {
+                        chatBtnShow();
+                        isChatShow = true;
+                    }
+                }
+                $header.classList.add('nav-fixed');
+                if (window.getComputedStyle($rightside).getPropertyValue('opacity') === '0') {
+                    $rightside.style.cssText = 'opacity: 0.8; transform: translateX(-58px)';
+                }
+            } else {
+                if (currentTop === 0) {
+                    $header.classList.remove('nav-fixed', 'nav-visible');
+                }
+                $rightside.style.cssText = "opacity: ''; transform: ''";
+            }
+
+            if (document.body.scrollHeight <= innerHeight) {
+                $rightside.style.cssText = 'opacity: 0.8; transform: translateX(-58px)';
+            }
+        }, 200);
+
+        // 监听滚动事件
+        document.addEventListener('scroll', scrollCollect);
+    };
+
+// 在 DOMContentLoaded 事件时初始化
+    document.addEventListener('DOMContentLoaded', scrollFnMaxScreen);
+// 在 pjax:complete 事件时也初始化
+    document.addEventListener('pjax:complete', scrollFnMaxScreen);
+
+})();
