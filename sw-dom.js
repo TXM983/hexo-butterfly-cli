@@ -1,1 +1,70 @@
-document.addEventListener("DOMContentLoaded",(()=>{if(!navigator.serviceWorker?.controller)return;const e=e=>{const t=e.endsWith("js")?"script":"link",o="link"===t?"href":"src";for(let n of document.getElementsByTagName(t)){const s=n[o];if(e.length>s?e.endsWith(s):s.endsWith(e)){const e=document.createElement(t),o=n.text||n.textContent||n.innerHTML||"";return Array.from(n.attributes).forEach((t=>e.setAttribute(t.name,t.value))),e.appendChild(document.createTextNode(o)),n.parentNode.replaceChildren(e,n),!0}}},t="updated",o=()=>{caches.match("https://id.v3/").then((function(e){e?e.json().then((function(e){new Vue({data:function(){this.$notify({title:"通知📢",message:`已刷新缓存，更新为${e.global+"."+e.local}版本最新内容`,position:"top-left",offset:50,showClose:!0,type:"success",duration:5e3})}})})):console.info("未找到匹配的缓存响应")})).catch((function(e){console.error("缓存匹配出错:",e)}))};var n;sessionStorage.getItem(t)?(o(),sessionStorage.removeItem(t)):(n="update",navigator.serviceWorker.controller.postMessage(n)),navigator.serviceWorker.addEventListener("message",(n=>{const s=n.data;sessionStorage.setItem(t,s.type);const r=s.list?.filter((e=>/\.(js|css)$/.test(e)));if(r)window.Pjax?.isSupported?.()&&r.forEach(e),location.reload();else{const e=s.new,n=s.old;!n||e.global===n.global&&e.local===n.local||o(),sessionStorage.removeItem(t)}}))}));
+document.addEventListener('DOMContentLoaded', () => {
+    if (!navigator.serviceWorker?.controller) return
+    /** 发送信息到 sw */
+    const postMessage2SW = type => navigator.serviceWorker.controller.postMessage(type)
+    const pjaxUpdate = url => {
+        const type = url.endsWith('js') ? 'script' : 'link'
+        const name = type === 'link' ? 'href' : 'src'
+        for (let item of document.getElementsByTagName(type)) {
+            const itUrl = item[name]
+            if (url.length > itUrl ? url.endsWith(itUrl) : itUrl.endsWith(url)) {
+                const newEle = document.createElement(type)
+                const content = item.text || item.textContent || item.innerHTML || ''
+                // noinspection JSUnresolvedReference
+                Array.from(item.attributes).forEach(attr => newEle.setAttribute(attr.name, attr.value))
+                newEle.appendChild(document.createTextNode(content))
+                item.parentNode.replaceChildren(newEle, item)
+                return true
+            }
+        }
+    }
+    const SESSION_KEY = 'updated'
+    // noinspection JSFileReferences
+    const onSuccess = () => {
+      caches.match('https://id.v3/').then(function(response) {
+        if (response) {
+          // 如果找到了匹配的缓存响应
+          response.json().then(function(data) {
+            new Vue({
+              data: function() {
+                this.$notify({
+                  title: "通知📢",
+                  message: `已刷新缓存，更新为${data.global + "." + data.local}版本最新内容`,
+                  position: "top-left",
+                  offset: 50,
+                  showClose: !0,
+                  type: "success",
+                  duration: 5e3
+                })
+              }
+            })
+          });
+        } else {
+          console.info('未找到匹配的缓存响应');
+        }
+      }).catch(function(error) {
+        console.error('缓存匹配出错:', error);
+      });
+    };
+    if (sessionStorage.getItem(SESSION_KEY)) {
+        onSuccess()
+        sessionStorage.removeItem(SESSION_KEY)
+    } else postMessage2SW('update')
+    navigator.serviceWorker.addEventListener('message', event => {
+        const data = event.data
+        sessionStorage.setItem(SESSION_KEY, data.type)
+        const list = data.list?.filter(url => /\.(js|css)$/.test(url))
+        if (list) {
+            // noinspection JSUnresolvedReference
+            if (window.Pjax?.isSupported?.())
+                list.forEach(pjaxUpdate)
+            location.reload()
+        } else {
+            const newVersion = data.new, oldVersion = data.old
+            if (oldVersion && (newVersion.global !== oldVersion.global || newVersion.local !== oldVersion.local)) {
+                onSuccess()
+            }
+            sessionStorage.removeItem(SESSION_KEY)
+        }
+    })
+})
