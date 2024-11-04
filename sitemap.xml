@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://www.aimiliy.top/posts/be304d8c.html</loc>
+    
+    <lastmod>2024-11-04</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://www.aimiliy.top/box/gallery/photo/index.html</loc>
     
     <lastmod>2024-11-04</lastmod>
@@ -147,15 +156,6 @@
   
   <url>
     <loc>https://www.aimiliy.top/posts/699ac122.html</loc>
-    
-    <lastmod>2024-10-12</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.aimiliy.top/posts/be304d8c.html</loc>
     
     <lastmod>2024-10-12</lastmod>
     
@@ -638,13 +638,6 @@
   </url>
   
   <url>
-    <loc>https://www.aimiliy.top/categories/%E6%BC%94%E7%A4%BA/</loc>
-    <lastmod>2024-11-04</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://www.aimiliy.top/categories/%E6%B8%B8%E6%88%8F/</loc>
     <lastmod>2024-11-04</lastmod>
     <changefreq>weekly</changefreq>
@@ -653,6 +646,13 @@
   
   <url>
     <loc>https://www.aimiliy.top/categories/%E6%95%99%E7%A8%8B/</loc>
+    <lastmod>2024-11-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.aimiliy.top/categories/%E6%BC%94%E7%A4%BA/</loc>
     <lastmod>2024-11-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
