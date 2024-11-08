@@ -1,1 +1,70 @@
-document.addEventListener("DOMContentLoaded",(()=>{const e=navigator.serviceWorker?.controller;if(!e)return;const t=e=>{const t=e.endsWith("js")?"script":"link",o="link"===t?"href":"src";for(let r of document.getElementsByTagName(t)){const n=r[o];if(e.length>n?e.endsWith(n):n.endsWith(e)){const e=document.createElement(t),o=r.textContent||r.innerHTML||"";return Array.from(r.attributes).forEach((t=>e.setAttribute(t.name,t.value))),e.appendChild(document.createTextNode(o)),void r.parentNode.replaceChildren(e,r)}}},o="updated",r=()=>console.log("版本更新成功");var n;sessionStorage.getItem(o)?(r(),sessionStorage.removeItem(o)):(n="update",navigator.serviceWorker.controller.postMessage(n)),navigator.serviceWorker.addEventListener("message",(e=>{(e=>{const n=e.data;sessionStorage.setItem(o,n.type);const s=n.data?.filter((e=>/\.(js|css)$/.test(e)));s?.length?(window.Pjax?.isSupported?.()&&s.forEach(t),location.reload()):(r(),sessionStorage.removeItem(o))})()}))}));
+document.addEventListener('DOMContentLoaded', () => {
+    if (!navigator.serviceWorker?.controller) return
+    /** 发送信息到 sw */
+    const postMessage2SW = type => navigator.serviceWorker.controller.postMessage(type)
+    const pjaxUpdate = url => {
+        const type = url.endsWith('js') ? 'script' : 'link'
+        const name = type === 'link' ? 'href' : 'src'
+        for (let item of document.getElementsByTagName(type)) {
+            const itUrl = item[name]
+            if (url.length > itUrl ? url.endsWith(itUrl) : itUrl.endsWith(url)) {
+                const newEle = document.createElement(type)
+                const content = item.text || item.textContent || item.innerHTML || ''
+                // noinspection JSUnresolvedReference
+                Array.from(item.attributes).forEach(attr => newEle.setAttribute(attr.name, attr.value))
+                newEle.appendChild(document.createTextNode(content))
+                item.parentNode.replaceChildren(newEle, item)
+                return true
+            }
+        }
+    }
+    const SESSION_KEY = 'updated'
+    // noinspection JSFileReferences
+    const onSuccess = () => {
+      caches.match('https://id.v3/').then(function(response) {
+        if (response) {
+          // 如果找到了匹配的缓存响应
+          response.json().then(function(data) {
+            new Vue({
+              data: function() {
+                this.$notify({
+                  title: "通知📢",
+                  message: `已刷新缓存，更新为${data.global + "." + data.local}版本最新内容`,
+                  position: "top-left",
+                  offset: 50,
+                  showClose: !0,
+                  type: "success",
+                  duration: 5e3
+                })
+              }
+            })
+          });
+        } else {
+          console.info('未找到匹配的缓存响应');
+        }
+      }).catch(function(error) {
+        console.error('缓存匹配出错:', error);
+      });
+    };
+    if (sessionStorage.getItem(SESSION_KEY)) {
+        onSuccess()
+        sessionStorage.removeItem(SESSION_KEY)
+    } else postMessage2SW('update')
+    navigator.serviceWorker.addEventListener('message', event => {
+        const data = event.data
+        sessionStorage.setItem(SESSION_KEY, data.type)
+        const list = data.list?.filter(url => /\.(js|css)$/.test(url))
+        if (list) {
+            // noinspection JSUnresolvedReference
+            if (window.Pjax?.isSupported?.())
+                list.forEach(pjaxUpdate)
+            location.reload()
+        } else {
+            const newVersion = data.new, oldVersion = data.old
+            if (oldVersion && (newVersion.global !== oldVersion.global || newVersion.local !== oldVersion.local)) {
+                onSuccess()
+            }
+            sessionStorage.removeItem(SESSION_KEY)
+        }
+    })
+})
