@@ -4,6 +4,58 @@
   
     
     <entry>
+      <title>SQL问题记录</title>
+      <link href="/posts/b30ad436.html"/>
+      <url>/posts/b30ad436.html</url>
+      
+        <content type="html"><![CDATA[<h2 id="MariaDB简介">MariaDB简介</h2><p><code>MariaDB</code>是由<code>MySQL</code>创始人基于<code>MySQL</code>一个<code>fork</code>开发创建的，两者在语法以及函数的使用方面基本上高度兼容，但两款<code>RDBMS</code>在功能性和性能上有一些细微的区别，具体区别可以自行搜索了解一下。除此之外两款产品的开源许可证并不相同，<code>MySQL</code>使用的是<code>GPL</code>，许多进阶功能和插件都需要使用企业版，而<code>MariaDB</code>使用的是<code>GPLv2</code>，其相比与<code>MySQL</code>在开源性和商业化友好性方面更加开放和自由。</p><h2 id="问题场景">问题场景</h2><p><strong>场景一:</strong></p><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="number">5</span> <span class="operator">+</span> <span class="keyword">NULL</span>; <span class="comment">-- 输出结果：NULL</span></span><br></pre></td></tr></table></figure><p>在实际的业务场景中，上面的数字和NULL都会被业务字段所代替，如果你此时需要对某个字段进行求和，而其中的某个字段恰好为<code>NULL</code>，这就会导致最终结果为<code>NULL</code>，如果不清楚这个特性的话，后续在检查数据时就会耗费大量的时间。类似这种特性具体还有如下所示：<br>1、算数运算相关</p><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="keyword">NULL</span> <span class="operator">*</span> <span class="number">10</span>;  <span class="comment">-- 输出: NULL</span></span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">NULL</span> <span class="operator">/</span> <span class="number">3</span>;   <span class="comment">-- 输出: NULL</span></span><br></pre></td></tr></table></figure><p>2、字符串处理函数</p><ul><li>CONCAT</li></ul><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> CONCAT(<span class="string">&#x27;a&#x27;</span>, <span class="keyword">NULL</span>);  <span class="comment">-- 输出: NULL</span></span><br></pre></td></tr></table></figure><ul><li>REPLACE</li></ul><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> REPLACE(<span class="string">&#x27;abc&#x27;</span>, <span class="keyword">NULL</span>, <span class="string">&#x27;d&#x27;</span>); <span class="comment">-- 输出: NULL</span></span><br></pre></td></tr></table></figure><ul><li>INSERT</li></ul><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="keyword">INSERT</span>(<span class="string">&#x27;hello&#x27;</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="keyword">NULL</span>); <span class="comment">-- 输出: NULL</span></span><br></pre></td></tr></table></figure><p>3、日期和时间相关函数</p><ul><li>ADDDATE / DATE_ADD 和 SUBDATE / DATE_SUB</li></ul><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> ADDDATE(<span class="keyword">NULL</span>, <span class="type">INTERVAL</span> <span class="number">1</span> <span class="keyword">DAY</span>); <span class="comment">-- 输出: NULL</span></span><br><span class="line"><span class="keyword">SELECT</span> SUBDATE(<span class="string">&#x27;2024-01-01&#x27;</span>, <span class="keyword">NULL</span>);  <span class="comment">-- 输出: NULL</span></span><br></pre></td></tr></table></figure><p>类似特性的还有很多，这里我就不一一举例了。</p><p><strong>场景二：</strong></p><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> product_id, quantity, <span class="built_in">sum</span>(price) <span class="keyword">from</span> sales <span class="keyword">GROUP</span> <span class="keyword">BY</span> product_id;</span><br></pre></td></tr></table></figure><p>在目前高版本的<code>MySQL</code>处理分组查询时，<code>GROUP BY</code>子句通常用来将结果按照某个字段进行分组，并且配合聚合函数来处理每个分组中的其他字段。通常情况下，<code>SELECT</code>中的字段如果未出现在<code>GROUP BY</code>中，就必须用聚合函数（例如 <code>SUM()</code>, <code>AVG()</code>,<code>COUNT()</code>）来处理。高版本<code>MySQL</code>中运行以上<code>SQL</code>会报以下错误：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ERROR 1055 (42000): Expression #2 of SELECT list is not in GROUP BY clause and contains nonaggregated column &#x27;sales.quantity&#x27; which is not functionally dependent on columns in GROUP BY clause; this is incompatible with sql_mode=only_full_group_by</span><br></pre></td></tr></table></figure><p>而在MariaDB则支持这种语法，当查询中出现不在<code>GROUP BY</code>中的字段时，<code>MariaDB</code>会默认返回该字段在分组中的第一条数据，而不是抛出错误。</p><p><strong>场景三：</strong></p><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">DROP</span> TEMPORARY <span class="keyword">TABLE</span> IF <span class="keyword">EXISTS</span> a_$&#123;uuid&#125;;</span><br><span class="line"><span class="keyword">CREATE</span> TEMPORARY <span class="keyword">TABLE</span> a_$&#123;uuid&#125; <span class="keyword">AS</span></span><br><span class="line"><span class="keyword">select</span> t1.x, t2.Y, t3.z</span><br><span class="line"><span class="keyword">from</span> a t1</span><br><span class="line"><span class="keyword">left</span> <span class="keyword">join</span> b t2 <span class="keyword">on</span> t1.x <span class="operator">=</span> t2.x</span><br><span class="line"><span class="keyword">left</span> <span class="keyword">join</span> c t3 <span class="keyword">on</span> t1.x <span class="operator">=</span> t3.x </span><br><span class="line"><span class="keyword">where</span> t2.ETL_END_DATE <span class="operator">=</span> <span class="string">&#x27;9999-12-31&#x27;</span> <span class="keyword">and</span> t2.ETL_START_DATE <span class="keyword">between</span> #&#123;firstDayOfMonth&#125; <span class="keyword">and</span> #&#123;lastDayOfMonth&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">CREATE</span> INDEX idx_y <span class="keyword">on</span> a_$&#123;uuid&#125;(y <span class="keyword">ASC</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">DROP</span> TEMPORARY <span class="keyword">TABLE</span> IF <span class="keyword">EXISTS</span> b_$&#123;uuid&#125;;</span><br><span class="line"><span class="keyword">CREATE</span> TEMPORARY <span class="keyword">TABLE</span> b_$&#123;uuid&#125; <span class="keyword">AS</span></span><br><span class="line"><span class="keyword">select</span> t1.x, t2.y</span><br><span class="line"><span class="keyword">from</span> a_$&#123;uuid&#125; t1</span><br><span class="line"><span class="keyword">inner</span> <span class="keyword">join</span> (<span class="keyword">SELECT</span> <span class="keyword">DISTINCT</span> y <span class="keyword">FROM</span> b ) t2 <span class="keyword">on</span> t1.x <span class="operator">=</span> t2.y;</span><br><span class="line"></span><br><span class="line"><span class="keyword">CREATE</span> INDEX idx_x <span class="keyword">on</span> b_$&#123;uuid&#125;(x <span class="keyword">ASC</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> c(xxxx)</span><br><span class="line"><span class="keyword">SELECT</span> xxxx</span><br><span class="line"><span class="keyword">from</span> a_$&#123;uuid&#125; t</span><br><span class="line"><span class="keyword">left</span> <span class="keyword">join</span> b_$&#123;uuid&#125; t1 <span class="keyword">on</span> t.x <span class="operator">=</span> t1.y;</span><br><span class="line"></span><br><span class="line"><span class="keyword">DROP</span> TEMPORARY <span class="keyword">TABLE</span> IF <span class="keyword">EXISTS</span> a_$&#123;uuid&#125;;</span><br><span class="line"><span class="keyword">DROP</span> TEMPORARY <span class="keyword">TABLE</span> IF <span class="keyword">EXISTS</span> b_$&#123;uuid&#125;;</span><br></pre></td></tr></table></figure><p>在一些较为复杂的数据处理场景中，尤其是当数据量非常大时，执行<code>SQL</code>查询时往往会遇到性能瓶颈。为了优化<code>SQL</code>的执行速度和避免查询过慢，我们通常会采取以下措施：</p><ul><li>使用<code>临时表</code>存储中间结果，以便进行后续操作</li><li>在临时表上创建<code>索引</code>，以加速数据的关联查询。</li><li>使用<code>合适的连接方式</code>，避免不必要的全表扫描。</li></ul><p>在本示例中，我创建了两个临时表 <code>a_$&#123;uuid&#125;</code> 和 <code>b_$&#123;uuid&#125;</code>，并为它们创建了索引来加速查询，但遇到的一个问题是，当数据量非常大时，索引的创建反而可能导致性能下降。<br><img src="https://cdn.aimiliy.top/background/mariaDB.webp" alt="img.png"><br>数据量达到107万条时，直接在查询中创建临时表并添加索引的过程会非常耗时（如约14秒）。为了提高效率，当前的优化方案是通过直接在数据库中创建中间表（例如 <code>a_$&#123;uuid&#125;</code> 和 <code>b_$&#123;uuid&#125;</code>），并在这些表上创建必要的索引，从而避免在查询过程中动态创建临时表和索引。这种方式能够大幅度减少建表和创建索引的时间，显著提高数据处理的速度。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 技术 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> MySQL </tag>
+            
+            <tag> MariaDB </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>广西南宁一月游</title>
+      <link href="/posts/a4f09b44.html"/>
+      <url>/posts/a4f09b44.html</url>
+      
+        <content type="html"><![CDATA[<p>最近由于工作需要，需要去南宁待一个月，说实话不太想去，但是老板要求的又没办法拒绝，估计到了元旦前后才能回武汉了。唉，烦😪<br><img src="https://cdn.aimiliy.top/background/17334787541666.webp" alt=""><br><img src="https://cdn.aimiliy.top/background/IMG_20241205_112725.webp" alt=""><br><img src="https://cdn.aimiliy.top/background/IMG_20241205_123737.webp" alt=""><br><img src="https://cdn.aimiliy.top/background/IMG_20241205_124656.webp" alt=""><br><img src="https://cdn.aimiliy.top/background/IMG_20241205_124157.webp" alt=""><br><img src="https://cdn.aimiliy.top/background/IMG_20241205_123915.webp" alt=""><br><img src="https://cdn.aimiliy.top/background/IMG_20241205_123822.webp" alt=""><br><img src="https://cdn.aimiliy.top/background/IMG_20241205_123759.webp" alt=""><br><img src="https://cdn.aimiliy.top/background/IMG_20241205_123937.webp" alt=""><br>听说这边的螺狮粉挺不错了，有时间去尝一下，也正好借着这个机会出去转一转吧！</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 生活 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 出差 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Canvas雪花动画</title>
       <link href="/posts/ba45cc7d.html"/>
       <url>/posts/ba45cc7d.html</url>

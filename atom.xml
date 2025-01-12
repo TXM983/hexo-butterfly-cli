@@ -6,7 +6,7 @@
   <link href="https://www.aimiliy.top/atom.xml" rel="self"/>
   
   <link href="https://www.aimiliy.top/"/>
-  <updated>2024-11-27T15:26:52.322Z</updated>
+  <updated>2025-01-12T05:14:39.953Z</updated>
   <id>https://www.aimiliy.top/</id>
   
   <author>
@@ -15,6 +15,50 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>SQL问题记录</title>
+    <link href="https://www.aimiliy.top/posts/b30ad436.html"/>
+    <id>https://www.aimiliy.top/posts/b30ad436.html</id>
+    <published>2024-12-25T02:31:59.000Z</published>
+    <updated>2025-01-12T05:14:39.953Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="MariaDB简介">MariaDB简介</h2><p><code>MariaDB</code>是由<code>MySQL</code>创始人基于<code>MySQL</code>一个<code>fork</code>开发创建的，两者在语法以及函数的使用方面基本上高度兼容，但两款<code>RDBMS</code>在功能性和性能上有一些细微的区别，具体区别可以自行搜索了解一下。除此之外两款产品的开源许可证并不相同，<code>MySQL</code>使用的是<code>GPL</code>，许多进阶功能和插件都需要使用企业版，而<code>MariaDB</code>使用的是<code>GPLv2</code>，其相比与<code>MySQL</code>在开源性和商业化友好性方面更加开放和自由。</p><h2 id="问题场景">问题场景</h2><p><strong>场景一:</strong></p><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="number">5</span> <span class="operator">+</span> <span class="keyword">NULL</span>; <span class="comment">-- 输出结果：NULL</span></span><br></pre></td></tr></table></figure><p>在实际的业务场景中，上面的数字和NULL都会被业务字段所代替，如果你此时需要对某个字段进行求和，而其中的某个字段恰好为<code>NULL</code>，这就会导致最终结果为<code>NULL</code>，如果不清楚这个特性的话，后续在检查数据时就会耗费大量的时间。类似这种特性具体还有如下所示：<br>1、算数运算相关</p><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="keyword">NULL</span> <span class="operator">*</span> <span class="number">10</span>;  <span class="comment">-- 输出: NULL</span></span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">NULL</span> <span class="operator">/</span> <span class="number">3</span>;   <span class="comment">-- 输出: NULL</span></span><br></pre></td></tr></table></figure><p>2、字符串处理函数</p><ul><li>CONCAT</li></ul><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> CONCAT(<span class="string">&#x27;a&#x27;</span>, <span class="keyword">NULL</span>);  <span class="comment">-- 输出: NULL</span></span><br></pre></td></tr></table></figure><ul><li>REPLACE</li></ul><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> REPLACE(<span class="string">&#x27;abc&#x27;</span>, <span class="keyword">NULL</span>, <span class="string">&#x27;d&#x27;</span>); <span class="comment">-- 输出: NULL</span></span><br></pre></td></tr></table></figure><ul><li>INSERT</li></ul><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="keyword">INSERT</span>(<span class="string">&#x27;hello&#x27;</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="keyword">NULL</span>); <span class="comment">-- 输出: NULL</span></span><br></pre></td></tr></table></figure><p>3、日期和时间相关函数</p><ul><li>ADDDATE / DATE_ADD 和 SUBDATE / DATE_SUB</li></ul><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> ADDDATE(<span class="keyword">NULL</span>, <span class="type">INTERVAL</span> <span class="number">1</span> <span class="keyword">DAY</span>); <span class="comment">-- 输出: NULL</span></span><br><span class="line"><span class="keyword">SELECT</span> SUBDATE(<span class="string">&#x27;2024-01-01&#x27;</span>, <span class="keyword">NULL</span>);  <span class="comment">-- 输出: NULL</span></span><br></pre></td></tr></table></figure><p>类似特性的还有很多，这里我就不一一举例了。</p><p><strong>场景二：</strong></p><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> product_id, quantity, <span class="built_in">sum</span>(price) <span class="keyword">from</span> sales <span class="keyword">GROUP</span> <span class="keyword">BY</span> product_id;</span><br></pre></td></tr></table></figure><p>在目前高版本的<code>MySQL</code>处理分组查询时，<code>GROUP BY</code>子句通常用来将结果按照某个字段进行分组，并且配合聚合函数来处理每个分组中的其他字段。通常情况下，<code>SELECT</code>中的字段如果未出现在<code>GROUP BY</code>中，就必须用聚合函数（例如 <code>SUM()</code>, <code>AVG()</code>,<code>COUNT()</code>）来处理。高版本<code>MySQL</code>中运行以上<code>SQL</code>会报以下错误：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ERROR 1055 (42000): Expression #2 of SELECT list is not in GROUP BY clause and contains nonaggregated column &#x27;sales.quantity&#x27; which is not functionally dependent on columns in GROUP BY clause; this is incompatible with sql_mode=only_full_group_by</span><br></pre></td></tr></table></figure><p>而在MariaDB则支持这种语法，当查询中出现不在<code>GROUP BY</code>中的字段时，<code>MariaDB</code>会默认返回该字段在分组中的第一条数据，而不是抛出错误。</p><p><strong>场景三：</strong></p><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">DROP</span> TEMPORARY <span class="keyword">TABLE</span> IF <span class="keyword">EXISTS</span> a_$&#123;uuid&#125;;</span><br><span class="line"><span class="keyword">CREATE</span> TEMPORARY <span class="keyword">TABLE</span> a_$&#123;uuid&#125; <span class="keyword">AS</span></span><br><span class="line"><span class="keyword">select</span> t1.x, t2.Y, t3.z</span><br><span class="line"><span class="keyword">from</span> a t1</span><br><span class="line"><span class="keyword">left</span> <span class="keyword">join</span> b t2 <span class="keyword">on</span> t1.x <span class="operator">=</span> t2.x</span><br><span class="line"><span class="keyword">left</span> <span class="keyword">join</span> c t3 <span class="keyword">on</span> t1.x <span class="operator">=</span> t3.x </span><br><span class="line"><span class="keyword">where</span> t2.ETL_END_DATE <span class="operator">=</span> <span class="string">&#x27;9999-12-31&#x27;</span> <span class="keyword">and</span> t2.ETL_START_DATE <span class="keyword">between</span> #&#123;firstDayOfMonth&#125; <span class="keyword">and</span> #&#123;lastDayOfMonth&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">CREATE</span> INDEX idx_y <span class="keyword">on</span> a_$&#123;uuid&#125;(y <span class="keyword">ASC</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">DROP</span> TEMPORARY <span class="keyword">TABLE</span> IF <span class="keyword">EXISTS</span> b_$&#123;uuid&#125;;</span><br><span class="line"><span class="keyword">CREATE</span> TEMPORARY <span class="keyword">TABLE</span> b_$&#123;uuid&#125; <span class="keyword">AS</span></span><br><span class="line"><span class="keyword">select</span> t1.x, t2.y</span><br><span class="line"><span class="keyword">from</span> a_$&#123;uuid&#125; t1</span><br><span class="line"><span class="keyword">inner</span> <span class="keyword">join</span> (<span class="keyword">SELECT</span> <span class="keyword">DISTINCT</span> y <span class="keyword">FROM</span> b ) t2 <span class="keyword">on</span> t1.x <span class="operator">=</span> t2.y;</span><br><span class="line"></span><br><span class="line"><span class="keyword">CREATE</span> INDEX idx_x <span class="keyword">on</span> b_$&#123;uuid&#125;(x <span class="keyword">ASC</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> c(xxxx)</span><br><span class="line"><span class="keyword">SELECT</span> xxxx</span><br><span class="line"><span class="keyword">from</span> a_$&#123;uuid&#125; t</span><br><span class="line"><span class="keyword">left</span> <span class="keyword">join</span> b_$&#123;uuid&#125; t1 <span class="keyword">on</span> t.x <span class="operator">=</span> t1.y;</span><br><span class="line"></span><br><span class="line"><span class="keyword">DROP</span> TEMPORARY <span class="keyword">TABLE</span> IF <span class="keyword">EXISTS</span> a_$&#123;uuid&#125;;</span><br><span class="line"><span class="keyword">DROP</span> TEMPORARY <span class="keyword">TABLE</span> IF <span class="keyword">EXISTS</span> b_$&#123;uuid&#125;;</span><br></pre></td></tr></table></figure><p>在一些较为复杂的数据处理场景中，尤其是当数据量非常大时，执行<code>SQL</code>查询时往往会遇到性能瓶颈。为了优化<code>SQL</code>的执行速度和避免查询过慢，我们通常会采取以下措施：</p><ul><li>使用<code>临时表</code>存储中间结果，以便进行后续操作</li><li>在临时表上创建<code>索引</code>，以加速数据的关联查询。</li><li>使用<code>合适的连接方式</code>，避免不必要的全表扫描。</li></ul><p>在本示例中，我创建了两个临时表 <code>a_$&#123;uuid&#125;</code> 和 <code>b_$&#123;uuid&#125;</code>，并为它们创建了索引来加速查询，但遇到的一个问题是，当数据量非常大时，索引的创建反而可能导致性能下降。<br><img src="https://cdn.aimiliy.top/background/mariaDB.webp" alt="img.png"><br>数据量达到107万条时，直接在查询中创建临时表并添加索引的过程会非常耗时（如约14秒）。为了提高效率，当前的优化方案是通过直接在数据库中创建中间表（例如 <code>a_$&#123;uuid&#125;</code> 和 <code>b_$&#123;uuid&#125;</code>），并在这些表上创建必要的索引，从而避免在查询过程中动态创建临时表和索引。这种方式能够大幅度减少建表和创建索引的时间，显著提高数据处理的速度。</p>]]></content>
+    
+    
+    <summary type="html">记录一下MariaDB以及在编写SQL时遇到的几个问题</summary>
+    
+    
+    
+    <category term="技术" scheme="https://www.aimiliy.top/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+    <category term="MySQL" scheme="https://www.aimiliy.top/tags/MySQL/"/>
+    
+    <category term="MariaDB" scheme="https://www.aimiliy.top/tags/MariaDB/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>广西南宁一月游</title>
+    <link href="https://www.aimiliy.top/posts/a4f09b44.html"/>
+    <id>https://www.aimiliy.top/posts/a4f09b44.html</id>
+    <published>2024-12-06T08:39:26.000Z</published>
+    <updated>2025-01-12T05:14:39.953Z</updated>
+    
+    <content type="html"><![CDATA[<p>最近由于工作需要，需要去南宁待一个月，说实话不太想去，但是老板要求的又没办法拒绝，估计到了元旦前后才能回武汉了。唉，烦😪<br><img src="https://cdn.aimiliy.top/background/17334787541666.webp" alt=""><br><img src="https://cdn.aimiliy.top/background/IMG_20241205_112725.webp" alt=""><br><img src="https://cdn.aimiliy.top/background/IMG_20241205_123737.webp" alt=""><br><img src="https://cdn.aimiliy.top/background/IMG_20241205_124656.webp" alt=""><br><img src="https://cdn.aimiliy.top/background/IMG_20241205_124157.webp" alt=""><br><img src="https://cdn.aimiliy.top/background/IMG_20241205_123915.webp" alt=""><br><img src="https://cdn.aimiliy.top/background/IMG_20241205_123822.webp" alt=""><br><img src="https://cdn.aimiliy.top/background/IMG_20241205_123759.webp" alt=""><br><img src="https://cdn.aimiliy.top/background/IMG_20241205_123937.webp" alt=""><br>听说这边的螺狮粉挺不错了，有时间去尝一下，也正好借着这个机会出去转一转吧！</p>]]></content>
+    
+    
+    <summary type="html">出差</summary>
+    
+    
+    
+    <category term="生活" scheme="https://www.aimiliy.top/categories/%E7%94%9F%E6%B4%BB/"/>
+    
+    
+    <category term="出差" scheme="https://www.aimiliy.top/tags/%E5%87%BA%E5%B7%AE/"/>
+    
+  </entry>
   
   <entry>
     <title>Canvas雪花动画</title>
@@ -421,52 +465,6 @@
     <category term="ARPG" scheme="https://www.aimiliy.top/tags/ARPG/"/>
     
     <category term="黑神话悟空" scheme="https://www.aimiliy.top/tags/%E9%BB%91%E7%A5%9E%E8%AF%9D%E6%82%9F%E7%A9%BA/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>绝区零</title>
-    <link href="https://www.aimiliy.top/posts/eb09f29a.html"/>
-    <id>https://www.aimiliy.top/posts/eb09f29a.html</id>
-    <published>2024-07-12T07:39:17.000Z</published>
-    <updated>2024-11-19T11:19:43.430Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="前言">前言</h2><p>昨天真是欧气爆棚！一个双倍的 648 加上之前攒下的 80 抽，直接拿下了一个命座的艾莲和她的专属武器！我当时简直惊呆了，完全没有歪的情况。之前玩原的时候，次次歪，人都歪麻了，这次算是运气难得在线了一回。虽然抽卡运气不错，但是游戏该怎么样还是的怎么样。</p><h2 id="感想">感想</h2><p>《绝区零》刚公布时，确实让我眼前一亮。游戏把复古风格和现代科技的设计结合得很巧妙，再加上宣传片里对战斗系统的展示，简直勾起了满满的期待。但实际体验下来，还是能感受到一些不足之处。<br>目前我的等级是 45 级，说说整体感受吧：</p><p><strong>优点：</strong> 美术风格和音乐真的无可挑剔，战斗节奏很快，需要一定操作和反应。前期还好打，后期怪物血量和伤害上来了，就得靠技术和手法支撑。不过整体上手难度不高，稍微练一练都能跟得上。<br><strong>槽点：</strong> 为什么还是沿用老一套？刷圣遗物的体验真的非常“坐牢”。原神、崩坏已经够折磨了，作为新游戏，这里真应该尝试点创新。<br>1）走格子：游戏中探索委托和战斗常常夹杂着走格子的部分，本来打得热火朝天，突然来个格子玩法，这节奏一下就断了，感觉特别磨人。这点希望后续可以优化，或者干脆减少出现频率。<br>2）圣遗物（驱动盘）：<br>3）加载问题：主角的 Random Play 和六分街之间就隔着一扇门，每次进出都得黑屏加载，虽然时间不算长，但多了也挺影响沉浸感的。</p><h2 id="结语">结语</h2><p>总的来说，《绝区零》有不少值得肯定的地方，比如画面、音乐和战斗设计。但很多玩法和系统设计让我感觉像是在“老饭新炒”。希望后续版本能在这些细节上多下点功夫，比如优化加载体验、调整走格子玩法、创新装备系统等等。只要这些问题能得到改善，这游戏的潜力还是很大的！</p>]]></content>
-    
-    
-    <summary type="html">分享一下我玩绝区零的一些看法</summary>
-    
-    
-    
-    <category term="游戏" scheme="https://www.aimiliy.top/categories/%E6%B8%B8%E6%88%8F/"/>
-    
-    
-    <category term="二次元" scheme="https://www.aimiliy.top/tags/%E4%BA%8C%E6%AC%A1%E5%85%83/"/>
-    
-    <category term="绝区零" scheme="https://www.aimiliy.top/tags/%E7%BB%9D%E5%8C%BA%E9%9B%B6/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>内存开启XMP</title>
-    <link href="https://www.aimiliy.top/posts/f6122879.html"/>
-    <id>https://www.aimiliy.top/posts/f6122879.html</id>
-    <published>2024-07-10T07:09:35.000Z</published>
-    <updated>2024-11-19T11:19:43.430Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="前言">前言</h2><p>上周玩《绝区零》时，屏幕突然卡死，接着游戏直接闪退。重启后，每次进入游戏都卡在登录界面，然后闪退，无论怎么尝试都是这个情况。</p><h2 id="排查与解决">排查与解决</h2><p>我的电脑配置是 <code>i7-13700KF</code>，加上<code>七彩虹 4070 Ti ADOC</code> 显卡，系统盘用的是<code>三星 980 Pro 1TB</code>。游戏一般都放在 C 盘上，遇到《绝区零》的问题后，我试着玩了一局<code>《LOL》</code>，结果同样崩溃。登录 <code>WeGame</code>，点击“开始游戏”，还没进到 <code>LOL</code> 主界面就卡死闪退。接着，我测试了其他盘上的游戏，也都无法正常运行。这让我怀疑，是不是系统出了问题。<br>我的电脑装的是 <code>Win11</code> 系统，之前为了图省事禁用了 Windows 更新，从没更新过。无奈之下，我只能用系统 U 盘重新装了一遍系统（下载镜像时的网速简直磨人）。 重装系统后，我重新下载并测试游戏，结果还是一样的卡死闪退。这一下午折腾下来，整个人的心态直接崩了。我甚至开始怀疑，是不是显卡出了问题。毕竟，这块显卡才买不到一年，想到可能要送修，真的是相当郁闷。<br>第二天，我抱着试一试的心态，进入主板 <code>BIOS</code>，把 <code>XMP</code> 关了。意外的是，游戏居然能正常运行一段时间了！虽然偶尔还是会卡死，但至少能进游戏了。这让我意识到，问题可能出在内存上。 我的内存是<code>美商海盗船 8G x 4</code>，频率 <code>3200MHz</code>，但四条内存并不是一个批次的，可能导致了不稳定。关闭 <code>XMP</code> 后，内存频率降到了 <code>2133MHz</code>，虽然稳定性提高了，但性能损失也很明显。<br>于是，我决定直接换一套新的内存。我的主板是 <code>DDR4</code>，所以选择了<code>金百达白刃 16G x 2</code>，频率 <code>4000MHz</code>。现在内存价格降了不少，这款的性价比挺高。</p><h2 id="换内存">换内存</h2><p>几天后，新内存到货，我立刻动手装机。断电、拔掉旧内存、插上新内存、启动电脑、进入 <code>BIOS</code>，一气呵成。开机后，我尝试重新开启内存的 <code>XMP</code>，结果电脑直接黑屏，彻底傻眼了。无奈之下，只能关闭 <code>XMP</code>，把内存频率降回默认的 <code>2666MHz</code>。虽然游戏测试没再出问题，但不能超频还是让我有些不甘心。<br>既然自动<code>XMP</code>不稳定，那就手动调校！虽然我对内存超频一窍不通，但还是查了一堆教程，一步步尝试。最终，我找到了一个比较稳定的参数：时序 <code>17-20-20-38</code>，<code>G1</code> 模式，频率 <code>4000MHz</code>，电压 <code>1.43V</code>。用 <code>AIDA64</code> 测试后，延迟表现不错，稳定性也达标了。经过多次游戏测试，问题再也没有出现，我总算可以安心玩游戏了。</p><h2 id="结语">结语</h2><p>回头看，这次折腾虽然花了不少时间，但也算是有惊无险(还好显卡没问题）。希望大家以后遇到类似问题，能少走些弯路！</p>]]></content>
-    
-    
-    <summary type="html">本文主要记录内存开启XMP时的过程</summary>
-    
-    
-    
-    <category term="技术" scheme="https://www.aimiliy.top/categories/%E6%8A%80%E6%9C%AF/"/>
-    
-    
-    <category term="内存" scheme="https://www.aimiliy.top/tags/%E5%86%85%E5%AD%98/"/>
-    
-    <category term="XMP" scheme="https://www.aimiliy.top/tags/XMP/"/>
     
   </entry>
   
