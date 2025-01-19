@@ -6,7 +6,7 @@
   <link href="https://www.aimiliy.top/atom.xml" rel="self"/>
   
   <link href="https://www.aimiliy.top/"/>
-  <updated>2025-01-12T05:14:39.953Z</updated>
+  <updated>2025-01-19T07:58:15.359Z</updated>
   <id>https://www.aimiliy.top/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Windows系统常用的命令</title>
+    <link href="https://www.aimiliy.top/posts/36cdd01e.html"/>
+    <id>https://www.aimiliy.top/posts/36cdd01e.html</id>
+    <published>2025-01-17T09:19:33.000Z</published>
+    <updated>2025-01-19T07:58:15.359Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="前言">前言</h2><p>日常工作的时候，经常会用到一些常用的Window命令，可能是没怎么关注的原因，每次用了之后就忘了，忘了之后还得去百度查一下，所以就的打算整理一下常用的命令，以方便后续使用。</p><h2 id="一、cmd命令">一、cmd命令</h2><h3 id="1、文件和目录操作">1、文件和目录操作</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">dir                               列出当前目录中的文件和子目录</span><br><span class="line">cd    目录路径                      更改当前目录</span><br><span class="line">mkdir 目录名                       创建新目录</span><br><span class="line">del   文件名                       删除文件</span><br><span class="line">rmdir 目录名                       删除目录</span><br><span class="line">cls                               清除命令提示符窗口内容</span><br><span class="line">echo 文本                          显示文本消息</span><br><span class="line">copy 源文件 目标文件                 复制文件</span><br><span class="line">move 源文件 目标文件                 移动文件</span><br><span class="line">del 文件名                         删除文件</span><br><span class="line">ren 源文件 新文件名                  重命名文件</span><br><span class="line">type 文件名                        显示文件内容</span><br></pre></td></tr></table></figure><h3 id="2、系统信息管理">2、系统信息管理</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">wmic bios get releasedate         查询电脑的生产日期</span><br><span class="line">systeminfo                        可以查询出系统详细信息</span><br><span class="line">wmic bios get serialnumber        可以查询出主机序列号</span><br><span class="line">dxdiag                            可以查询出计算机真实配置信息</span><br><span class="line">tasklist                          显示当前正在运行的进程列表</span><br><span class="line">taskkill /PID 1234                根据进程ID终止进程, /F -- 强制终止进程‌</span><br><span class="line">taskkill /IM notepad.exe          ‌根据进程名终止进程</span><br><span class="line">taskkill /F /IM notepad.exe       强制终止进程‌    </span><br><span class="line">taskkill /F /FI &quot;USERNAME eq NT AUTHORITYSYSTEM&quot; /IM notepad.exe ‌终止特定用户的进程</span><br><span class="line">taskkill /T /IM notepad.exe       终止进程及其子进程</span><br><span class="line">shutdown -h                       休眠本地计算机</span><br><span class="line">shutdown -p                       关闭本地计算机</span><br><span class="line">shutdown -r                       表示完全关闭并重启计算机</span><br><span class="line">shutdown -a                       表示取消关机、或者取消重启</span><br></pre></td></tr></table></figure><h3 id="网络操作">网络操作</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">ipconfig                          显示当前网络配置信息，包括 IP 地址、子网掩码、默认网关等</span><br><span class="line">ping 目标地址                      向指定的主机发送 ICMP 回显请求以测试网络连接</span><br><span class="line">tracert 目标地址                   跟踪数据包到目标地址的路由路径，显示数据包在网络中经过的路由器</span><br><span class="line">nslookup 主机名或IP地址             查询 DNS（域名系统）记录，获取指定主机名或 IP 地址的相关信息</span><br><span class="line">netstat -ano                      显示网络连接、路由表和网络接口信息</span><br><span class="line">arp -a                            显示和管理本地 ARP（地址解析协议）缓存表，包含 IP 地址和相应的 MAC 地址</span><br><span class="line">net use                           执行网络相关操作，如连接共享资源、映射网络驱动器等</span><br><span class="line">route print                       显示和操作本地 IP 路由表，包括添加、删除和修改路由</span><br><span class="line">ipconfig /all                     显示当前计算机的网络配置信息</span><br><span class="line">ipconfig /renew                   命令获取新的IP地址和网络配置</span><br><span class="line">ipconfig /flushdns                可以强制计算机刷新DNS缓存，确保使用最新的DNS解析信息</span><br><span class="line">netsh wlan show profiles          找到你想查询密码的WiFi名称</span><br><span class="line">netsh wlan show profiles name=&quot;WiFi名称&quot; key=clear  查看WiFi密码</span><br></pre></td></tr></table></figure><h2 id="二、Win-R-对话框命令快捷命令">二、Win+R 对话框命令快捷命令</h2><h3 id="1、系统管理和设置">1、系统管理和设置</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">compmgmt.msc                      打开计算机管理</span><br><span class="line">diskmgmt.msc                      打开磁盘管理</span><br><span class="line">devmgmt.msc                       打开设备管理器</span><br><span class="line">services.msc                      打开服务管理器</span><br><span class="line">eventvwr.msc                      打开事件查看器</span><br><span class="line">gpedit.msc                        打开本地组策略编辑器（仅限专业版及以上）</span><br><span class="line">sysdm.cpl                         打开系统属性</span><br><span class="line">control                           打开控制面板</span><br><span class="line">taskschd.msc                      打开任务计划程序</span><br><span class="line">printmanagement.msc               打开打印管理</span><br></pre></td></tr></table></figure><h3 id="2、网络和连接">2、网络和连接</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">ncpa.cpl                          打开网络连接</span><br><span class="line">cmd                               打开命令提示符</span><br><span class="line">powershell                        打开 PowerShell</span><br><span class="line">mstsc                             打开远程桌面连接</span><br><span class="line">ipconfig                          在命令提示符中显示 IP 配置信息</span><br></pre></td></tr></table></figure><h3 id="3、系统工具">3、系统工具</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">calc                              打开计算器</span><br><span class="line">notepad                           打开记事本</span><br><span class="line">winver                            显示 Windows 版本信息</span><br><span class="line">charmap                           打开字符映射表</span><br><span class="line">mspaint                           打开画图工具</span><br><span class="line">snippingtool                      打开截图工具（在某些版本中为“截图与草图”）。</span><br><span class="line">magnify                           打开放大镜</span><br></pre></td></tr></table></figure><h3 id="4、文件和资源管理">4、文件和资源管理</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">explorer                         打开文件资源管理器</span><br><span class="line"><span class="meta prompt_">%</span><span class="language-bash">temp%                           打开临时文件夹</span></span><br><span class="line">appwiz.cpl                       打开程序和功能（卸载程序）</span><br><span class="line">shell:startup                    打开启动文件夹</span><br><span class="line">shell:common startup             打开所有用户的启动文件夹</span><br><span class="line"><span class="meta prompt_">%</span><span class="language-bash">appdata%                        打开`Roaming `配置文件夹</span></span><br></pre></td></tr></table></figure><h3 id="5、关机和重启">5、关机和重启</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">shutdown /s /t 0                 立即关闭计算机</span><br><span class="line">shutdown /r /t 0                 立即重启计算机</span><br></pre></td></tr></table></figure><h3 id="其他命令">其他命令</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">regedit                         打开注册表编辑器</span><br><span class="line">msinfo32                        打开系统信息</span><br><span class="line">perfmon                         打开性能监视器</span><br><span class="line">taskmgr                         打开任务管理器</span><br><span class="line">secpol.msc                      打开本地安全策略（仅限专业版及以上）</span><br><span class="line">wscui.cpl                       打开 Windows 安全中心</span><br></pre></td></tr></table></figure><h2 id="总结">总结</h2><p>上面总结的命令可能不全面，但是基本可以满足日常的使用，如有命令有误或其他更多命令，欢迎补充和指正！</p>]]></content>
+    
+    
+    <summary type="html">整理一下常用的Windows命令</summary>
+    
+    
+    
+    <category term="教程" scheme="https://www.aimiliy.top/categories/%E6%95%99%E7%A8%8B/"/>
+    
+    
+    <category term="cmd" scheme="https://www.aimiliy.top/tags/cmd/"/>
+    
+    <category term="Windows" scheme="https://www.aimiliy.top/tags/Windows/"/>
+    
+  </entry>
   
   <entry>
     <title>SQL问题记录</title>
@@ -442,29 +465,6 @@
     <category term="MySQL" scheme="https://www.aimiliy.top/tags/MySQL/"/>
     
     <category term="Windows" scheme="https://www.aimiliy.top/tags/Windows/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>黑神话悟空</title>
-    <link href="https://www.aimiliy.top/posts/a639fb3.html"/>
-    <id>https://www.aimiliy.top/posts/a639fb3.html</id>
-    <published>2024-07-31T06:54:51.000Z</published>
-    <updated>2024-11-19T11:19:43.431Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="黑神话悟空即将发售">黑神话悟空即将发售</h2><p>今天是2024年7月31号，距离黑神话发售仅仅只有三周了。但我想说的是，都快发售了啊😣！游科你倒是发视频啊！真是急死我了😫！<br>贴吧里面真是乌烟瘴气，啥货色都有，气死俺了。游科你一定要争点气啊！8.20一定要狠狠打一下那些臭**的脸。<br><img src="https://qiniu.aimiliy.top/globalResource/blackMythWukong.webp" alt=""></p>]]></content>
-    
-    
-    <summary type="html">黑神话悟空即将发售</summary>
-    
-    
-    
-    <category term="游戏" scheme="https://www.aimiliy.top/categories/%E6%B8%B8%E6%88%8F/"/>
-    
-    
-    <category term="ARPG" scheme="https://www.aimiliy.top/tags/ARPG/"/>
-    
-    <category term="黑神话悟空" scheme="https://www.aimiliy.top/tags/%E9%BB%91%E7%A5%9E%E8%AF%9D%E6%82%9F%E7%A9%BA/"/>
     
   </entry>
   
