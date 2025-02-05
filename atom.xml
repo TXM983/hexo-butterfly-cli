@@ -6,7 +6,7 @@
   <link href="https://www.aimiliy.top/atom.xml" rel="self"/>
   
   <link href="https://www.aimiliy.top/"/>
-  <updated>2025-01-19T07:58:15.359Z</updated>
+  <updated>2025-02-05T10:49:24.181Z</updated>
   <id>https://www.aimiliy.top/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>2025新年快乐</title>
+    <link href="https://www.aimiliy.top/posts/560355a5.html"/>
+    <id>https://www.aimiliy.top/posts/560355a5.html</id>
+    <published>2025-01-28T15:59:59.000Z</published>
+    <updated>2025-02-05T10:49:24.181Z</updated>
+    
+    <content type="html"><![CDATA[<h1>🎉 2025 新年快乐！</h1><p><strong>衷心祝愿您：</strong></p><ul><li>🌟 所行皆坦途，所求皆如愿</li><li>💪 健康常相伴，事业节节高</li><li>🏮 家人共团圆，灯火可亲暖</li><li>🎁 快乐不打烊，惊喜常相随</li><li>🚀 旧愿皆已偿，新梦正启航</li><li>✨ 岁月赠欢愉，前路皆明朗</li></ul><p>2025，愿新年胜旧年，朝朝暮暮伴平安！🎊</p>]]></content>
+    
+    
+    <summary type="html">祝大家2025新年快乐！</summary>
+    
+    
+    
+    <category term="生活" scheme="https://www.aimiliy.top/categories/%E7%94%9F%E6%B4%BB/"/>
+    
+    
+    <category term="新年" scheme="https://www.aimiliy.top/tags/%E6%96%B0%E5%B9%B4/"/>
+    
+    <category term="2025" scheme="https://www.aimiliy.top/tags/2025/"/>
+    
+  </entry>
   
   <entry>
     <title>Windows系统常用的命令</title>
@@ -178,7 +201,7 @@
     <link href="https://www.aimiliy.top/posts/ecd77df4.html"/>
     <id>https://www.aimiliy.top/posts/ecd77df4.html</id>
     <published>2024-10-08T06:48:24.000Z</published>
-    <updated>2024-11-19T11:19:43.434Z</updated>
+    <updated>2025-02-05T10:49:24.181Z</updated>
     
     <content type="html"><![CDATA[<h2 id="前言">前言</h2><p>国庆假期刚结束，终于有时间更新一下了。最近突然发现MetingJs音乐播放器插件不能获取网易云的音乐，F12一打开就满屏红字报错。抱着试一试的心态，我在本地用 <code>ping</code> 测了一下获取音乐信息的 API，果不其然，请求超时了。<br><img src="https://cdn.aimiliy.top/backImg/img.webp" alt="img.png"><br>看来是没办法了，只能去 GitHub 上翻一下 MetingJs 的源码。仔细检查后发现，这个音乐播放器插件其实是前端 Node 组件和后端 API 组成的。既然有 API，那就意味着可以自己搭建后端服务。问题是，原作者的后端 API 是用 PHP 写的，对我这个没学过 PHP 的人来说有点麻烦啊。</p><p>不过幸好，有大佬用 JavaScript 重写了一版后端，项目地址：<a href="https://github.com/xizeyoupan/Meting-API">https://github.com/xizeyoupan/Meting-API</a>。这下不用折腾 PHP，终于可以放心大胆地用 JS 来搞定。</p><h2 id="折腾">折腾</h2><h3 id="启动">启动</h3><p>这个项目需要 Node.js 版本 18 以上，代码下载好后，有两种方式来启动项目：</p><p>1）<strong>第一种方式</strong>：把代码下载到服务器，然后直接用 <code>npm run start:node</code> 启动。默认的端口号在 <code>../src/config.js</code> 文件里可以自行修改。</p><p>2）<strong>第二种方式</strong>：使用 Deno（Deno 是 JavaScript 和 TypeScript 的运行时环境，感兴趣的朋友可以自行了解）。在 Linux 上安装 Deno 很简单，运行以下命令即可：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -fsSL https://deno.land/x/install/install.sh | sh</span><br></pre></td></tr></table></figure><p>安装好之后，可以查看 Deno 版本：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">deno -v</span><br></pre></td></tr></table></figure><p>查看使用方法</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">deno --help</span><br></pre></td></tr></table></figure><p>Deno安装位置：/root/.deno<br><img src="https://cdn.aimiliy.top/backImg/img_1.webp" alt="img_1.png"><br>安装完 Deno 后，咱们需要把原始项目打包，使用以下命令打包：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm run build:all</span><br></pre></td></tr></table></figure><p>打包完成后，会生成一个 deno.js 文件，路径是 …/src/dist/deno.js，接着运行以下命令启动：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm run start:deno</span><br></pre></td></tr></table></figure><p>个人比较推荐第二种方式，易于管理，另外这些命令可以在 package.json 里自行调整。</p><h3 id="代理">代理</h3><p>在用 Nginx 代理这个服务的时候，需要设置 X-Forwarded-Host 请求头。注意在 X-Forwarded-Host 后面加上 location 的转发路由，如下示例：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">server &#123;</span><br><span class="line">   listen       8099;</span><br><span class="line">   server_name  localhost;</span><br><span class="line"></span><br><span class="line">   location /music/ &#123;</span><br><span class="line">      proxy_pass http://localhost:3010/;</span><br><span class="line">      proxy_set_header X-Forwarded-Host $scheme://$host:$server_port/music;</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>如果你用的是 HTTPS 协议，可以把 X-Forwarded-Host 里的 $server_port 省略掉：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">server &#123;</span><br><span class="line">   listen       443 ssl;</span><br><span class="line">   server_name  xxx.com;</span><br><span class="line">   ......此处省略</span><br><span class="line"></span><br><span class="line">   location /music/ &#123;</span><br><span class="line">      proxy_pass http://localhost:3010/;</span><br><span class="line">      proxy_set_header X-Forwarded-Host $scheme://$host/music;</span><br><span class="line">   &#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure><h3 id="测试">测试</h3><p>当项目启动成功、Nginx 代理配置好后，访问你配置的域名或者链接地址，应该能看到如下页面：<br><img src="https://cdn.aimiliy.top/backImg/img-1.webp" alt="img-1.png"><br>访问测试地址，如出现以下页面并且歌曲加载正常，就说明部署成功了。<br><img src="https://cdn.aimiliy.top/backImg/img_3.webp" alt="img_3.png"></p><h3 id="配置">配置</h3><p>最后，在你需要展示音乐播放器的地方，插入以下代码：</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">    <span class="keyword">var</span> meting_api=<span class="string">&#x27;&#123;Nginx代理链接或者域名&#125;/api?server=:server&amp;type=:type&amp;id=:id&amp;auth=:auth&amp;r=:r&#x27;</span>;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure><p><img src="https://cdn.aimiliy.top/backImg/img_5.webp" alt="img_5.png"><br>注意：原始项目作者同时更换了Meting.min.js插件，本次教程仅仅替换了Meting.min.js调用的后端API，正常来说无需替换插件，请根据具体情况调整。</p><h2 id="结语">结语</h2><p>总的来说，整个过程不算复杂，但一些细节还是要留心处理。好了，折腾到这儿，咱们下次见！<br><img src="https://cdn.aimiliy.top/GenshinImpactExpression/exp1/35.png" alt="35.png"></p>]]></content>
     
@@ -199,7 +222,7 @@
     <link href="https://www.aimiliy.top/posts/2cba4350.html"/>
     <id>https://www.aimiliy.top/posts/2cba4350.html</id>
     <published>2024-09-24T07:35:10.000Z</published>
-    <updated>2024-11-19T11:19:43.434Z</updated>
+    <updated>2025-02-05T10:49:24.181Z</updated>
     
     <content type="html"><![CDATA[<h2 id="前言">前言</h2><p>最近我发现博客上的朋友圈服务挂了，折腾了半天也没搞清楚什么问题，一直返回{“detail”: “not found”}，重启服务器上的Friend-circle服务也没用，还是老样子。日志里找不到任何错误信息，于是我决定换个其他的Friend-circle服务。最终我在GitHub上找到了LiuShen作者的Friend-Circle-Lite项目。这款项目相较于我之前用的，轻量化程度高，占用资源少，部署也非常简单。不过这篇文章主要想介绍的是这个项目中用到的CronTab工具，其他部署的内容就不展开了，有兴趣的话可以去GitHub了解更多，链接在这：<a href="https://github.com/willow-god/Friend-Circle-Lite">https://github.com/willow-god/Friend-Circle-Lite</a></p><h2 id="1、CronTab">1、CronTab</h2><p>在原始项目中，作者使用的是宝塔面板，可以手动添加任务，但我这次在阿里云的ECS上，只能用命令行来操作。</p><h3 id="1-1、服务基本用法">1.1、服务基本用法</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">service crond start    //启动服务</span><br><span class="line">service crond stop     //关闭服务</span><br><span class="line">service crond restart  //重启服务</span><br><span class="line">service crond reload   //重新载入配置</span><br><span class="line">service crond status   //查看服务状态</span><br></pre></td></tr></table></figure><p><img src="https://cdn.aimiliy.top/articlePic/17271645247473.webp" alt="image1"></p><h3 id="1-2、CronTab基本语法">1.2、CronTab基本语法</h3><p><strong>crontab [option] [parameter]</strong></p><p>option：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">-e：编辑该用户的计时器设置；</span><br><span class="line">-l：列出该用户的计时器设置；</span><br><span class="line">-r：删除该用户的计时器设置；</span><br><span class="line">-u&lt;用户名称&gt;：指定要设定计时器的用户名称。</span><br></pre></td></tr></table></figure><h3 id="1-3、CornTab添加定时任务">1.3、CornTab添加定时任务</h3><p>1）列出已有定时任务</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">crontab -l</span><br></pre></td></tr></table></figure><p>这个命令会列出当前用户的所有定时任务，如果没有任务就会显示为空。<br><img src="https://cdn.aimiliy.top/articlePic/17271653145076.webp" alt="image2"></p><p>2）编辑CronTab</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">crontab -e </span><br></pre></td></tr></table></figure><p>这个命令会打开当前用户的CronTab文件，我们可以在里面添加、修改或删除定时任务。定时任务的格式为：Cron表达式 + 命令/执行脚本<br><img src="https://cdn.aimiliy.top/articlePic/17271657011027.webp" alt="image3"></p><p>3）删除CronTab</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">crontab -r</span><br></pre></td></tr></table></figure><p>使用该命令会将当前用户下的所有定时任务彻底删除，所以还请谨慎使用！</p><h3 id="1-4、CronTab的日志调试">1.4、CronTab的日志调试</h3><p>添加定时任务后，我们可能想知道它的执行情况，这时候就需要查看CronTab的日志了。一般来说，日志的路径是：<strong>/var/log/cron</strong><br><img src="https://cdn.aimiliy.top/articlePic/17271664257385.webp" alt="image4"><br>从图中可以看到定时任务的执行时间和脚本，这样我们就能验证它是否生效。</p><h2 id="结语">结语</h2><p>在Linux系统中，crontab是一个非常方便的工具，可以减少很多手动操作，提高工作效率。不过使用时也得小心，避免占用过多的服务器资源，影响其他服务的运行。</p>]]></content>
     
@@ -442,29 +465,6 @@
     <category term="ARPG" scheme="https://www.aimiliy.top/tags/ARPG/"/>
     
     <category term="黑神话悟空" scheme="https://www.aimiliy.top/tags/%E9%BB%91%E7%A5%9E%E8%AF%9D%E6%82%9F%E7%A9%BA/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Window下MySQL免安装版本的卸载</title>
-    <link href="https://www.aimiliy.top/posts/9509fa6a.html"/>
-    <id>https://www.aimiliy.top/posts/9509fa6a.html</id>
-    <published>2024-08-06T02:10:01.000Z</published>
-    <updated>2024-11-19T11:19:43.431Z</updated>
-    
-    <content type="html"><![CDATA[<h1>前言</h1><p>之前为了本地测试一个功能，我装了个免安装版的 MySQL，结果后来忘了卸载。今天用 SSH 通道把远程 MySQL 映射到本地 3306 端口时，系统提示端口被占用，我才想起来本机上还有个 MySQL 的“遗留项目”。不过问题是，我一时半会儿忘了怎么卸载它了。所以呢，下面就简单记录下整个卸载的过程，方便以后再遇到类似情况可以快速搞定。</p><h1>过程</h1><h2 id="停止MySQL的服务">停止MySQL的服务</h2><p>1、第一步以<strong>管理员</strong>的身份打开cmd窗口，然后cd到MySQL的安装目录的bin目录<br><img src="https://qiniu.aimiliy.top/globalResource/17229112788064.png" alt=""></p><p>2、运行以下命令停止MySQL服务</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">net stop mysql</span><br></pre></td></tr></table></figure><h2 id="删除MySQL的注册表">删除MySQL的注册表</h2><p>1、打开注册表：键盘安装Win+R，输入regedit<br><img src="https://qiniu.aimiliy.top/globalResource/17229115028066.png" alt=""></p><p>2、进入MySQL服务的目录下方删除<strong>EventMessageFile</strong>和<strong>TypesSupported</strong></p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">计算机\HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Services\EventLog\Application\MySQLD Service</span><br></pre></td></tr></table></figure><p><img src="https://qiniu.aimiliy.top/globalResource/17229116366024.png" alt=""></p><h2 id="移除MySQL服务">移除MySQL服务</h2><p>1、第一步以<strong>管理员</strong>的身份打开cmd窗口，然后cd到MySQL的安装目录的bin目录<br><img src="https://qiniu.aimiliy.top/globalResource/17229112788064.png" alt=""></p><p>2、运行以下命令移除服务</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysqld -remove mysql</span><br></pre></td></tr></table></figure><p>3、删除MySQL文件</p>]]></content>
-    
-    
-    <summary type="html">本文主要是记录Window下MySQL免安装版本的卸载过程</summary>
-    
-    
-    
-    <category term="技术" scheme="https://www.aimiliy.top/categories/%E6%8A%80%E6%9C%AF/"/>
-    
-    
-    <category term="MySQL" scheme="https://www.aimiliy.top/tags/MySQL/"/>
-    
-    <category term="Windows" scheme="https://www.aimiliy.top/tags/Windows/"/>
     
   </entry>
   
