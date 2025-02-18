@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>十年之约</title>
+      <link href="/posts/541b4eaa.html"/>
+      <url>/posts/541b4eaa.html</url>
+      
+        <content type="html"><![CDATA[<h2 id="前言">前言</h2><p>就在不久前，我提交多次的“十年之约”申请突然通过了，感概良多！遥想当初第一次接触到博客是在2020年左右。当时，我偶然发现了博客圈子的存在，也第一次接触到了 <code>Hexo</code>。至于为什么会有想要建设自己博客的念头，可能是出于跟风，也许是受到某种触动。不过，碍于当时个人技术能力有限，再加上三分钟热度，虽然在博客搭建过程中投入了不少精力，但折腾了半天也是白费功夫，最后也是不了了之。<br><img src="https://cdn.aimiliy.top/background/shinianzhiyue1.webp" alt="shinianzhiyue1"></p><h2 id="Aurora">Aurora</h2><p>直到2022年，我在浏览 <code>GitHub</code> 网站时，偶然发现了一个名为<code>Aurora</code>的博客项目。这个项目基于 <code>SpringBoot</code> 和 <code>Vue</code> 实现了前后端分离，整体页面设计非常符合我的审美，功能也很丰富。仔细查看了项目介绍和截图后，我被其独特的风格深深吸引，瞬间就再次产生了建设自己博客的想法。既然有了想法，接下来就需要付诸实践。<br><img src="https://cdn.aimiliy.top/background/shinianzhiyue2.webp" alt="shinianzhiyue2"><br>为此，我在阿里云购买了人生第一台服务器，一台配置为2核4GB内存、99元/年的服务器。在部署的过程中，由于项目的后端基于 <code>SpringBoot</code> 框架，使用了包括 <code>Elasticsearch</code>、<code>Minio</code>、<code>RabbitMq</code>、<code>Redis</code> 等多个中间件，再加上当时我并不熟悉使用 <code>Docker</code> 来搭建环境，因此在服务器上配置和安装这些所需的中间件和环境时，经历了不少折腾。经过一番努力，最终成功部署了项目，并启动了我的第一个博客。<br>然而，由于当时没有购买域名，我只能通过 <code>IP</code> 地址加端口的形式访问博客，虽然不太方便，但那一刻已经足够满足我的成就感。直到后来，我发现这个项目的前端样式源自 <code>Hexo</code> 的 <code>Aurora</code> 主题，当时我也是很佩服该项目作者使用vue3重写了该主题的前端。</p><h2 id="Hexo-butterfly">Hexo-butterfly</h2><p>自那以后，我依然在使用这个主题，也从未考虑过购买域名，所以我一直通过开放服务器端口的方式对外提供访问。然而，在那个时候由于我的疏忽，我忘记了关闭服务器 <code>3306</code> 端口的对外访问权限，结果为此付出了惨痛的代价。2023年的某一天，我像往常一样打开博客，突然发现页面一片空白，心里顿时一紧。我赶紧打开控制台查看接口，结果报错满屏，毫无意外，所有的接口都失败了。随即，我检查了后端日志，错误信息基本全部都是&quot;xxxxx table not exist&quot;。我急忙登录数据库，结果眼前的一幕让我彻底傻了眼：所有的表都消失了，只有一个名为“Send_an_email_to_this_address”的表存在。点开这个表后，我发现其中只有一个第三方链接，内容是要求我支付 0.18 BTC 才能找回数据。<br><img src="https://cdn.aimiliy.top/background/shinianzhiyue3.webp" alt="shinianzhiyue2"><br>那时，我才意识到数据库已经被黑了。后来我尝试通过 <code>bin-log</code> 中的时间节点回溯数据，希望能找回丢失的部分，但发现 <code>root</code> 用户的权限被刷了，无法执行任何SQL语句。由于没有备份数据，再加上当时的情况，所以我决定重新开始。于是，我重置了服务器系统，购买了域名，并完成了备案。在主题选择上，最终我选择了 <code>Hexo-Butterfly 主题</code>，并在搭建过程中不断借鉴其他博主的优秀案例，也学习了他们的设计和技术实现，反复调整、优化，经过无数次的“缝缝补补”，才有了今天的模样。尽管这一路走来不乏麻烦和挑战，但也让我收获了宝贵的经验和成长。</p><h2 id="总结">总结</h2><p>其实，我个人并不擅长表达，尤其是每次写博客时，才深刻体会到“书到用时方恨少”的感受。每次坐下来写博客时，我才意识到自己在表达方面的局限。我也写不出那些长篇大论或者洋洋洒洒的内容，我所写的，更多的是我自己的所见所想。至于技术方面，我知道网上有无数大佬已经写了很多深度文章，我做的，只是将这些内容以我自己能理解的方式整理并分享出来。<br>从最初创建博客，到如今坚持了已经一年半，所谓的“十年之约”，对我来说，不仅是时间的见证，更是对初心的坚守。这个过程充满了挑战，但每一步都让我感受到成长和进步，正如这份约定，见证着我的每一份努力与坚持。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 生活 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 十年之约 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>在Centos上通过Docker安装Ubuntu桌面环境-LXDE+VNC</title>
       <link href="/posts/cb318de.html"/>
       <url>/posts/cb318de.html</url>
