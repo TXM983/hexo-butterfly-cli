@@ -182,7 +182,7 @@
   </url>
   
   <url>
-    <loc>https://www.aimiliy.top/box/gallery/photo/index.html</loc>
+    <loc>https://www.aimiliy.top/box/gallery/wallpaper/index.html</loc>
     
     <lastmod>2025-02-07</lastmod>
     
@@ -191,7 +191,7 @@
   </url>
   
   <url>
-    <loc>https://www.aimiliy.top/box/gallery/wallpaper/index.html</loc>
+    <loc>https://www.aimiliy.top/box/gallery/photo/index.html</loc>
     
     <lastmod>2025-02-07</lastmod>
     
@@ -822,13 +822,6 @@
   </url>
   
   <url>
-    <loc>https://www.aimiliy.top/categories/%E6%B8%B8%E6%88%8F/</loc>
-    <lastmod>2025-02-19</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://www.aimiliy.top/categories/%E6%95%99%E7%A8%8B/</loc>
     <lastmod>2025-02-19</lastmod>
     <changefreq>weekly</changefreq>
@@ -836,7 +829,7 @@
   </url>
   
   <url>
-    <loc>https://www.aimiliy.top/categories/%E8%B5%84%E6%BA%90/</loc>
+    <loc>https://www.aimiliy.top/categories/%E6%B8%B8%E6%88%8F/</loc>
     <lastmod>2025-02-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -844,6 +837,13 @@
   
   <url>
     <loc>https://www.aimiliy.top/categories/%E7%94%9F%E6%B4%BB/</loc>
+    <lastmod>2025-02-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.aimiliy.top/categories/%E8%B5%84%E6%BA%90/</loc>
     <lastmod>2025-02-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
