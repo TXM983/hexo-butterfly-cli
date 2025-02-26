@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>MuXiaoChen🍊</title>
-  
+  <icon>https://www.gravatar.com/avatar/cf124b24df24085836ad0dbc3b1a66b9</icon>
   
   <link href="https://www.aimiliy.top/atom.xml" rel="self"/>
   
@@ -11,7 +11,7 @@
   
   <author>
     <name>MuXiaoChen🍊</name>
-    
+    <email>1554267532@qq.com</email>
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
