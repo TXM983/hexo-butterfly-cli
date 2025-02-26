@@ -1,0 +1,12 @@
+User-agent: *
+Disallow: /config
+Disallow: /js
+Disallow: /css
+Disallow: /lib
+Disallow: /flink_count.json
+Disallow: /cacheList.json
+Disallow: /update.json
+Disallow: /sw.js
+Disallow: /sw-dom.js
+
+Sitemap: https://www.aimiliy.top/sitemap.xml
