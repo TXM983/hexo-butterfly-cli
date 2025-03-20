@@ -1,1 +1,0 @@
-(()=>{"use strict";const e=new Swiper(".blog-slider",{passiveListeners:!0,spaceBetween:30,effect:"fade",loop:!0,autoplay:{disableOnInteraction:!0,delay:3e3},mousewheel:!0,pagination:{el:".blog-slider__pagination",clickable:!0}}),n=document.getElementById("swiper_container");null!==n&&(n.onmouseenter=function(){e.autoplay.stop()},n.onmouseleave=function(){e.autoplay.start()})})();
