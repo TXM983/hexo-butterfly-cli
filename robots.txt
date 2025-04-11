@@ -8,5 +8,8 @@ Disallow: /cacheList.json
 Disallow: /update.json
 Disallow: /sw.js
 Disallow: /sw-dom.js
+Disallow: /tags
+Disallow: /categories
+Disallow: /archives
 
 Sitemap: https://www.aimiliy.top/sitemap.xml
