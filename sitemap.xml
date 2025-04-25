@@ -110,7 +110,7 @@
   </url>
   
   <url>
-    <loc>https://www.aimiliy.top/personal/bb/index.html</loc>
+    <loc>https://www.aimiliy.top/personal/about/index.html</loc>
     
     <lastmod>2025-03-14</lastmod>
     
@@ -119,7 +119,7 @@
   </url>
   
   <url>
-    <loc>https://www.aimiliy.top/personal/about/index.html</loc>
+    <loc>https://www.aimiliy.top/personal/bb/index.html</loc>
     
     <lastmod>2025-03-14</lastmod>
     
@@ -209,7 +209,7 @@
   </url>
   
   <url>
-    <loc>https://www.aimiliy.top/posts/2cba4350.html</loc>
+    <loc>https://www.aimiliy.top/posts/ecd77df4.html</loc>
     
     <lastmod>2025-03-07</lastmod>
     
@@ -218,7 +218,7 @@
   </url>
   
   <url>
-    <loc>https://www.aimiliy.top/posts/ecd77df4.html</loc>
+    <loc>https://www.aimiliy.top/posts/2cba4350.html</loc>
     
     <lastmod>2025-03-07</lastmod>
     
@@ -272,7 +272,7 @@
   </url>
   
   <url>
-    <loc>https://www.aimiliy.top/posts/699ac122.html</loc>
+    <loc>https://www.aimiliy.top/posts/be304d8c.html</loc>
     
     <lastmod>2025-03-07</lastmod>
     
@@ -281,7 +281,7 @@
   </url>
   
   <url>
-    <loc>https://www.aimiliy.top/posts/be304d8c.html</loc>
+    <loc>https://www.aimiliy.top/posts/699ac122.html</loc>
     
     <lastmod>2025-03-07</lastmod>
     
@@ -425,7 +425,7 @@
   </url>
   
   <url>
-    <loc>https://www.aimiliy.top/box/gallery/photo/index.html</loc>
+    <loc>https://www.aimiliy.top/box/gallery/wallpaper/index.html</loc>
     
     <lastmod>2025-02-07</lastmod>
     
@@ -434,7 +434,7 @@
   </url>
   
   <url>
-    <loc>https://www.aimiliy.top/box/gallery/wallpaper/index.html</loc>
+    <loc>https://www.aimiliy.top/box/gallery/photo/index.html</loc>
     
     <lastmod>2025-02-07</lastmod>
     
@@ -497,20 +497,6 @@
 
   
   <url>
-    <loc>https://www.aimiliy.top/tags/Nginx/</loc>
-    <lastmod>2025-04-25</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.aimiliy.top/tags/MySQL/</loc>
-    <lastmod>2025-04-25</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://www.aimiliy.top/tags/Markdown/</loc>
     <lastmod>2025-04-25</lastmod>
     <changefreq>weekly</changefreq>
@@ -525,28 +511,21 @@
   </url>
   
   <url>
+    <loc>https://www.aimiliy.top/tags/Nginx/</loc>
+    <lastmod>2025-04-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.aimiliy.top/tags/MySQL/</loc>
+    <lastmod>2025-04-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://www.aimiliy.top/tags/Linux/</loc>
-    <lastmod>2025-04-25</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.aimiliy.top/tags/Pytorch/</loc>
-    <lastmod>2025-04-25</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.aimiliy.top/tags/Machine-Learning/</loc>
-    <lastmod>2025-04-25</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.aimiliy.top/tags/Deep-Learning/</loc>
     <lastmod>2025-04-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -568,6 +547,27 @@
   
   <url>
     <loc>https://www.aimiliy.top/tags/DLC/</loc>
+    <lastmod>2025-04-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.aimiliy.top/tags/Pytorch/</loc>
+    <lastmod>2025-04-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.aimiliy.top/tags/Machine-Learning/</loc>
+    <lastmod>2025-04-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.aimiliy.top/tags/Deep-Learning/</loc>
     <lastmod>2025-04-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -609,27 +609,6 @@
   </url>
   
   <url>
-    <loc>https://www.aimiliy.top/tags/%E7%BB%9D%E5%8C%BA%E9%9B%B6/</loc>
-    <lastmod>2025-04-25</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.aimiliy.top/tags/%E4%BA%8C%E6%AC%A1%E5%85%83/</loc>
-    <lastmod>2025-04-25</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.aimiliy.top/tags/Alibaba-Cloud-Linux/</loc>
-    <lastmod>2025-04-25</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://www.aimiliy.top/tags/NatApp/</loc>
     <lastmod>2025-04-25</lastmod>
     <changefreq>weekly</changefreq>
@@ -652,6 +631,27 @@
   
   <url>
     <loc>https://www.aimiliy.top/tags/%E7%B2%BE%E7%A5%9E%E5%86%85%E8%80%97/</loc>
+    <lastmod>2025-04-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.aimiliy.top/tags/Alibaba-Cloud-Linux/</loc>
+    <lastmod>2025-04-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.aimiliy.top/tags/%E7%BB%9D%E5%8C%BA%E9%9B%B6/</loc>
+    <lastmod>2025-04-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.aimiliy.top/tags/%E4%BA%8C%E6%AC%A1%E5%85%83/</loc>
     <lastmod>2025-04-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -707,6 +707,13 @@
   </url>
   
   <url>
+    <loc>https://www.aimiliy.top/tags/MetingJs/</loc>
+    <lastmod>2025-04-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://www.aimiliy.top/tags/CronTab/</loc>
     <lastmod>2025-04-25</lastmod>
     <changefreq>weekly</changefreq>
@@ -714,7 +721,7 @@
   </url>
   
   <url>
-    <loc>https://www.aimiliy.top/tags/MetingJs/</loc>
+    <loc>https://www.aimiliy.top/tags/%E7%BE%8E%E5%8C%96/</loc>
     <lastmod>2025-04-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -735,13 +742,6 @@
   </url>
   
   <url>
-    <loc>https://www.aimiliy.top/tags/%E7%BE%8E%E5%8C%96/</loc>
-    <lastmod>2025-04-25</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://www.aimiliy.top/tags/%E9%9B%AA%E8%8A%B1%E5%8A%A8%E7%94%BB/</loc>
     <lastmod>2025-04-25</lastmod>
     <changefreq>weekly</changefreq>
@@ -756,14 +756,21 @@
   </url>
   
   <url>
-    <loc>https://www.aimiliy.top/tags/MariaDB/</loc>
+    <loc>https://www.aimiliy.top/tags/cmd/</loc>
     <lastmod>2025-04-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://www.aimiliy.top/tags/cmd/</loc>
+    <loc>https://www.aimiliy.top/tags/%E5%87%BA%E5%B7%AE/</loc>
+    <lastmod>2025-04-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.aimiliy.top/tags/MariaDB/</loc>
     <lastmod>2025-04-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -778,13 +785,6 @@
   
   <url>
     <loc>https://www.aimiliy.top/tags/2025/</loc>
-    <lastmod>2025-04-25</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.aimiliy.top/tags/%E5%87%BA%E5%B7%AE/</loc>
     <lastmod>2025-04-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -826,14 +826,7 @@
   </url>
   
   <url>
-    <loc>https://www.aimiliy.top/tags/%E5%82%85%E9%87%8C%E5%8F%B6%E5%8F%98%E6%8D%A2/</loc>
-    <lastmod>2025-04-25</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.aimiliy.top/tags/APlayer/</loc>
+    <loc>https://www.aimiliy.top/tags/%E5%8D%81%E5%B9%B4%E4%B9%8B%E7%BA%A6/</loc>
     <lastmod>2025-04-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -875,20 +868,20 @@
   </url>
   
   <url>
-    <loc>https://www.aimiliy.top/tags/%E5%8D%81%E5%B9%B4%E4%B9%8B%E7%BA%A6/</loc>
+    <loc>https://www.aimiliy.top/tags/%E5%82%85%E9%87%8C%E5%8F%B6%E5%8F%98%E6%8D%A2/</loc>
+    <lastmod>2025-04-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.aimiliy.top/tags/APlayer/</loc>
     <lastmod>2025-04-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
 
-  
-  <url>
-    <loc>https://www.aimiliy.top/categories/%E6%8A%80%E6%9C%AF/</loc>
-    <lastmod>2025-04-25</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
   
   <url>
     <loc>https://www.aimiliy.top/categories/%E6%BC%94%E7%A4%BA/</loc>
@@ -898,7 +891,7 @@
   </url>
   
   <url>
-    <loc>https://www.aimiliy.top/categories/%E6%95%99%E7%A8%8B/</loc>
+    <loc>https://www.aimiliy.top/categories/%E6%8A%80%E6%9C%AF/</loc>
     <lastmod>2025-04-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -906,6 +899,13 @@
   
   <url>
     <loc>https://www.aimiliy.top/categories/%E6%B8%B8%E6%88%8F/</loc>
+    <lastmod>2025-04-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.aimiliy.top/categories/%E6%95%99%E7%A8%8B/</loc>
     <lastmod>2025-04-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
