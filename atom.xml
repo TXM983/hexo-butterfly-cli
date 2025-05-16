@@ -3,11 +3,11 @@
   <title>MuXiaoChen🍊</title>
   <icon>https://www.gravatar.com/avatar/cf124b24df24085836ad0dbc3b1a66b9</icon>
   
-  <link href="https://www.aimiliy.top/atom.xml" rel="self"/>
+  <link href="https://miraii.cn/atom.xml" rel="self"/>
   
-  <link href="https://www.aimiliy.top/"/>
+  <link href="https://miraii.cn/"/>
   <updated>2025-04-28T09:06:12.733Z</updated>
-  <id>https://www.aimiliy.top/</id>
+  <id>https://miraii.cn/</id>
   
   <author>
     <name>MuXiaoChen🍊</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>毕业两年，我的生活节奏有点平淡</title>
-    <link href="https://www.aimiliy.top/posts/a819b220.html"/>
-    <id>https://www.aimiliy.top/posts/a819b220.html</id>
+    <link href="https://miraii.cn/posts/a819b220.html"/>
+    <id>https://miraii.cn/posts/a819b220.html</id>
     <published>2025-04-16T09:34:34.000Z</published>
     <updated>2025-04-28T09:06:12.733Z</updated>
     
@@ -30,19 +30,19 @@
     
     
     
-    <category term="日常" scheme="https://www.aimiliy.top/categories/%E6%97%A5%E5%B8%B8/"/>
+    <category term="日常" scheme="https://miraii.cn/categories/%E6%97%A5%E5%B8%B8/"/>
     
     
-    <category term="生活" scheme="https://www.aimiliy.top/tags/%E7%94%9F%E6%B4%BB/"/>
+    <category term="生活" scheme="https://miraii.cn/tags/%E7%94%9F%E6%B4%BB/"/>
     
-    <category term="工作" scheme="https://www.aimiliy.top/tags/%E5%B7%A5%E4%BD%9C/"/>
+    <category term="工作" scheme="https://miraii.cn/tags/%E5%B7%A5%E4%BD%9C/"/>
     
   </entry>
   
   <entry>
     <title>wallpaper-api：基于Golang+Redis的随机壁纸API</title>
-    <link href="https://www.aimiliy.top/posts/6cb3b82d.html"/>
-    <id>https://www.aimiliy.top/posts/6cb3b82d.html</id>
+    <link href="https://miraii.cn/posts/6cb3b82d.html"/>
+    <id>https://miraii.cn/posts/6cb3b82d.html</id>
     <published>2025-03-27T06:34:15.000Z</published>
     <updated>2025-04-28T09:06:12.733Z</updated>
     
@@ -53,21 +53,21 @@
     
     
     
-    <category term="技术" scheme="https://www.aimiliy.top/categories/%E6%8A%80%E6%9C%AF/"/>
+    <category term="技术" scheme="https://miraii.cn/categories/%E6%8A%80%E6%9C%AF/"/>
     
     
-    <category term="Golang" scheme="https://www.aimiliy.top/tags/Golang/"/>
+    <category term="Golang" scheme="https://miraii.cn/tags/Golang/"/>
     
-    <category term="Redis" scheme="https://www.aimiliy.top/tags/Redis/"/>
+    <category term="Redis" scheme="https://miraii.cn/tags/Redis/"/>
     
-    <category term="随机壁纸API" scheme="https://www.aimiliy.top/tags/%E9%9A%8F%E6%9C%BA%E5%A3%81%E7%BA%B8API/"/>
+    <category term="随机壁纸API" scheme="https://miraii.cn/tags/%E9%9A%8F%E6%9C%BA%E5%A3%81%E7%BA%B8API/"/>
     
   </entry>
   
   <entry>
     <title>基于傅里叶变换实现音频可视化</title>
-    <link href="https://www.aimiliy.top/posts/3846b5c5.html"/>
-    <id>https://www.aimiliy.top/posts/3846b5c5.html</id>
+    <link href="https://miraii.cn/posts/3846b5c5.html"/>
+    <id>https://miraii.cn/posts/3846b5c5.html</id>
     <published>2025-03-04T13:22:45.000Z</published>
     <updated>2025-04-28T09:06:12.733Z</updated>
     
@@ -78,19 +78,19 @@
     
     
     
-    <category term="技术" scheme="https://www.aimiliy.top/categories/%E6%8A%80%E6%9C%AF/"/>
+    <category term="技术" scheme="https://miraii.cn/categories/%E6%8A%80%E6%9C%AF/"/>
     
     
-    <category term="傅里叶变换" scheme="https://www.aimiliy.top/tags/%E5%82%85%E9%87%8C%E5%8F%B6%E5%8F%98%E6%8D%A2/"/>
+    <category term="傅里叶变换" scheme="https://miraii.cn/tags/%E5%82%85%E9%87%8C%E5%8F%B6%E5%8F%98%E6%8D%A2/"/>
     
-    <category term="APlayer" scheme="https://www.aimiliy.top/tags/APlayer/"/>
+    <category term="APlayer" scheme="https://miraii.cn/tags/APlayer/"/>
     
   </entry>
   
   <entry>
     <title>十年之约</title>
-    <link href="https://www.aimiliy.top/posts/541b4eaa.html"/>
-    <id>https://www.aimiliy.top/posts/541b4eaa.html</id>
+    <link href="https://miraii.cn/posts/541b4eaa.html"/>
+    <id>https://miraii.cn/posts/541b4eaa.html</id>
     <published>2025-02-18T02:38:13.000Z</published>
     <updated>2025-04-28T09:06:12.732Z</updated>
     
@@ -101,17 +101,17 @@
     
     
     
-    <category term="生活" scheme="https://www.aimiliy.top/categories/%E7%94%9F%E6%B4%BB/"/>
+    <category term="生活" scheme="https://miraii.cn/categories/%E7%94%9F%E6%B4%BB/"/>
     
     
-    <category term="十年之约" scheme="https://www.aimiliy.top/tags/%E5%8D%81%E5%B9%B4%E4%B9%8B%E7%BA%A6/"/>
+    <category term="十年之约" scheme="https://miraii.cn/tags/%E5%8D%81%E5%B9%B4%E4%B9%8B%E7%BA%A6/"/>
     
   </entry>
   
   <entry>
     <title>在Centos上通过Docker安装Ubuntu桌面环境-LXDE+VNC</title>
-    <link href="https://www.aimiliy.top/posts/cb318de.html"/>
-    <id>https://www.aimiliy.top/posts/cb318de.html</id>
+    <link href="https://miraii.cn/posts/cb318de.html"/>
+    <id>https://miraii.cn/posts/cb318de.html</id>
     <published>2025-02-08T06:16:04.000Z</published>
     <updated>2025-04-28T09:06:12.731Z</updated>
     
@@ -122,25 +122,25 @@
     
     
     
-    <category term="技术" scheme="https://www.aimiliy.top/categories/%E6%8A%80%E6%9C%AF/"/>
+    <category term="技术" scheme="https://miraii.cn/categories/%E6%8A%80%E6%9C%AF/"/>
     
     
-    <category term="Centos" scheme="https://www.aimiliy.top/tags/Centos/"/>
+    <category term="Centos" scheme="https://miraii.cn/tags/Centos/"/>
     
-    <category term="Docker" scheme="https://www.aimiliy.top/tags/Docker/"/>
+    <category term="Docker" scheme="https://miraii.cn/tags/Docker/"/>
     
-    <category term="Ubuntu" scheme="https://www.aimiliy.top/tags/Ubuntu/"/>
+    <category term="Ubuntu" scheme="https://miraii.cn/tags/Ubuntu/"/>
     
-    <category term="LXDE" scheme="https://www.aimiliy.top/tags/LXDE/"/>
+    <category term="LXDE" scheme="https://miraii.cn/tags/LXDE/"/>
     
-    <category term="VNC" scheme="https://www.aimiliy.top/tags/VNC/"/>
+    <category term="VNC" scheme="https://miraii.cn/tags/VNC/"/>
     
   </entry>
   
   <entry>
     <title>2025新年快乐</title>
-    <link href="https://www.aimiliy.top/posts/560355a5.html"/>
-    <id>https://www.aimiliy.top/posts/560355a5.html</id>
+    <link href="https://miraii.cn/posts/560355a5.html"/>
+    <id>https://miraii.cn/posts/560355a5.html</id>
     <published>2025-01-28T15:59:59.000Z</published>
     <updated>2025-03-07T07:40:43.272Z</updated>
     
@@ -151,19 +151,19 @@
     
     
     
-    <category term="生活" scheme="https://www.aimiliy.top/categories/%E7%94%9F%E6%B4%BB/"/>
+    <category term="生活" scheme="https://miraii.cn/categories/%E7%94%9F%E6%B4%BB/"/>
     
     
-    <category term="新年" scheme="https://www.aimiliy.top/tags/%E6%96%B0%E5%B9%B4/"/>
+    <category term="新年" scheme="https://miraii.cn/tags/%E6%96%B0%E5%B9%B4/"/>
     
-    <category term="2025" scheme="https://www.aimiliy.top/tags/2025/"/>
+    <category term="2025" scheme="https://miraii.cn/tags/2025/"/>
     
   </entry>
   
   <entry>
     <title>Windows系统常用的命令</title>
-    <link href="https://www.aimiliy.top/posts/36cdd01e.html"/>
-    <id>https://www.aimiliy.top/posts/36cdd01e.html</id>
+    <link href="https://miraii.cn/posts/36cdd01e.html"/>
+    <id>https://miraii.cn/posts/36cdd01e.html</id>
     <published>2025-01-17T09:19:33.000Z</published>
     <updated>2025-04-18T01:29:22.118Z</updated>
     
@@ -174,19 +174,19 @@
     
     
     
-    <category term="教程" scheme="https://www.aimiliy.top/categories/%E6%95%99%E7%A8%8B/"/>
+    <category term="教程" scheme="https://miraii.cn/categories/%E6%95%99%E7%A8%8B/"/>
     
     
-    <category term="Windows" scheme="https://www.aimiliy.top/tags/Windows/"/>
+    <category term="Windows" scheme="https://miraii.cn/tags/Windows/"/>
     
-    <category term="cmd" scheme="https://www.aimiliy.top/tags/cmd/"/>
+    <category term="cmd" scheme="https://miraii.cn/tags/cmd/"/>
     
   </entry>
   
   <entry>
     <title>SQL问题记录</title>
-    <link href="https://www.aimiliy.top/posts/b30ad436.html"/>
-    <id>https://www.aimiliy.top/posts/b30ad436.html</id>
+    <link href="https://miraii.cn/posts/b30ad436.html"/>
+    <id>https://miraii.cn/posts/b30ad436.html</id>
     <published>2024-12-25T02:31:59.000Z</published>
     <updated>2025-04-18T01:29:22.117Z</updated>
     
@@ -197,19 +197,19 @@
     
     
     
-    <category term="技术" scheme="https://www.aimiliy.top/categories/%E6%8A%80%E6%9C%AF/"/>
+    <category term="技术" scheme="https://miraii.cn/categories/%E6%8A%80%E6%9C%AF/"/>
     
     
-    <category term="MySQL" scheme="https://www.aimiliy.top/tags/MySQL/"/>
+    <category term="MySQL" scheme="https://miraii.cn/tags/MySQL/"/>
     
-    <category term="MariaDB" scheme="https://www.aimiliy.top/tags/MariaDB/"/>
+    <category term="MariaDB" scheme="https://miraii.cn/tags/MariaDB/"/>
     
   </entry>
   
   <entry>
     <title>广西南宁一月游</title>
-    <link href="https://www.aimiliy.top/posts/a4f09b44.html"/>
-    <id>https://www.aimiliy.top/posts/a4f09b44.html</id>
+    <link href="https://miraii.cn/posts/a4f09b44.html"/>
+    <id>https://miraii.cn/posts/a4f09b44.html</id>
     <published>2024-12-06T08:39:26.000Z</published>
     <updated>2025-04-16T10:02:52.902Z</updated>
     
@@ -220,17 +220,17 @@
     
     
     
-    <category term="生活" scheme="https://www.aimiliy.top/categories/%E7%94%9F%E6%B4%BB/"/>
+    <category term="生活" scheme="https://miraii.cn/categories/%E7%94%9F%E6%B4%BB/"/>
     
     
-    <category term="出差" scheme="https://www.aimiliy.top/tags/%E5%87%BA%E5%B7%AE/"/>
+    <category term="出差" scheme="https://miraii.cn/tags/%E5%87%BA%E5%B7%AE/"/>
     
   </entry>
   
   <entry>
     <title>Canvas雪花动画</title>
-    <link href="https://www.aimiliy.top/posts/ba45cc7d.html"/>
-    <id>https://www.aimiliy.top/posts/ba45cc7d.html</id>
+    <link href="https://miraii.cn/posts/ba45cc7d.html"/>
+    <id>https://miraii.cn/posts/ba45cc7d.html</id>
     <published>2024-11-27T09:06:35.000Z</published>
     <updated>2025-04-16T10:02:52.902Z</updated>
     
@@ -241,21 +241,21 @@
     
     
     
-    <category term="技术" scheme="https://www.aimiliy.top/categories/%E6%8A%80%E6%9C%AF/"/>
+    <category term="技术" scheme="https://miraii.cn/categories/%E6%8A%80%E6%9C%AF/"/>
     
     
-    <category term="JS" scheme="https://www.aimiliy.top/tags/JS/"/>
+    <category term="JS" scheme="https://miraii.cn/tags/JS/"/>
     
-    <category term="雪花动画" scheme="https://www.aimiliy.top/tags/%E9%9B%AA%E8%8A%B1%E5%8A%A8%E7%94%BB/"/>
+    <category term="雪花动画" scheme="https://miraii.cn/tags/%E9%9B%AA%E8%8A%B1%E5%8A%A8%E7%94%BB/"/>
     
-    <category term="Canvas" scheme="https://www.aimiliy.top/tags/Canvas/"/>
+    <category term="Canvas" scheme="https://miraii.cn/tags/Canvas/"/>
     
   </entry>
   
   <entry>
     <title>自建不蒜子API</title>
-    <link href="https://www.aimiliy.top/posts/17f43b12.html"/>
-    <id>https://www.aimiliy.top/posts/17f43b12.html</id>
+    <link href="https://miraii.cn/posts/17f43b12.html"/>
+    <id>https://miraii.cn/posts/17f43b12.html</id>
     <published>2024-11-22T07:32:00.000Z</published>
     <updated>2025-04-16T10:02:52.901Z</updated>
     
@@ -266,19 +266,19 @@
     
     
     
-    <category term="技术" scheme="https://www.aimiliy.top/categories/%E6%8A%80%E6%9C%AF/"/>
+    <category term="技术" scheme="https://miraii.cn/categories/%E6%8A%80%E6%9C%AF/"/>
     
     
-    <category term="不蒜子" scheme="https://www.aimiliy.top/tags/%E4%B8%8D%E8%92%9C%E5%AD%90/"/>
+    <category term="不蒜子" scheme="https://miraii.cn/tags/%E4%B8%8D%E8%92%9C%E5%AD%90/"/>
     
-    <category term="统计" scheme="https://www.aimiliy.top/tags/%E7%BB%9F%E8%AE%A1/"/>
+    <category term="统计" scheme="https://miraii.cn/tags/%E7%BB%9F%E8%AE%A1/"/>
     
   </entry>
   
   <entry>
     <title>【日常分享】页面美化</title>
-    <link href="https://www.aimiliy.top/posts/3275e913.html"/>
-    <id>https://www.aimiliy.top/posts/3275e913.html</id>
+    <link href="https://miraii.cn/posts/3275e913.html"/>
+    <id>https://miraii.cn/posts/3275e913.html</id>
     <published>2024-10-29T17:09:22.000Z</published>
     <updated>2025-03-28T10:26:50.344Z</updated>
     
@@ -289,17 +289,17 @@
     
     
     
-    <category term="技术" scheme="https://www.aimiliy.top/categories/%E6%8A%80%E6%9C%AF/"/>
+    <category term="技术" scheme="https://miraii.cn/categories/%E6%8A%80%E6%9C%AF/"/>
     
     
-    <category term="美化" scheme="https://www.aimiliy.top/tags/%E7%BE%8E%E5%8C%96/"/>
+    <category term="美化" scheme="https://miraii.cn/tags/%E7%BE%8E%E5%8C%96/"/>
     
   </entry>
   
   <entry>
     <title>【关于】、【音乐盒】页面美化记录</title>
-    <link href="https://www.aimiliy.top/posts/5c19c6c5.html"/>
-    <id>https://www.aimiliy.top/posts/5c19c6c5.html</id>
+    <link href="https://miraii.cn/posts/5c19c6c5.html"/>
+    <id>https://miraii.cn/posts/5c19c6c5.html</id>
     <published>2024-10-21T02:27:20.000Z</published>
     <updated>2025-03-07T07:40:43.266Z</updated>
     
@@ -310,17 +310,17 @@
     
     
     
-    <category term="技术" scheme="https://www.aimiliy.top/categories/%E6%8A%80%E6%9C%AF/"/>
+    <category term="技术" scheme="https://miraii.cn/categories/%E6%8A%80%E6%9C%AF/"/>
     
     
-    <category term="美化" scheme="https://www.aimiliy.top/tags/%E7%BE%8E%E5%8C%96/"/>
+    <category term="美化" scheme="https://miraii.cn/tags/%E7%BE%8E%E5%8C%96/"/>
     
   </entry>
   
   <entry>
     <title>自建MetingJs后端API</title>
-    <link href="https://www.aimiliy.top/posts/ecd77df4.html"/>
-    <id>https://www.aimiliy.top/posts/ecd77df4.html</id>
+    <link href="https://miraii.cn/posts/ecd77df4.html"/>
+    <id>https://miraii.cn/posts/ecd77df4.html</id>
     <published>2024-10-08T06:48:24.000Z</published>
     <updated>2025-03-07T07:40:43.265Z</updated>
     
@@ -331,17 +331,17 @@
     
     
     
-    <category term="技术" scheme="https://www.aimiliy.top/categories/%E6%8A%80%E6%9C%AF/"/>
+    <category term="技术" scheme="https://miraii.cn/categories/%E6%8A%80%E6%9C%AF/"/>
     
     
-    <category term="MetingJs" scheme="https://www.aimiliy.top/tags/MetingJs/"/>
+    <category term="MetingJs" scheme="https://miraii.cn/tags/MetingJs/"/>
     
   </entry>
   
   <entry>
     <title>Alibaba Cloud Linux中CronTab的用法详解</title>
-    <link href="https://www.aimiliy.top/posts/2cba4350.html"/>
-    <id>https://www.aimiliy.top/posts/2cba4350.html</id>
+    <link href="https://miraii.cn/posts/2cba4350.html"/>
+    <id>https://miraii.cn/posts/2cba4350.html</id>
     <published>2024-09-24T07:35:10.000Z</published>
     <updated>2025-03-07T07:40:43.265Z</updated>
     
@@ -352,19 +352,19 @@
     
     
     
-    <category term="技术" scheme="https://www.aimiliy.top/categories/%E6%8A%80%E6%9C%AF/"/>
+    <category term="技术" scheme="https://miraii.cn/categories/%E6%8A%80%E6%9C%AF/"/>
     
     
-    <category term="Linux" scheme="https://www.aimiliy.top/tags/Linux/"/>
+    <category term="Linux" scheme="https://miraii.cn/tags/Linux/"/>
     
-    <category term="CronTab" scheme="https://www.aimiliy.top/tags/CronTab/"/>
+    <category term="CronTab" scheme="https://miraii.cn/tags/CronTab/"/>
     
   </entry>
   
   <entry>
     <title>前端性能优化：从加载速度到用户体验</title>
-    <link href="https://www.aimiliy.top/posts/f3355759.html"/>
-    <id>https://www.aimiliy.top/posts/f3355759.html</id>
+    <link href="https://miraii.cn/posts/f3355759.html"/>
+    <id>https://miraii.cn/posts/f3355759.html</id>
     <published>2024-09-19T07:04:05.000Z</published>
     <updated>2025-03-07T07:40:43.264Z</updated>
     
@@ -375,21 +375,21 @@
     
     
     
-    <category term="技术" scheme="https://www.aimiliy.top/categories/%E6%8A%80%E6%9C%AF/"/>
+    <category term="技术" scheme="https://miraii.cn/categories/%E6%8A%80%E6%9C%AF/"/>
     
     
-    <category term="CSS" scheme="https://www.aimiliy.top/tags/CSS/"/>
+    <category term="CSS" scheme="https://miraii.cn/tags/CSS/"/>
     
-    <category term="JS" scheme="https://www.aimiliy.top/tags/JS/"/>
+    <category term="JS" scheme="https://miraii.cn/tags/JS/"/>
     
-    <category term="HTML" scheme="https://www.aimiliy.top/tags/HTML/"/>
+    <category term="HTML" scheme="https://miraii.cn/tags/HTML/"/>
     
   </entry>
   
   <entry>
     <title>中秋月圆，情怀渐远</title>
-    <link href="https://www.aimiliy.top/posts/8f8dd2c9.html"/>
-    <id>https://www.aimiliy.top/posts/8f8dd2c9.html</id>
+    <link href="https://miraii.cn/posts/8f8dd2c9.html"/>
+    <id>https://miraii.cn/posts/8f8dd2c9.html</id>
     <published>2024-09-11T08:25:24.000Z</published>
     <updated>2025-03-07T07:40:43.264Z</updated>
     
@@ -400,17 +400,17 @@
     
     
     
-    <category term="生活" scheme="https://www.aimiliy.top/categories/%E7%94%9F%E6%B4%BB/"/>
+    <category term="生活" scheme="https://miraii.cn/categories/%E7%94%9F%E6%B4%BB/"/>
     
     
-    <category term="中秋节" scheme="https://www.aimiliy.top/tags/%E4%B8%AD%E7%A7%8B%E8%8A%82/"/>
+    <category term="中秋节" scheme="https://miraii.cn/tags/%E4%B8%AD%E7%A7%8B%E8%8A%82/"/>
     
   </entry>
   
   <entry>
     <title>二次元随机壁纸API</title>
-    <link href="https://www.aimiliy.top/posts/f8b6e52d.html"/>
-    <id>https://www.aimiliy.top/posts/f8b6e52d.html</id>
+    <link href="https://miraii.cn/posts/f8b6e52d.html"/>
+    <id>https://miraii.cn/posts/f8b6e52d.html</id>
     <published>2024-09-10T03:14:05.000Z</published>
     <updated>2025-03-07T07:40:43.263Z</updated>
     
@@ -421,21 +421,21 @@
     
     
     
-    <category term="资源" scheme="https://www.aimiliy.top/categories/%E8%B5%84%E6%BA%90/"/>
+    <category term="资源" scheme="https://miraii.cn/categories/%E8%B5%84%E6%BA%90/"/>
     
     
-    <category term="二次元" scheme="https://www.aimiliy.top/tags/%E4%BA%8C%E6%AC%A1%E5%85%83/"/>
+    <category term="二次元" scheme="https://miraii.cn/tags/%E4%BA%8C%E6%AC%A1%E5%85%83/"/>
     
-    <category term="API" scheme="https://www.aimiliy.top/tags/API/"/>
+    <category term="API" scheme="https://miraii.cn/tags/API/"/>
     
-    <category term="壁纸" scheme="https://www.aimiliy.top/tags/%E5%A3%81%E7%BA%B8/"/>
+    <category term="壁纸" scheme="https://miraii.cn/tags/%E5%A3%81%E7%BA%B8/"/>
     
   </entry>
   
   <entry>
     <title>公共图床</title>
-    <link href="https://www.aimiliy.top/posts/52d551c5.html"/>
-    <id>https://www.aimiliy.top/posts/52d551c5.html</id>
+    <link href="https://miraii.cn/posts/52d551c5.html"/>
+    <id>https://miraii.cn/posts/52d551c5.html</id>
     <published>2024-09-09T03:19:47.000Z</published>
     <updated>2025-03-07T07:40:43.263Z</updated>
     
@@ -446,17 +446,17 @@
     
     
     
-    <category term="资源" scheme="https://www.aimiliy.top/categories/%E8%B5%84%E6%BA%90/"/>
+    <category term="资源" scheme="https://miraii.cn/categories/%E8%B5%84%E6%BA%90/"/>
     
     
-    <category term="图床" scheme="https://www.aimiliy.top/tags/%E5%9B%BE%E5%BA%8A/"/>
+    <category term="图床" scheme="https://miraii.cn/tags/%E5%9B%BE%E5%BA%8A/"/>
     
   </entry>
   
   <entry>
     <title>拒绝精神内耗，从你我做起</title>
-    <link href="https://www.aimiliy.top/posts/15def915.html"/>
-    <id>https://www.aimiliy.top/posts/15def915.html</id>
+    <link href="https://miraii.cn/posts/15def915.html"/>
+    <id>https://miraii.cn/posts/15def915.html</id>
     <published>2024-09-05T10:11:55.000Z</published>
     <updated>2025-03-07T07:40:43.262Z</updated>
     
@@ -467,12 +467,12 @@
     
     
     
-    <category term="生活" scheme="https://www.aimiliy.top/categories/%E7%94%9F%E6%B4%BB/"/>
+    <category term="生活" scheme="https://miraii.cn/categories/%E7%94%9F%E6%B4%BB/"/>
     
     
-    <category term="自律" scheme="https://www.aimiliy.top/tags/%E8%87%AA%E5%BE%8B/"/>
+    <category term="自律" scheme="https://miraii.cn/tags/%E8%87%AA%E5%BE%8B/"/>
     
-    <category term="精神内耗" scheme="https://www.aimiliy.top/tags/%E7%B2%BE%E7%A5%9E%E5%86%85%E8%80%97/"/>
+    <category term="精神内耗" scheme="https://miraii.cn/tags/%E7%B2%BE%E7%A5%9E%E5%86%85%E8%80%97/"/>
     
   </entry>
   
