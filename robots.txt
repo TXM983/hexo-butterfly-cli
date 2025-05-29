@@ -12,4 +12,4 @@ Disallow: /tags
 Disallow: /categories
 Disallow: /archives
 
-Sitemap: https://www.aimiliy.top/sitemap.xml
+Sitemap: https://miraii.cn/sitemap.xml
