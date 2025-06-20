@@ -1,0 +1,15 @@
+User-agent: *
+Disallow: /config
+Disallow: /js
+Disallow: /css
+Disallow: /lib
+Disallow: /flink_count.json
+Disallow: /cacheList.json
+Disallow: /update.json
+Disallow: /sw.js
+Disallow: /sw-dom.js
+Disallow: /tags
+Disallow: /categories
+Disallow: /archives
+
+Sitemap: https://miraii.cn/sitemap.xml
