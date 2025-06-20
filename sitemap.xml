@@ -20,7 +20,7 @@
   </url>
   
   <url>
-    <loc>https://miraii.cn/life/music/</loc>
+    <loc>https://miraii.cn/life/movies/</loc>
     
     <lastmod>2025-06-20</lastmod>
     
@@ -29,7 +29,7 @@
   </url>
   
   <url>
-    <loc>https://miraii.cn/life/movies/</loc>
+    <loc>https://miraii.cn/life/music/</loc>
     
     <lastmod>2025-06-20</lastmod>
     
@@ -47,15 +47,6 @@
   </url>
   
   <url>
-    <loc>https://miraii.cn/personal/bb/</loc>
-    
-    <lastmod>2025-06-20</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://miraii.cn/personal/secret/</loc>
     
     <lastmod>2025-06-20</lastmod>
@@ -65,16 +56,7 @@
   </url>
   
   <url>
-    <loc>https://miraii.cn/social/link/</loc>
-    
-    <lastmod>2025-06-20</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://miraii.cn/social/fcircle/</loc>
+    <loc>https://miraii.cn/personal/bb/</loc>
     
     <lastmod>2025-06-20</lastmod>
     
@@ -93,6 +75,24 @@
   
   <url>
     <loc>https://miraii.cn/site/time/</loc>
+    
+    <lastmod>2025-06-20</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://miraii.cn/social/fcircle/</loc>
+    
+    <lastmod>2025-06-20</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://miraii.cn/social/link/</loc>
     
     <lastmod>2025-06-20</lastmod>
     
@@ -137,7 +137,7 @@
   </url>
   
   <url>
-    <loc>https://miraii.cn/box/gallery/photo/</loc>
+    <loc>https://miraii.cn/box/gallery/wallpaper/</loc>
     
     <lastmod>2025-06-20</lastmod>
     
@@ -146,7 +146,7 @@
   </url>
   
   <url>
-    <loc>https://miraii.cn/box/gallery/wallpaper/</loc>
+    <loc>https://miraii.cn/box/gallery/photo/</loc>
     
     <lastmod>2025-06-20</lastmod>
     
@@ -173,7 +173,7 @@
   </url>
   
   <url>
-    <loc>https://miraii.cn/posts/3275e913/</loc>
+    <loc>https://miraii.cn/posts/5c19c6c5/</loc>
     
     <lastmod>2025-06-20</lastmod>
     
@@ -191,7 +191,16 @@
   </url>
   
   <url>
-    <loc>https://miraii.cn/posts/5c19c6c5/</loc>
+    <loc>https://miraii.cn/posts/a4f09b44/</loc>
+    
+    <lastmod>2025-06-20</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://miraii.cn/posts/3275e913/</loc>
     
     <lastmod>2025-06-20</lastmod>
     
@@ -201,15 +210,6 @@
   
   <url>
     <loc>https://miraii.cn/posts/ba45cc7d/</loc>
-    
-    <lastmod>2025-06-20</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://miraii.cn/posts/a4f09b44/</loc>
     
     <lastmod>2025-06-20</lastmod>
     
@@ -245,6 +245,15 @@
   </url>
   
   <url>
+    <loc>https://miraii.cn/posts/a819b220/</loc>
+    
+    <lastmod>2025-06-20</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://miraii.cn/posts/cb318de/</loc>
     
     <lastmod>2025-06-20</lastmod>
@@ -272,25 +281,16 @@
   </url>
   
   <url>
-    <loc>https://miraii.cn/posts/6cb3b82d/</loc>
-    
-    <lastmod>2025-06-20</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://miraii.cn/posts/a819b220/</loc>
-    
-    <lastmod>2025-06-20</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://miraii.cn/posts/35a81095/</loc>
+    
+    <lastmod>2025-06-20</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://miraii.cn/posts/6cb3b82d/</loc>
     
     <lastmod>2025-06-20</lastmod>
     
@@ -353,16 +353,7 @@
   </url>
   
   <url>
-    <loc>https://miraii.cn/posts/5a986f0/</loc>
-    
-    <lastmod>2025-06-20</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://miraii.cn/posts/414a7aa/</loc>
+    <loc>https://miraii.cn/posts/eb09f29a/</loc>
     
     <lastmod>2025-06-20</lastmod>
     
@@ -380,15 +371,6 @@
   </url>
   
   <url>
-    <loc>https://miraii.cn/posts/eb09f29a/</loc>
-    
-    <lastmod>2025-06-20</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://miraii.cn/posts/a639fb3/</loc>
     
     <lastmod>2025-06-20</lastmod>
@@ -398,7 +380,7 @@
   </url>
   
   <url>
-    <loc>https://miraii.cn/posts/9509fa6a/</loc>
+    <loc>https://miraii.cn/posts/414a7aa/</loc>
     
     <lastmod>2025-06-20</lastmod>
     
@@ -416,7 +398,7 @@
   </url>
   
   <url>
-    <loc>https://miraii.cn/posts/14084397/</loc>
+    <loc>https://miraii.cn/posts/9509fa6a/</loc>
     
     <lastmod>2025-06-20</lastmod>
     
@@ -434,7 +416,7 @@
   </url>
   
   <url>
-    <loc>https://miraii.cn/posts/699ac122/</loc>
+    <loc>https://miraii.cn/posts/5a986f0/</loc>
     
     <lastmod>2025-06-20</lastmod>
     
@@ -452,7 +434,25 @@
   </url>
   
   <url>
+    <loc>https://miraii.cn/posts/699ac122/</loc>
+    
+    <lastmod>2025-06-20</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://miraii.cn/posts/15def915/</loc>
+    
+    <lastmod>2025-06-20</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://miraii.cn/posts/14084397/</loc>
     
     <lastmod>2025-06-20</lastmod>
     
@@ -555,6 +555,48 @@
   </url>
   
   <url>
+    <loc>https://miraii.cn/tags/%E7%BB%9D%E5%8C%BA%E9%9B%B6/</loc>
+    <lastmod>2025-06-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://miraii.cn/tags/%E4%BA%8C%E6%AC%A1%E5%85%83/</loc>
+    <lastmod>2025-06-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://miraii.cn/tags/%E5%86%85%E5%AD%98/</loc>
+    <lastmod>2025-06-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://miraii.cn/tags/XMP/</loc>
+    <lastmod>2025-06-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://miraii.cn/tags/%E9%BB%91%E7%A5%9E%E8%AF%9D%E6%82%9F%E7%A9%BA/</loc>
+    <lastmod>2025-06-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://miraii.cn/tags/ARPG/</loc>
+    <lastmod>2025-06-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://miraii.cn/tags/Pytorch/</loc>
     <lastmod>2025-06-20</lastmod>
     <changefreq>weekly</changefreq>
@@ -576,63 +618,7 @@
   </url>
   
   <url>
-    <loc>https://miraii.cn/tags/Linux/</loc>
-    <lastmod>2025-06-20</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://miraii.cn/tags/%E5%86%85%E5%AD%98/</loc>
-    <lastmod>2025-06-20</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://miraii.cn/tags/XMP/</loc>
-    <lastmod>2025-06-20</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://miraii.cn/tags/%E7%BB%9D%E5%8C%BA%E9%9B%B6/</loc>
-    <lastmod>2025-06-20</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://miraii.cn/tags/%E4%BA%8C%E6%AC%A1%E5%85%83/</loc>
-    <lastmod>2025-06-20</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://miraii.cn/tags/%E9%BB%91%E7%A5%9E%E8%AF%9D%E6%82%9F%E7%A9%BA/</loc>
-    <lastmod>2025-06-20</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://miraii.cn/tags/ARPG/</loc>
-    <lastmod>2025-06-20</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://miraii.cn/tags/Windows/</loc>
-    <lastmod>2025-06-20</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://miraii.cn/tags/Alibaba-Cloud-Linux/</loc>
     <lastmod>2025-06-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -647,6 +633,13 @@
   
   <url>
     <loc>https://miraii.cn/tags/%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/</loc>
+    <lastmod>2025-06-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://miraii.cn/tags/Alibaba-Cloud-Linux/</loc>
     <lastmod>2025-06-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -682,6 +675,13 @@
   
   <url>
     <loc>https://miraii.cn/tags/%E5%A3%81%E7%BA%B8/</loc>
+    <lastmod>2025-06-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://miraii.cn/tags/Linux/</loc>
     <lastmod>2025-06-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -751,6 +751,13 @@
   </url>
   
   <url>
+    <loc>https://miraii.cn/tags/%E5%87%BA%E5%B7%AE/</loc>
+    <lastmod>2025-06-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://miraii.cn/tags/%E9%9B%AA%E8%8A%B1%E5%8A%A8%E7%94%BB/</loc>
     <lastmod>2025-06-20</lastmod>
     <changefreq>weekly</changefreq>
@@ -759,13 +766,6 @@
   
   <url>
     <loc>https://miraii.cn/tags/Canvas/</loc>
-    <lastmod>2025-06-20</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://miraii.cn/tags/%E5%87%BA%E5%B7%AE/</loc>
     <lastmod>2025-06-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -794,6 +794,20 @@
   
   <url>
     <loc>https://miraii.cn/tags/2025/</loc>
+    <lastmod>2025-06-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://miraii.cn/tags/%E6%88%90%E9%95%BF%E8%AE%B0%E5%BD%95/</loc>
+    <lastmod>2025-06-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://miraii.cn/tags/%E7%94%9F%E6%B4%BB%E8%8A%82%E5%A5%8F/</loc>
     <lastmod>2025-06-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -856,6 +870,20 @@
   </url>
   
   <url>
+    <loc>https://miraii.cn/tags/Hexo-plugin/</loc>
+    <lastmod>2025-06-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://miraii.cn/tags/CDN/</loc>
+    <lastmod>2025-06-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://miraii.cn/tags/Golang/</loc>
     <lastmod>2025-06-20</lastmod>
     <changefreq>weekly</changefreq>
@@ -871,34 +899,6 @@
   
   <url>
     <loc>https://miraii.cn/tags/%E9%9A%8F%E6%9C%BA%E5%A3%81%E7%BA%B8API/</loc>
-    <lastmod>2025-06-20</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://miraii.cn/tags/%E6%88%90%E9%95%BF%E8%AE%B0%E5%BD%95/</loc>
-    <lastmod>2025-06-20</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://miraii.cn/tags/%E7%94%9F%E6%B4%BB%E8%8A%82%E5%A5%8F/</loc>
-    <lastmod>2025-06-20</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://miraii.cn/tags/Hexo-plugin/</loc>
-    <lastmod>2025-06-20</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://miraii.cn/tags/CDN/</loc>
     <lastmod>2025-06-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
