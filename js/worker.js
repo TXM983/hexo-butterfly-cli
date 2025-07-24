@@ -1,1 +1,0 @@
-setInterval((()=>{const e=new Date-new Date("11/12/2023 00:00:00"),o=Math.floor(e/864e5),t=Math.floor(e/36e5%24),s=Math.floor(e/6e4%60),a=Math.floor(e/1e3%60);postMessage({days:o,hours:t,minutes:s,seconds:a})}),1e3);
